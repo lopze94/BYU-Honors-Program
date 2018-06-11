@@ -2,8 +2,18 @@
   <div class="container">
     <h1 class="py-5">Admin Login</h1>
     <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+        <b-form-group id="name"
+                    label="Name:"
+                    label-for="name">
+        <b-form-input id="namein"
+                      type="name"
+                      v-model="form.name"
+                      required
+                      placeholder="Enter admin name">
+        </b-form-input>
+      </b-form-group>
       <b-form-group id="adminEmail"
-                    label="Admin Email address:"
+                    label="Email address:"
                     label-for="adminEmail"
                     description="">
         <b-form-input id="emailin"
@@ -18,7 +28,7 @@
                     label-for="password">
         <b-form-input id="passwordin"
                       type="password"
-                      v-model="form.name"
+                      v-model="form.password"
                       required
                       placeholder="Admin Password">
         </b-form-input>

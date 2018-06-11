@@ -3,6 +3,7 @@
         <hero v-bind:hero="this.hero1"></hero>
         <stories></stories>
         <spotlight></spotlight>
+ 
         <hero v-bind:hero="this.hero2"></hero>
     </div>
 </template>
@@ -44,7 +45,12 @@ export default {
         { hid: 'description', name: 'description', content: 'About our company Nuxt.js' }
       ]
     }
-  }
+  },
+  computed: {
+     loggedIn: function() {
+       return this.$store.getters.loggedIn;
+     },
+   },
 }
 </script>
 

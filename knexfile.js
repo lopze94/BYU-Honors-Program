@@ -5,20 +5,20 @@ module.exports = {
   development: {
     client: 'mysql',
     connection: {
-      host: 'localhost',
+      host: '127.0.0.1',
       user: 'root',
-      password: '',
-      db: 'byuhonors',
+      password: 'Lopzi!482310',
+      database: 'byuhonors',
       charset: 'utf8',
     }
   },
 
   staging: {
-    client: 'postgresql',
+    client: 'mysql',
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+      database: 'byuhonors',
+      user:     'root',
+      password: 'Lopzi!482310'
     },
     pool: {
       min: 2,
@@ -30,11 +30,11 @@ module.exports = {
   },
 
   production: {
-    client: 'postgresql',
+    client: 'mysql',
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+      database: 'byuhonors',
+      user:     'root',
+      password: 'Lopzi!482310'
     },
     pool: {
       min: 2,
