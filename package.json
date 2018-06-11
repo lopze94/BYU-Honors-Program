@@ -12,11 +12,19 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.0.0",
+    "axios": "^0.18.0",
+    "bcrypt": "^2.0.1",
+    "body-parser": "^1.18.3",
     "bootstrap": "^4.0.0-beta.2",
-    "bootstrap-vue": "^1.0.2",
-    "express": "^4.15.3",
+    "bootstrap-vue": "^1.5.1",
+    "express": "^4.16.3",
+    "knex": "^0.14.6",
+    "mariasql": "^0.2.6",
+    "moment": "^2.22.1",
+    "mysql": "^2.15.0",
     "nuxt": "^1.0.0",
-    "vue-meta": "^1.5.0"
+    "vue-meta": "^1.5.0",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "cross-env": "^5.0.1",

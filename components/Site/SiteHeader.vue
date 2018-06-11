@@ -11,7 +11,7 @@
     <byu-menu slot="nav" collapsed>
         <router-link to="/prospectivestudents">Prospective Students</router-link>
         <!--router-link to="/experience">Experience</router-link-->
-        <router-link to="/students">Current Students</router-link>
+        <router-link to="/currentstudents">Current Students</router-link>
         <router-link to="/faculty">Faculty</router-link>
         <router-link to="/alumni">Alumni</router-link>
         <router-link to="/about">About</router-link>
