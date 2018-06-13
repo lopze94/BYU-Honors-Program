@@ -1,12 +1,33 @@
 <template>
   <div id="app">
     <site-header></site-header>
+    <logged-in v-if="loggedIn"></logged-in>
     <div class="page-content">
     <nuxt/>
     </div>
     <site-footer></site-footer>
   </div>
 </template>
+
+<script>
+import LoggedIn from '../components/LoggedIn.vue'
+export default {
+  name: 'layout',
+  components: {LoggedIn},
+         computed: {
+     user: function() {
+       return this.$store.getters.user;
+     },
+     loggedIn: function() {
+       return this.$store.getters.loggedIn;
+     },
+     loginError: function() {
+       return this.$store.getters.loginError;
+     },
+   },
+}
+</script>
+
 
 <style>
 html,

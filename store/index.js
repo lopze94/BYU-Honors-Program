@@ -5,6 +5,14 @@ import axios from 'axios';
 
 Vue.use(Vuex);
 
+const getAuthHeader = () => {
+  return {
+    headers: {
+      'Authorization': localStorage.getItem('token')
+    }
+  };
+}
+
 const createStore = () => {
   return new Vuex.Store({
     state: {

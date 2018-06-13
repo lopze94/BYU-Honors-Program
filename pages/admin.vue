@@ -1,70 +1,72 @@
 <template>
-  <div class="container">
-    <h1 class="py-5">Admin Login</h1>
-    <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-        <b-form-group id="name"
-                    label="Name:"
-                    label-for="name">
-        <b-form-input id="namein"
-                      type="name"
-                      v-model="form.name"
-                      required
-                      placeholder="Enter admin name">
-        </b-form-input>
-      </b-form-group>
-      <b-form-group id="adminEmail"
-                    label="Email address:"
-                    label-for="adminEmail"
-                    description="">
-        <b-form-input id="emailin"
-                      type="email"
-                      v-model="form.email"
-                      required
-                      placeholder="Enter admin email">
-        </b-form-input>
-      </b-form-group>
-      <b-form-group id="password"
-                    label="Admin Password:"
-                    label-for="password">
-        <b-form-input id="passwordin"
-                      type="password"
-                      v-model="form.password"
-                      required
-                      placeholder="Admin Password">
-        </b-form-input>
-      </b-form-group>
-      <b-button type="submit" variant="primary" class="mr-2">Submit</b-button>
-      <b-button type="reset" variant="danger">Reset</b-button>
-    </b-form>
+  <div class="container py-3">
+    <h1 v-if="loggedIn">Administrator Home</h1>
+    <h1 v-else>Administrator Login</h1>
+    <div id="menu">
+      <div class="h5 py-3" v-if="loggedIn">Welcome <span class="text-capitalize">{{user.name}}</span>!</div>
+      <div v-if="loggedIn">
+        <p>Click the links below to edit the sections.</p>
+        <ul>
+          <li>View Stories</li>
+          <li>View Spotlight</li>
+        </ul>
+      </div>
+        <div  v-if="loggedIn"><a @click="logout" href="#" class="btn btn-outline-primary">Logout</a> <router-link to="/register" class="btn btn-secondary ml-2">Register Admin</router-link></div>
+      <form v-else class="right" v-on:submit.prevent="login">
+    <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input v-model="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">Please, provide an administrator email</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input v-model="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+	<button class="btn btn-primary" type="submit">Login</button>
+      </form>
+    </div>
+    <div class="flexWrapper errorPlace">
+      <p v-if="loginError" class="flexRight error">{{loginError}}</p>
+    </div>
   </div>
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-      form: {
-        email: '',
-        password: '',
-      },
-      show: true
-    }
-  },
-  methods: {
-    onSubmit (evt) {
-      evt.preventDefault();
-      alert(JSON.stringify(this.form));
-    },
-    onReset (evt) {
-      evt.preventDefault();
-      /* Reset our form values */
-      this.form.email = '';
-      this.form.name = '';
-      /* Trick to reset/clear native browser form validation state */
-      this.show = false;
-      this.$nextTick(() => { this.show = true });
-    }
-  }
-}
+ export default {
+   name: 'AppHeader',
+   data () {
+     return {
+       email: '',
+       password: '',
+     }
+   },
+   computed: {
+     user: function() {
+       return this.$store.getters.user;
+     },
+     loggedIn: function() {
+       return this.$store.getters.loggedIn;
+     },
+     loginError: function() {
+       return this.$store.getters.loginError;
+     },
+   },
+   methods: {
+     login: function() {
+       this.$store.dispatch('login',{
+         email: this.email,
+         password: this.password,
+       }).then(user => {
+	 this.email = '';
+	 this.password = '';
+       });
+     },
+     logout: function() {
+       this.$store.dispatch('logout');
+     }
+   }
+ }
 </script>
 
+<style scoped>
+</style>

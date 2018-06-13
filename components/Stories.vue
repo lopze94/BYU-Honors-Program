@@ -1,11 +1,6 @@
 <template>
 <div class="container">
     <h1 class="py-4">Latest Stories</h1>
-            <div class="container">
-<button class="badge btn-success my-2">Add</button>
-<button class="badge btn-secondary my-2 mx-1">Edit</button>
-<button class="badge btn-danger my-2">Delete</button>
-        </div>
     <div class="card-deck">
   <div class="card border-0">
     <img class="card-img-top" src="/img/homehero.jpg" alt="Card image cap">

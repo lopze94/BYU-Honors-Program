@@ -1,9 +1,9 @@
 <template>
-  <div class="container">
+  <div v-if="loggedIn" class="container">
 
     <h1 class="py-4">Admin Registration</h1>
     <form v-on:submit.prevent="register">
-      <p>1. Choose a user name (this is how you will be known by others on Red Bird).</p>
+      <p>1. Choose a user name.</p>
       <input class="narrow" v-model="username" placeholder="User Name">
       <p>2. Create an account.</p>
       <input class="wide" v-model="name" placeholder="First and Last Name"><br/>
@@ -30,6 +30,15 @@
    computed: {
      registerError: function() {
        return this.$store.getters.registerError;
+     },
+     user: function() {
+       return this.$store.getters.user;
+     },
+     loggedIn: function() {
+       return this.$store.getters.loggedIn;
+     },
+     loginError: function() {
+       return this.$store.getters.loginError;
      },
    },
    methods: {
