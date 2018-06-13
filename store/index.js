@@ -20,14 +20,14 @@ const createStore = () => {
       loggedIn: false,
       loginError: '',
       registerError: '',
-      feed: [],
+      spotlight: [],
     },
     getters: {
       user: state => state.user,
       loggedIn: state => state.loggedIn,
       loginError: state => state.loginError,
       registerError: state => state.registerError,
-      feed: state => state.feed,
+      spotlight: state => state.spotlight,
     },
     mutations: {
       setUser(state, user) {
@@ -42,8 +42,8 @@ const createStore = () => {
       setRegisterError(state, message) {
         state.registerError = message;
       },
-      setFeed(state, feed) {
-        state.feed = feed;
+      setSpotlight(state, spotlight) {
+        state.spotlight = spotlight;
       },
     },
     actions: {
@@ -89,16 +89,16 @@ const createStore = () => {
         context.commit('setLogin', false);
       },
       // Homepage Stories //
-      getFeed(context) {
-        axios.get("/api/stories").then(response => {
-          context.commit('setFeed', response.data.stories);
+      getSpotlight(context) {
+        axios.get("/api/spotlight").then(response => {
+          context.commit('setSpotlight', response.data.spotlight);
         }).catch(err => {
-          console.log("getFeed failed:", err);
+          console.log("getSpotlight failed:", err);
         });
       },
       addStory(context, story) {
         axios.post("/api/stories/", story).then(response => {
-          return context.dispatch('getFeed');
+          return context.dispatch('getSpotlight');
         }).catch(err => {
           console.log("addTweet failed:", err);
         });

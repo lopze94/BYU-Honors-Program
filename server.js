@@ -197,7 +197,7 @@ app.get('/api/spotlight', (req, res) => {
   let id = parseInt(req.params.id);
   knex('spotlight')
     .orderBy('created', 'desc')
-    .select('first_name', 'last_name', 'major', 'created', 'image_path').then(spotlight => {
+    .select('id', 'first_name', 'last_name', 'created', 'major', 'minor', 'short_text', 'long_text', 'image_path', 'plans').then(spotlight => {
       res.status(200).json({
         spotlight: spotlight
       });
