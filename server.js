@@ -180,7 +180,7 @@ app.get('/api/users/:id', (req, res) => {
 });
 
 
-app.delete('/api/users/:id', (req, res) => {
+/*app.delete('/api/users/:id', (req, res) => {
   let id = parseInt(req.params.id);
   knex('users').where('id',id).first().del().then(user => {
     res.sendStatus(200);    
@@ -188,7 +188,7 @@ app.delete('/api/users/:id', (req, res) => {
     console.log(error);
     res.status(500).json({ error });
   });
-});
+});*/
 
 
 // User Tweets //
@@ -209,7 +209,7 @@ app.get('/api/spotlight', (req, res) => {
     });
 });
 
-app.post('/api/users/:id/tweets', verifyToken, upload.single('image'), (req, res) => {
+app.post('/api/spotlight', verifyToken, upload.single('image'), (req, res) => {
   let id = parseInt(req.params.id);
   if (id !== req.userID) {
     res.status(403).send();
@@ -218,11 +218,11 @@ app.post('/api/users/:id/tweets', verifyToken, upload.single('image'), (req, res
   // check for an image
   let path = ''
   if (req.file)
-    path = "/static/uploads/" + req.file.filename;
-  knex('users').where('id', id).first().then(user => {
-    return knex('tweets').insert({
-      user_id: id,
-      tweet: req.body.tweet,
+    path = "/img/spotlight/" + req.file.filename;
+  knex('spotlight').first().then(user => {
+    return knex('spotlight').insert({
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
       created: new Date(),
       image: path
     });

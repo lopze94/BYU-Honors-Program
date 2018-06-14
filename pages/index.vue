@@ -1,7 +1,7 @@
 <template>
     <div>
         <hero v-bind:hero="this.hero1"></hero>
-        <edit-stories v-if="loggedIn"></edit-stories>
+
         <stories></stories>
         <spotlight></spotlight>
  
@@ -12,10 +12,10 @@
 <script>
 import Stories from '../components/Stories.vue'
 import Spotlight from '../components/Spotlight.vue'
-import EditStories from '../components/EditStories.vue'
+
 export default {
     name: 'HomePage',
-    components:{Stories, Spotlight, EditStories},
+    components:{Stories, Spotlight},
 
     data(){
         return{

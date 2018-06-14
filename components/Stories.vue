@@ -1,6 +1,8 @@
 <template>
 <div class="container">
+        
     <h1 class="py-4">Latest Stories</h1>
+      <edit-stories v-if="loggedIn"></edit-stories>
     <div class="card-deck">
   <div class="card border-0">
     <img class="card-img-top" src="/img/homehero.jpg" alt="Card image cap">
@@ -40,8 +42,17 @@
 </template>
 
 <script>
+import EditStories from '../components/EditStories.vue'
 export default {
-    name: 'Stories'
+    name: 'Stories',
+    components:{
+      EditStories
+    },
+      computed: {
+     loggedIn: function() {
+       return this.$store.getters.loggedIn;
+     },
+   },
 }
 </script>
 
