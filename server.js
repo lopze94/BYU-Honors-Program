@@ -227,10 +227,10 @@ app.post('/api/spotlight', verifyToken, upload.single('image'), (req, res) => {
       image: path
     });
   }).then(ids => {
-    return knex('tweets').where('id', ids[0]).first();
-  }).then(tweet => {
+    return knex('spotlight').where('id', ids[0]).first();
+  }).then(long_text => {
     res.status(200).json({
-      tweet: tweet
+      long_text: long_text
     });
     return;
   }).catch(error => {
