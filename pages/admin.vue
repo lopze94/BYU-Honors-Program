@@ -7,8 +7,7 @@
       <div v-if="loggedIn">
         <p>Click the links below to edit the sections.</p>
         <ul>
-          <li>View Stories</li>
-          <li>View Spotlight</li>
+          <li><router-link to="/editspotlight">Edit Spotlight</router-link></li>
         </ul>
       </div>
         <div  v-if="loggedIn"><a @click="logout" href="#" class="btn btn-outline-primary">Logout</a> <router-link to="/register" class="btn btn-secondary ml-2">Register Admin</router-link></div>

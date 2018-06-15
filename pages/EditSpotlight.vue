@@ -3,8 +3,8 @@
     <div>
     <byu-hero-banner id="hero" v-bind:image-source="this.image_path" class="side-image my-5" >
     <span slot="headline">Honors Spotlight</span>
-    <span slot="intro-text"><b>{{this.first_name}} {{this.last_name}}</b> | {{major}}
-    <br>{{this.short_text}}</span>
+    <span slot="intro-text"><b>{{this.first_name || "First +"}} {{this.last_name || "Last Name"}}</b> | {{this.major || "Student\'s Major"}}
+    <br>{{this.short_text || "Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque sed non vitae aut nemo in rerum enim autem! Adipisci, praesentium."}}</span>
     <a slot="read-more" data-toggle="modal" data-target="#spotlightModal">
   Read More
 </a>
@@ -25,7 +25,7 @@
         <p class="h5"> {{this.major}}
           <br>
           <span class="font-weight-normal text-muted">{{this.minor}}</span>
-          <br><span class="font-weight-normal text-muted">April 2018</span>
+          <br><span class="font-weight-normal text-muted">{{this.graduation}}</span>
         </p>
 <p v-html="long_text">{{long_text}}</p>
 <p>{{plans}}</p>
@@ -41,19 +41,23 @@
 <div class="row">
     <div class="form-group col">
         <label for="firstName">First Name</label>
-        <input class="form-control" id="firstName" placeholder="First Name" v-model="first_name">
+        <input class="form-control" id="firstName" placeholder="Enter first name" v-model="first_name">
     </div>
 
     <div class="form-group col">
         <label for="lastName">Last Name</label>
-        <input class="form-control" id="lastName" placeholder="Last Name" v-model="last_name">
+        <input class="form-control" id="lastName" placeholder="Enter last name" v-model="last_name">
+    </div>
+        <div class="form-group col">
+        <label for="graduation">Graduation</label>
+        <input class="form-control" id="graduation" placeholder="Enter Month YYYY" v-model="graduation">
     </div>
 </div>
 
 <div class="row">
     <div class="form-group col-sm-6">
         <label for="major">Major</label>
-        <input class="form-control" id="major" placeholder="Enter Major" v-model="major">
+        <input class="form-control" id="major" placeholder="Enter major" v-model="major">
     </div>
 
     <div class="form-group col-sm-6">
@@ -64,16 +68,15 @@
 </div>
 
 <div class="form-group">
-    <label for="shortText">Spotlight Summary</label>
+    <label for="shortText">Summary</label>
     <input class="form-control" type="text" id="shortText" aria-describedby="summaryHelp" placeholder="Enter a summary of the story here" v-model="short_text">
     <small id="summaryHelp" class="form-text text-muted">Limit the spotlight summary to 2-4 sentences (single paragraph).</small>
 </div>
 <div class="form-group">
-    <label for="shortText">Spotlight Story</label>
+    <label for="shortText">Full Story <small class="text-muted">(field supports HTML)</small> </label>
     <textarea class="form-control" type="text" id="longText" aria-describedby="storyHelp" placeholder="Enter the full story text here" v-model="long_text" rows="5"></textarea>
     <small id="storyHelp" class="form-text text-muted">Type <b>&lt;br&gt;</b> for line breaks, e.g., "Paragraph 1 <b>&lt;br&gt;&lt;br&gt;</b> Paragraph 2" will display: <br> "Paragraph 1 <br><br> Paragraph 2" </small>
 </div>
-      <br>
       <button class="btn btn-primary my-4" type="submit">Add Spotlight</button>
     </form>
 </div>
@@ -91,6 +94,9 @@ export default {
             minor: '',
             short_text: '',
             long_text:'',
+            image_path: '/img/spotlight/default.jpg',
+            graduation: '',
+            plans: ''
 
         }
     },
