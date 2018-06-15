@@ -210,11 +210,6 @@ app.get('/api/spotlight', (req, res) => {
 });
 
 app.post('/api/spotlight', verifyToken, upload.single('image'), (req, res) => {
-  let id = parseInt(req.params.id);
-  if (id !== req.userID) {
-    res.status(403).send();
-    return;
-  }
   // check for an image
   let path = ''
   if (req.file)
@@ -224,13 +219,17 @@ app.post('/api/spotlight', verifyToken, upload.single('image'), (req, res) => {
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       created: new Date(),
-      image: path
+      major: req.body.major,
+      minor: req.body.minor,
+      short_text: req.body.short_text,
+      image_path: path,
+      plans: req.body.plans,
     });
   }).then(ids => {
     return knex('spotlight').where('id', ids[0]).first();
-  }).then(long_text => {
+  }).then(spotlight=> {
     res.status(200).json({
-      long_text: long_text
+      spotlight: spotlight
     });
     return;
   }).catch(error => {

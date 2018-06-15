@@ -14,7 +14,7 @@
         <router-link to="/" class="nav-link">Stories</router-link>
       </li>
             <li class="nav-item">
-        <router-link to="/" class="nav-link">Spotlight</router-link>
+        <router-link to="/editspotlight" class="nav-link">Spotlight</router-link>
       </li>
     </ul>
     <div><a @click="logout" href="#" class="btn btn-outline-light">Logout</a></div>
