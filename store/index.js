@@ -82,8 +82,6 @@ const createStore = () => {
           context.commit('setToken', response.data.token);
           context.commit('setRegisterError', "");
           context.commit('setLoginError', "");
-          context.dispatch('getFollowing');
-          context.dispatch('getFollowers');
         }).catch(error => {
           context.commit('setUser', {});
           context.commit('setToken', '');
@@ -148,6 +146,9 @@ const createStore = () => {
       formData.append('last_name', spotlight.last_name);
       formData.append('major', spotlight.major);
       formData.append('minor', spotlight.minor);
+      formData.append('short_text', spotlight.short_text);
+      formData.append('long_text', spotlight.long_text);
+      formData.append('graduation', spotlight.graduation);
       if (spotlight.image_path) {
         formData.append('image_path', spotlight.image_path);
       }
@@ -157,6 +158,13 @@ const createStore = () => {
         console.log("addSpotlight failed:", err);
       });
     },
+       deleteSpotlight(context, student) {
+         return axios.delete("/api/spotlight/" + student.id, student, getAuthHeader()).then(response => {
+           context.dispatch('getSpotlight');
+         }).catch(err => {
+           console.log("unfollow failed:", err);
+         });
+       },
     }
   })
 }

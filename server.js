@@ -180,15 +180,21 @@ app.get('/api/users/:id', (req, res) => {
 });
 
 
-/*app.delete('/api/users/:id', (req, res) => {
+app.delete('/api/spotlight/:id', (req, res) => {
+
+  
   let id = parseInt(req.params.id);
-  knex('users').where('id',id).first().del().then(user => {
-    res.sendStatus(200);    
+  
+  knex('spotlight').where('id', id).first().del().then(user => {
+    res.sendStatus(200);
   }).catch(error => {
+      console.log(req.params.id);
     console.log(error);
-    res.status(500).json({ error });
+    res.status(500).json({
+      error
+    });
   });
-});*/
+});
 
 
 // User Tweets //
@@ -197,7 +203,7 @@ app.get('/api/spotlight', (req, res) => {
   let id = parseInt(req.params.id);
   knex('spotlight')
     .orderBy('created', 'desc')
-    .select('id', 'first_name', 'last_name', 'created', 'major', 'minor', 'short_text', 'long_text', 'image_path', 'plans').then(spotlight => {
+    .select('id', 'first_name', 'last_name', 'created', 'major', 'minor', 'short_text', 'long_text', 'image_path', 'graduation').then(spotlight => {
       res.status(200).json({
         spotlight: spotlight
       });
@@ -211,7 +217,7 @@ app.get('/api/spotlight', (req, res) => {
 
 app.post('/api/spotlight', verifyToken, upload.single('image'), (req, res) => {
   // check for an image
-  let path = ''
+  let path = '/img/spotlight/default.jpg'
   if (req.file)
     path = "/img/spotlight/" + req.file.filename;
   knex('spotlight').first().then(user => {
@@ -222,8 +228,9 @@ app.post('/api/spotlight', verifyToken, upload.single('image'), (req, res) => {
       major: req.body.major,
       minor: req.body.minor,
       short_text: req.body.short_text,
+      long_text: req.body.long_text,
       image_path: path,
-      plans: req.body.plans,
+      graduation: req.body.graduation
     });
   }).then(ids => {
     return knex('spotlight').where('id', ids[0]).first();

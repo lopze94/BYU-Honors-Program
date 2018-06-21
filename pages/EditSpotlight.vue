@@ -1,5 +1,14 @@
 <template>
 <div class="container" v-if="loggedIn">
+    <h1>Add Spotlight</h1>
+    <p>This section will help you add a new Honors Spotlight with a real-time preview of it. Fill in the fields in this form to see the changes reflected 
+        on the Honors Spotlight preview. Once you've added a new spotlight, you can click "Go Home" to see it on the Home page.</p>
+    <p>If you'd like to edit the entire list, click the link below.</p>
+    <div class="text-center">
+<router-link to="/spotlightlist" class="btn btn-success my-2 mr-2">Edit List</router-link>
+<router-link to="/" class="btn btn-secondary my-2">Go Home</router-link>
+    </div>
+            
     <div>
     <byu-hero-banner id="hero" v-bind:image-source="this.image_path" class="side-image my-5" >
     <span slot="headline">Honors Spotlight</span>
@@ -28,7 +37,6 @@
           <br><span class="font-weight-normal text-muted">{{this.graduation}}</span>
         </p>
 <p v-html="long_text">{{long_text}}</p>
-<p>{{plans}}</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -37,16 +45,18 @@
   </div>
 </div>
 </div>
+
+<!-- Form to submit Spotlight-->
     <form v-on:submit.prevent="addSpotlight">
 <div class="row">
     <div class="form-group col">
         <label for="firstName">First Name</label>
-        <input class="form-control" id="firstName" placeholder="Enter first name" v-model="first_name">
+        <input class="form-control" id="firstName" placeholder="Enter first name" v-model="first_name" required>
     </div>
 
     <div class="form-group col">
         <label for="lastName">Last Name</label>
-        <input class="form-control" id="lastName" placeholder="Enter last name" v-model="last_name">
+        <input class="form-control" id="lastName" placeholder="Enter last name" v-model="last_name" required>
     </div>
         <div class="form-group col">
         <label for="graduation">Graduation</label>
@@ -57,7 +67,7 @@
 <div class="row">
     <div class="form-group col-sm-6">
         <label for="major">Major</label>
-        <input class="form-control" id="major" placeholder="Enter major" v-model="major">
+        <input class="form-control" id="major" placeholder="Enter major" v-model="major" required>
     </div>
 
     <div class="form-group col-sm-6">
@@ -69,7 +79,7 @@
 
 <div class="form-group">
     <label for="shortText">Summary</label>
-    <input class="form-control" type="text" id="shortText" aria-describedby="summaryHelp" placeholder="Enter a summary of the story here" v-model="short_text">
+    <input class="form-control" type="text" id="shortText" aria-describedby="summaryHelp" placeholder="Enter a summary of the story here" v-model="short_text" required>
     <small id="summaryHelp" class="form-text text-muted">Limit the spotlight summary to 2-4 sentences (single paragraph).</small>
 </div>
 <div class="form-group">
@@ -79,6 +89,7 @@
 </div>
       <button class="btn btn-primary my-4" type="submit">Add Spotlight</button>
     </form>
+
 </div>
 
 </template>
@@ -95,9 +106,7 @@ export default {
             short_text: '',
             long_text:'',
             image_path: '/img/spotlight/default.jpg',
-            graduation: '',
-            plans: ''
-
+            graduation: ''
         }
     },
     computed:{
@@ -111,13 +120,23 @@ export default {
      },
     },
        methods: {
+           
     addSpotlight: function() {
+        if(confirm("Are you sure you want to add " + this.first_name + " "+ this.last_name + " to this week's spotlight?")){
        this.$store.dispatch('addSpotlight',{
-	 first_name: this.first_name,
-    last_name: this.last_name,
-         major: this.major,
-	 minor: this.minor,
+	    first_name: this.first_name,
+        last_name: this.last_name,
+        major: this.major,
+        minor: this.minor,
+        short_text: this.short_text,
+        long_text: this.long_text,
+        graduation: this.graduation
        });
+       alert(this.first_name + " " + this.last_name + " was added to the weekly spotlight!")
+        } else {
+        alert("Add Spotlight canceled! " + this.first_name + " "+ this.last_name + " was not added to the Honors Spotlight")
+        }
+
      }
    }
 }
