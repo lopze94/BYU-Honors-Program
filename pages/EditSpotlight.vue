@@ -10,7 +10,7 @@
     </div>
             
     <div>
-    <byu-hero-banner id="hero" v-bind:image-source="this.image_path" class="side-image my-5" >
+    <byu-hero-banner id="hero" v-bind:image-source="this.image_path" class="side-image my-5">
     <span slot="headline">Honors Spotlight</span>
     <span slot="intro-text"><b>{{this.first_name || "First +"}} {{this.last_name || "Last Name"}}</b> | {{this.major || "Student\'s Major"}}
     <br>{{this.short_text || "Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque sed non vitae aut nemo in rerum enim autem! Adipisci, praesentium."}}</span>
@@ -47,7 +47,7 @@
 </div>
 
 <!-- Form to submit Spotlight-->
-    <form v-on:submit.prevent="addSpotlight">
+<form enctype="multipart/form-data" v-on:submit.prevent="addSpotlight">
 <div class="row">
     <div class="form-group col">
         <label for="firstName">First Name</label>
@@ -87,7 +87,20 @@
     <textarea class="form-control" type="text" id="longText" aria-describedby="storyHelp" placeholder="Enter the full story text here" v-model="long_text" rows="5"></textarea>
     <small id="storyHelp" class="form-text text-muted">Type <b>&lt;br&gt;</b> for line breaks, e.g., "Paragraph 1 <b>&lt;br&gt;&lt;br&gt;</b> Paragraph 2" will display: <br> "Paragraph 1 <br><br> Paragraph 2" </small>
 </div>
+
+  <div class="custom-file">
+    <input id="file-input" type="file" v-on:change="previewImage" accept="image/*" name="image" class="custom-file-input" required>
+    <label class="custom-file-label" for="validatedCustomFile">{{this.imageData.filename|| "Choose file..." }}</label>
+    <div class="invalid-feedback">Example invalid custom file feedback</div>
+  </div>
+
       <button class="btn btn-primary my-4" type="submit">Add Spotlight</button>
+       
+       <div v-bind:style="{inactive: !imagePreview, active:imagePreview }" class="text-center">
+         <img class="w-50 mx-auto" v-bind:src="imageData">
+       </div>
+
+
     </form>
 
 </div>
@@ -106,7 +119,10 @@ export default {
             short_text: '',
             long_text:'',
             image_path: '/img/spotlight/default.jpg',
-            graduation: ''
+            graduation: '',
+            imageData: '',
+            imagePreview: false,
+            file: '',
         }
     },
     computed:{
@@ -130,14 +146,35 @@ export default {
         minor: this.minor,
         short_text: this.short_text,
         long_text: this.long_text,
-        graduation: this.graduation
+        graduation: this.graduation,
+        image: this.file
+       }).then(addSpotlight => {
+           this.imageData = "",
+           this.imagePreview = false
        });
        alert(this.first_name + " " + this.last_name + " was added to the weekly spotlight!")
         } else {
         alert("Add Spotlight canceled! " + this.first_name + " "+ this.last_name + " was not added to the Honors Spotlight")
         }
 
-     }
+     },
+          previewImage: function(event) {
+       const input = event.target;
+       // Ensure that you have a file before attempting to read it
+       if (input.files && input.files[0]) {
+        this.file = input.files[0];
+         // create a new FileReader to read this image and convert to base64 format
+         const reader = new FileReader();
+         // Define a callback function to run, when FileReader finishes its job
+         reader.onload = (e) => {
+           // Read image as base64 and set to imageData
+          this.imageData = e.target.result;
+          this.imagePreview = true;
+         }
+         // Start the reader job - read file as a data url (base64 format)
+         reader.readAsDataURL(input.files[0]);
+       }
    }
+       }
 }
 </script>

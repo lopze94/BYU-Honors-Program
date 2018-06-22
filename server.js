@@ -48,18 +48,20 @@ const verifyToken = (req, res, next) => {
   });
 }
 
+const fs = require('fs');
+
 // multer setup
 const multer = require('multer');
-const storage = multer.diskStorage({
+const spotlightStorage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, '/var/www/html/static/uploads')
+    cb(null, 'static/img/spotlight')
   },
   filename: (req, file, cb) => {
-    cb(null, `${req.userID}-${Date.now()}-${file.originalname}`);
+    cb(null, `${req.userID}-${Date.now()}-${file.originalname}-spotlight`);
   }
 });
-const upload = multer({
-  storage: storage
+const uploadSpotlight = multer({
+  storage: spotlightStorage
 });
 
 // Login //
@@ -179,16 +181,20 @@ app.get('/api/users/:id', (req, res) => {
   });
 });
 
+app.delete('/api/spotlight/:id/:image_path', (req, res) => {
 
-app.delete('/api/spotlight/:id', (req, res) => {
-
-  
   let id = parseInt(req.params.id);
-  
+  let image_path = req.params.image_path
+
+  fs.unlink(__dirname + '/static/img/spotlight/'+image_path, (err) => {
+    if (err) throw err;
+    console.log('/img/spotlight/'+ image_path + ' was deleted');
+  });
+
   knex('spotlight').where('id', id).first().del().then(user => {
     res.sendStatus(200);
   }).catch(error => {
-      console.log(req.params.id);
+    console.log(req.params.id);
     console.log(error);
     res.status(500).json({
       error
@@ -215,7 +221,7 @@ app.get('/api/spotlight', (req, res) => {
     });
 });
 
-app.post('/api/spotlight', verifyToken, upload.single('image'), (req, res) => {
+app.post('/api/spotlight', verifyToken, uploadSpotlight.single('image'), (req, res) => {
   // check for an image
   let path = '/img/spotlight/default.jpg'
   if (req.file)
@@ -234,7 +240,7 @@ app.post('/api/spotlight', verifyToken, upload.single('image'), (req, res) => {
     });
   }).then(ids => {
     return knex('spotlight').where('id', ids[0]).first();
-  }).then(spotlight=> {
+  }).then(spotlight => {
     res.status(200).json({
       spotlight: spotlight
     });
@@ -262,56 +268,6 @@ app.delete('/api/users/:id/tweets/:tweetId', (req, res) => {
 });
 */
 
-// All Tweets //
 
-app.get('/api/tweets/search', (req, res) => {
-  if (!req.query.keywords)
-    return res.status(400).send();
-  let offset = 0;
-  if (req.query.offset)
-    offset = parseInt(req.query.offset);
-  let limit = 50;
-  if (req.query.limit)
-    limit = parseInt(req.query.limit);
-  knex('users').join('tweets', 'users.id', 'tweets.user_id')
-    .whereRaw("MATCH (tweet) AGAINST('" + req.query.keywords + "')")
-    .orderBy('created', 'desc')
-    .limit(limit)
-    .offset(offset)
-    .select('tweet', 'username', 'name', 'created', 'image', 'users.id as userID').then(tweets => {
-      res.status(200).json({
-        tweets: tweets
-      });
-    }).catch(error => {
-      console.log(error);
-      res.status(500).json({
-        error
-      });
-    });
-});
-
-app.get('/api/tweets/hash/:hashtag', (req, res) => {
-  let offset = 0;
-  if (req.query.offset)
-    offset = parseInt(req.query.offset);
-  let limit = 50;
-  if (req.query.limit)
-    limit = parseInt(req.query.limit);
-  knex('users').join('tweets', 'users.id', 'tweets.user_id')
-    .whereRaw("tweet REGEXP '^#" + req.params.hashtag + "' OR tweet REGEXP ' #" + req.params.hashtag + "'")
-    .orderBy('created', 'desc')
-    .limit(limit)
-    .offset(offset)
-    .select('tweet', 'username', 'name', 'created', 'image', 'users.id as userID').then(tweets => {
-      res.status(200).json({
-        tweets: tweets
-      });
-    }).catch(error => {
-      console.log(error);
-      res.status(500).json({
-        error
-      });
-    });
-});
 
 app.listen(3000, () => console.log('Server listening on port 3000!'));

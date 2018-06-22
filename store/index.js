@@ -149,8 +149,8 @@ const createStore = () => {
       formData.append('short_text', spotlight.short_text);
       formData.append('long_text', spotlight.long_text);
       formData.append('graduation', spotlight.graduation);
-      if (spotlight.image_path) {
-        formData.append('image_path', spotlight.image_path);
+      if (spotlight.image) {
+        formData.append('image', spotlight.image);
       }
       axios.post("/api/spotlight", formData, headers).then(response => {
         return context.dispatch('getSpotlight');
@@ -159,7 +159,7 @@ const createStore = () => {
       });
     },
        deleteSpotlight(context, student) {
-         return axios.delete("/api/spotlight/" + student.id, student, getAuthHeader()).then(response => {
+         return axios.delete("/api/spotlight/" + student.id+"/"+student.image_path, student).then(response => {
            context.dispatch('getSpotlight');
          }).catch(err => {
            console.log("unfollow failed:", err);

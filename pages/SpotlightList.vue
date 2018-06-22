@@ -5,7 +5,7 @@
  <byu-hero-banner id="hero" v-bind:image-source="student.image_path" class="side-image my-5" >
     <span slot="headline">{{student.first_name}} {{student.last_name}}</span>
     <span slot="intro-text"> <small class="text-muted">{{student.created | formatDate}} </small> 
-    <button v-if="loggedIn" class="btn badge badge-danger float-right" v-on:click="deleteSpotlight(student)">Delete</button>
+    <button  v-if="loggedIn" class="btn badge badge-danger float-right" v-on:click="deleteSpotlight(student)">Delete</button>
     <button v-if="loggedIn" class="btn badge badge-secondary float-right mr-1">Edit</button> 
     <br> <b>{{student.major}}</b><span v-if="student.minor"> | </span>{{student.minor}}
     <br>{{student.short_text}}</span>
@@ -27,11 +27,10 @@
       </div>
       <div class="modal-body border">
         <p class="h5"> {{student.major}}
-          <br>
-          <span class="font-weight-normal text-muted">{{student.minor}}</span>
+          <span class="font-weight-normal text-muted" v-if="student.minor"><br>{{student.minor}}</span>
           <br><span class="font-weight-normal text-muted">{{student.graduation}}</span>
         </p>
-<p>{{student.long_text}}</p>
+<p v-html="student.long_text">{{student.long_text}}</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -90,14 +89,19 @@ export default {
     }},
    methods:{
 async asyncCall() {
-  console.log('calling');
+  //console.log('calling');
   this.dataLoaded = await resolveAfter2Seconds();
   console.log(this.dataLoaded);
   // expected output: "resolved"
 },
      deleteSpotlight: function(student) {
     if (confirm("Are you sure you want to delete " + student.first_name + "'s spotlight")) {
-        this.$store.dispatch('deleteSpotlight',{id:student.id});
+      var img_name = student.image_path.replace("/img/spotlight/","");
+      console.log(img_name);
+        this.$store.dispatch('deleteSpotlight',{
+                      id:student.id,
+            image_path:img_name
+          });
         alert("You deleted " + student.first_name + "'s spotlight!");
     } else {
         alert("Action canceled! " + student.first_name + " " + student.last_name + " was not deleted.");

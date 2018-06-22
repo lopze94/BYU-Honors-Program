@@ -3,6 +3,7 @@ import SiteHeader from '../components/Site/SiteHeader.vue'
 import SiteFooter from '../components/Site/SiteFooter.vue'
 import Hero from '../components/Site/Hero.vue'
 
+// file system setup
 
 
 Vue.component('SiteHeader', SiteHeader);
