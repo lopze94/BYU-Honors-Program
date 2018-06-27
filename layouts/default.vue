@@ -11,6 +11,8 @@
 
 <script>
 import LoggedIn from '../components/LoggedIn.vue'
+
+
 export default {
   name: 'layout',
   components: {LoggedIn},
@@ -25,6 +27,17 @@ export default {
        return this.$store.getters.loginError;
      },
    },
+  created() {
+if (process.browser) {
+  window.onNuxtReady((app) => {
+    console.log('Nuxt ready!')
+    this.$store.dispatch('initialize');
+  })
+}
+    //this.$store.dispatch('initialize');
+
+  }
+
 }
 </script>
 

@@ -52,16 +52,31 @@ const fs = require('fs');
 
 // multer setup
 const multer = require('multer');
+
+//for the spotlight
 const spotlightStorage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, 'static/img/spotlight')
   },
   filename: (req, file, cb) => {
-    cb(null, `${req.userID}-${Date.now()}-${file.originalname}-spotlight`);
+    cb(null, `${req.userID}-${Date.now()}-spotlight-${file.originalname}`);
   }
 });
 const uploadSpotlight = multer({
   storage: spotlightStorage
+});
+
+// for the stories
+const storiesStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'static/img/stories')
+  },
+  filename: (req, file, cb) => {
+    cb(null, `${req.userID}-${Date.now()}-story-${file.originalname}`);
+  }
+});
+const uploadStory = multer({
+  storage: storiesStorage
 });
 
 // Login //
@@ -181,29 +196,10 @@ app.get('/api/users/:id', (req, res) => {
   });
 });
 
-app.delete('/api/spotlight/:id/:image_path', (req, res) => {
 
-  let id = parseInt(req.params.id);
-  let image_path = req.params.image_path
+// SPOTLIGHT entry points
 
-  fs.unlink(__dirname + '/static/img/spotlight/'+image_path, (err) => {
-    if (err) throw err;
-    console.log('/img/spotlight/'+ image_path + ' was deleted');
-  });
-
-  knex('spotlight').where('id', id).first().del().then(user => {
-    res.sendStatus(200);
-  }).catch(error => {
-    console.log(req.params.id);
-    console.log(error);
-    res.status(500).json({
-      error
-    });
-  });
-});
-
-
-// User Tweets //
+// GET - gets the spotlight info from the database.
 
 app.get('/api/spotlight', (req, res) => {
   let id = parseInt(req.params.id);
@@ -220,6 +216,8 @@ app.get('/api/spotlight', (req, res) => {
       });
     });
 });
+
+// POST - Creates a new spotlight and adds it to the database. It provides a new ID, and a creation date. 
 
 app.post('/api/spotlight', verifyToken, uploadSpotlight.single('image'), (req, res) => {
   // check for an image
@@ -253,21 +251,136 @@ app.post('/api/spotlight', verifyToken, uploadSpotlight.single('image'), (req, r
   });
 });
 
-/*
-app.delete('/api/users/:id/tweets/:tweetId', (req, res) => {
+// DELETE - Deletes the record from the databasem, locates the image file and deletes it. 
+
+app.delete('/api/spotlight/:id/:image_path', (req, res) => {
+
   let id = parseInt(req.params.id);
-  let tweetId = parseInt(req.params.tweetId);
-  knex('users').where('id',id).first().then(user => {
-    return knex('tweets').where({'user_id':id,id:tweetId}).first().del();
-  }).then(tweets => {
-    res.sendStatus(200);    
+  let image_path = req.params.image_path
+
+  fs.unlink(__dirname + '/static/img/spotlight/' + image_path, (err) => {
+    if (err) throw err;
+    console.log('/img/spotlight/' + image_path + ' was deleted');
+  });
+
+  knex('spotlight').where('id', id).first().del().then(user => {
+    res.sendStatus(200);
   }).catch(error => {
+    console.log(req.params.id);
     console.log(error);
-    res.status(500).json({ error });
+    res.status(500).json({
+      error
+    });
   });
 });
-*/
 
+// STORIES entry points
 
+// GET - gets the spotlight info from the database.
 
+app.get('/api/stories', (req, res) => {
+  let id = parseInt(req.params.id);
+  knex('stories')
+    .orderBy('created', 'desc')
+    .select('id', 'title', 'subtitle', 'description', 'created', 'text', 'link', 'image_path', 'link_text').then(stories => {
+      res.status(200).json({
+        stories: stories
+      });
+    }).catch(error => {
+      console.log(error);
+      res.status(500).json({
+        error
+      });
+    });
+});
+
+app.get('/api/stories/:id', (req, res) => {
+  let id = parseInt(req.params.id);
+  knex('stories')
+
+    .select('id', 'title', 'subtitle', 'description', 'created', 'text', 'link', 'image_path', 'link_text').where('id', id).then(stories => {
+      res.status(200).json({
+        stories: stories
+      });
+    }).catch(error => {
+      console.log(error);
+      res.status(500).json({
+        error
+      });
+    });
+});
+
+// POST - Creates a new spotlight and adds it to the database. It provides a new ID, and a creation date. 
+
+app.post('/api/stories', verifyToken, uploadStory.single('image'), (req, res) => {
+  // check for an image
+  let path = '/img/stories/default.jpg';
+  let link = '';
+
+  if (req.file)
+    path = "/img/stories/" + req.file.filename;
+  if (req.body.link)
+    link = req.body.link;
+  knex('stories').first().then(story => {
+    return knex('stories').insert({
+      title: req.body.title,
+      subtitle: req.body.subtitle,
+      created: new Date(),
+      description: req.body.description,
+      text: req.body.text,
+      link: link,
+      link_text: req.body.link_text,
+      image_path: path
+    });
+  }).then(ids => {
+    return knex('stories').where('id', ids[0]).first();
+  }).then(story => {
+    if(story.link == ''){
+      console.log("This link is empty. Generating Link...");
+      link = '/stories/' + story.id;
+      knex('stories').where('id', story.id).update('link', link).then();
+      story.link = link;
+                res.status(200).json({
+                  story: story
+                });
+                return;
+    }
+    else{
+          res.status(200).json({
+            story: story
+          });
+          return;
+    }
+  }).catch(error => {
+    console.log(error);
+    res.status(500).json({
+      error
+    });
+  });
+});
+
+// DELETE - Deletes the record from the database, locates the image file and deletes it. 
+
+app.delete('/api/stories/:id/:image_path', (req, res) => {
+
+  let id = parseInt(req.params.id);
+  let image_path = req.params.image_path
+
+  fs.unlink(__dirname + '/static/img/stories/' + image_path, (err) => {
+    if (err) throw err;
+    console.log('/img/stories/' + image_path + ' was deleted');
+  });
+
+  knex('stories').where('id', id).first().del().then(user => {
+    res.sendStatus(200);
+  }).catch(error => {
+    console.log(req.params.id);
+    console.log(error);
+    res.status(500).json({
+      error
+    });
+  });
+});
+
+//Launch the server.
 app.listen(3000, () => console.log('Server listening on port 3000!'));

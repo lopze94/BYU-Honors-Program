@@ -4,8 +4,7 @@
 
         <stories></stories>
         <spotlight></spotlight>
- 
-        <hero v-bind:hero="this.hero2"></hero>
+
     </div>
 </template>
 
@@ -21,23 +20,13 @@ export default {
         return{
             hero1: {
             title: 'Make Unexpected Connections',
-            lead: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio eum delectus earum repellendus vel incidunt sit commodi necessitatibus aut eius.',
-            imgpath: '/img/maeser_building_spring.jpg',
+            description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio eum delectus earum repellendus vel incidunt sit commodi necessitatibus aut eius.',
+            image_path: '/img/maeser_building_spring.jpg',
             position: 'full-screen transparent-overlay',
-            link: '',
-            linkText: 'Enroll Now',
-            showLink: false
-            },
-            hero2: {
-            title: 'Make Unexpected Connections',
-            lead: '',
-            imgpath: '/img/join.jpg',
-            position: 'full-screen',
-            link: '/prospectivestudents',
-            linkText: 'Join Now',
-            showLink: true
+            link: '/renderstory',
+            link_text: 'Enroll Now',
+            show_link: true
             }
-
         }
     },
   head () {

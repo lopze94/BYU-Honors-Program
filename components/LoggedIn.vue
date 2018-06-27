@@ -11,7 +11,7 @@
         <router-link to="/" class="nav-link">Home</router-link>
       </li>
       <li class="nav-item">
-        <router-link to="/" class="nav-link">Stories</router-link>
+        <router-link to="/editstories" class="nav-link">Stories</router-link>
       </li>
             <li class="nav-item">
         <router-link to="/editspotlight" class="nav-link">Spotlight</router-link>

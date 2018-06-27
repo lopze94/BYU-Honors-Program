@@ -22,6 +22,7 @@
 
 <script>
 export default {
-  name: "SiteHeader"
+  name: "SiteHeader",
+
 };
 </script>

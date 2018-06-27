@@ -22,6 +22,7 @@ const createStore = () => {
       loginError: '',
       registerError: '',
       spotlight: [],
+      stories: []
     },
     getters: {
       user: state => state.user,
@@ -34,6 +35,7 @@ const createStore = () => {
       loginError: state => state.loginError,
       registerError: state => state.registerError,
       spotlight: state => state.spotlight,
+      stories: state => state.stories,
     },
     mutations: {
       setUser(state, user) {
@@ -58,6 +60,9 @@ const createStore = () => {
       setSpotlight(state, spotlight) {
         state.spotlight = spotlight;
       },
+        setStories(state, stories) {
+          state.stories = stories;
+        },
     },
       actions: {
           // Initialize //
@@ -165,6 +170,56 @@ const createStore = () => {
            console.log("unfollow failed:", err);
          });
        },
+
+
+       // for the STORIES
+             getStories(context) {
+                 axios.get("/api/stories").then(response => {
+                   context.commit('setStories', response.data.stories);
+                 }).catch(err => {
+                   console.log("getStories failed:", err);
+                 });
+               },
+                 getStory(context, id) {
+                   axios.get("/api/stories/"+ id).then(response => {
+                     context.commit('setStories', response.data.stories);
+                   }).catch(err => {
+                     console.log("getStories failed:", err);
+                   });
+                 },
+               addStory(context, stories) {
+                 // setup headers
+                 let headers = getAuthHeader();
+                 headers.headers['Content-Type'] = 'multipart/form-data'
+                 // setup form data
+                 let formData = new FormData();
+                 formData.append('title', stories.title);
+                 formData.append('subtitle', stories.subtitle);
+                 formData.append('description', stories.description);
+                 formData.append('text', stories.text);
+                 formData.append('link_text', stories.link_text);
+                 if (stories.image) {
+                   formData.append('image', stories.image);
+                 }
+                 if (!stories.link){
+                  formData.append('link', '');
+                 }
+                 else{
+                   formData.append('link', stories.link)
+                 }
+                 axios.post("/api/stories", formData, headers).then(response => {
+                   return context.dispatch('getStories');
+                 }).catch(err => {
+                   console.log("addStories failed:", err);
+                 });
+               },
+               deleteStory(context, student) {
+                 return axios.delete("/api/spotlight/" + student.id + "/" + student.image_path, student).then(response => {
+                   context.dispatch('getSpotlight');
+                 }).catch(err => {
+                   console.log("unfollow failed:", err);
+                 });
+               },
     }
   })
 }

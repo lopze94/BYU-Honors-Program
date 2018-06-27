@@ -42,12 +42,8 @@
 </template>
 
 <script>
-import EditStories from '../components/EditStories.vue'
 export default {
     name: 'Stories',
-    components:{
-      EditStories
-    },
       computed: {
      loggedIn: function() {
        return this.$store.getters.loggedIn;
