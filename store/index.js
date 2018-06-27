@@ -164,10 +164,11 @@ const createStore = () => {
       });
     },
        deleteSpotlight(context, student) {
-         return axios.delete("/api/spotlight/" + student.id+"/"+student.image_path, student).then(response => {
+           let headers = getAuthHeader();
+         return axios.delete("/api/spotlight/" + student.id+"/"+student.image_path, headers).then(response => {
            context.dispatch('getSpotlight');
          }).catch(err => {
-           console.log("unfollow failed:", err);
+           console.log("DeleteSpotlight failed:", err);
          });
        },
 

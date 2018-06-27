@@ -1,20 +1,19 @@
 <template>
     <div>
-        <hero v-bind:hero="this.hero1"></hero>
 
-        <stories></stories>
+        <stories-component></stories-component>
         <spotlight></spotlight>
 
     </div>
 </template>
 
 <script>
-import Stories from '../components/Stories.vue'
+import StoriesComponent from '../components/StoriesComponent.vue'
 import Spotlight from '../components/Spotlight.vue'
 
 export default {
     name: 'HomePage',
-    components:{Stories, Spotlight},
+    components:{StoriesComponent, Spotlight},
 
     data(){
         return{

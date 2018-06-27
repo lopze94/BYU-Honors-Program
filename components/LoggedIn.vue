@@ -8,13 +8,16 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <router-link to="/" class="nav-link">Home</router-link>
-      </li>
-      <li class="nav-item">
-        <router-link to="/editstories" class="nav-link">Stories</router-link>
+        <router-link to="/spotlightlist" class="nav-link">Spotlight</router-link>
       </li>
             <li class="nav-item">
-        <router-link to="/editspotlight" class="nav-link">Spotlight</router-link>
+        <router-link to="/editspotlight" class="btn btn-light">+</router-link>
+      </li>
+            <li class="nav-item">
+        <router-link to="/stories" class="nav-link">Stories</router-link>
+      </li>
+                  <li class="nav-item">
+        <router-link to="/editstories" class="btn btn-light">+</router-link>
       </li>
     </ul>
     <div><a @click="logout" href="#" class="btn btn-outline-light">Logout</a></div>

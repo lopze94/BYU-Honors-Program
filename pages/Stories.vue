@@ -21,7 +21,6 @@ export default {
   name: "Stories",
   data (){
     return{
-        id: this.$route.params.id,
       dataLoaded:false,
       message: 'The story could not be found.'
     }

@@ -59,7 +59,7 @@
       <button class="btn btn-primary my-4" type="submit">Add Story</button>
        
        <div v-bind:style="{inactive: !imagePreview, active:imagePreview }" class="text-center">
-         <img class="w-50 mx-auto" v-bind:src="imageData">
+         <img class="w-100 mx-auto" v-bind:src="imageData">
        </div>
 
 

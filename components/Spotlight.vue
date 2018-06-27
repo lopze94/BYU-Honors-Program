@@ -1,5 +1,5 @@
 <template>
-<div v-if="dataLoaded">
+<div v-if="spotlight[0]">
     <byu-hero-banner id="hero" v-bind:image-source="spotlight[0].image_path" class="side-image my-5" >
     <span slot="headline">Honors Spotlight</span>
     <span slot="intro-text"><b>{{spotlight[0].first_name}} {{spotlight[0].last_name}}</b> | {{spotlight[0].major}}

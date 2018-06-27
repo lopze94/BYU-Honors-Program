@@ -253,14 +253,14 @@ app.post('/api/spotlight', verifyToken, uploadSpotlight.single('image'), (req, r
 
 // DELETE - Deletes the record from the databasem, locates the image file and deletes it. 
 
-app.delete('/api/spotlight/:id/:image_path', (req, res) => {
-
+app.delete('/api/spotlight/:id/:image_path', verifyToken, (req, res) => {
+  
   let id = parseInt(req.params.id);
   let image_path = req.params.image_path
 
   fs.unlink(__dirname + '/static/img/spotlight/' + image_path, (err) => {
     if (err) throw err;
-    console.log('/img/spotlight/' + image_path + ' was deleted');
+    //console.log('/img/spotlight/' + image_path + ' was deleted');
   });
 
   knex('spotlight').where('id', id).first().del().then(user => {
@@ -361,7 +361,7 @@ app.post('/api/stories', verifyToken, uploadStory.single('image'), (req, res) =>
 
 // DELETE - Deletes the record from the database, locates the image file and deletes it. 
 
-app.delete('/api/stories/:id/:image_path', (req, res) => {
+app.delete('/api/stories/:id/:image_path', verifyToken, (req, res) => {
 
   let id = parseInt(req.params.id);
   let image_path = req.params.image_path

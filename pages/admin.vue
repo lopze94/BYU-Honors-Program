@@ -8,7 +8,8 @@
         <p>Click the links below to edit the sections.</p>
         <ul>
           <li><router-link to="/editspotlight">Edit Spotlight</router-link></li>
-        </ul>
+                    <li><router-link to="/editstories">Edit Stories</router-link></li>
+        </ul> 
       </div>
         <div  v-if="loggedIn"><a @click="logout" href="#" class="btn btn-outline-primary">Logout</a> <router-link to="/register" class="btn btn-secondary ml-2">Register Admin</router-link></div>
       <form v-else class="right" v-on:submit.prevent="login">
@@ -24,9 +25,11 @@
 	<button class="btn btn-primary" type="submit">Login</button>
       </form>
     </div>
-    <div class="flexWrapper errorPlace">
-      <p v-if="loginError" class="flexRight error">{{loginError}}</p>
-    </div>
+  <div v-if="loginError" class="container alert alert-danger my-4" role="alert">
+  <h4 class="alert-heading">{{loginError}}</h4>
+  <hr>
+  <p class="mb-0">Please, try again.</p>
+</div>
   </div>
 </template>
 
