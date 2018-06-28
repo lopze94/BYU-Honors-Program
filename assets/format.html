@@ -26,16 +26,16 @@
         </div>
       </a>
 
-<a class="card border-0" v-if="stories[3]" v-bind:href="stories[3].link">
-  <img class="card-img-top" v-bind:src="stories[3].image_path" v-bind:alt="stories[3].subtitle">
-  <div class="card-body">
-    <h5 class="card-title">{{stories[3].title}}</h5>
-    <p class="card-text">{{stories[3].description}}</p>
-  </div>
-  <div class="card-footer border-0 bg-transparent">
-    <small class="text-muted">{{stories[3].created | formatDate}}</small>
-  </div>
-</a>
+      <a class="card border-0" v-if="stories[3]" v-bind:href="stories[3].link">
+        <img class="card-img-top" v-bind:src="stories[3].image_path" v-bind:alt="stories[3].subtitle">
+        <div class="card-body">
+          <h5 class="card-title">{{stories[3].title}}</h5>
+          <p class="card-text">{{stories[3].description}}</p>
+        </div>
+        <div class="card-footer border-0 bg-transparent">
+          <small class="text-muted">{{stories[3].created | formatDate}}</small>
+        </div>
+      </a>
 
     </div>
     <div class="text-muted text-right mt-3">

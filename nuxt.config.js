@@ -19,16 +19,21 @@ module.exports = {
         hid: 'description',
         name: 'description',
         content: pkg.description
+      },
+      {
+        name: 'theme-color',
+        content: '#002E5D'
       }
+
     ],
     link: [{
         rel: 'icon',
         type: 'image/x-icon',
-        href: '/assets/favicon.ico'
+        href: '/favicon.ico'
       },
       {
         rel: 'shortcut icon',
-        href: '/assets/favicon.ico',
+        href: '/favicon.ico',
         type: 'image/x-icon'
       },
       {

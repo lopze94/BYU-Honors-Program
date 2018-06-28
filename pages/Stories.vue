@@ -25,6 +25,15 @@ export default {
       message: 'The story could not be found.'
     }
   },
+  head () {
+    return {
+      title: 'BYU Honors Program | Stories',
+      meta: [
+        { hid: 'description', name: 'description', content: 'This is the place where you will find all of the BYU Honors Stories. Enjoy!'}
+      ]
+    }
+
+  },
    created: function() {
      this.asyncCall();
      this.$store.dispatch('getStories');

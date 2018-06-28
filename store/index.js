@@ -199,6 +199,7 @@ const createStore = () => {
                  formData.append('description', stories.description);
                  formData.append('text', stories.text);
                  formData.append('link_text', stories.link_text);
+                 formData.append('author', stories.author);
                  if (stories.image) {
                    formData.append('image', stories.image);
                  }

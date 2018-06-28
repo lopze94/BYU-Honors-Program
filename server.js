@@ -282,7 +282,7 @@ app.get('/api/stories', (req, res) => {
   let id = parseInt(req.params.id);
   knex('stories')
     .orderBy('created', 'desc')
-    .select('id', 'title', 'subtitle', 'description', 'created', 'text', 'link', 'image_path', 'link_text').then(stories => {
+    .select('id', 'title', 'subtitle', 'description', 'created', 'text', 'link', 'image_path', 'link_text', 'author').then(stories => {
       res.status(200).json({
         stories: stories
       });
@@ -298,7 +298,7 @@ app.get('/api/stories/:id', (req, res) => {
   let id = parseInt(req.params.id);
   knex('stories')
 
-    .select('id', 'title', 'subtitle', 'description', 'created', 'text', 'link', 'image_path', 'link_text').where('id', id).then(stories => {
+    .select('id', 'title', 'subtitle', 'description', 'created', 'text', 'link', 'image_path', 'link_text', 'author').where('id', id).then(stories => {
       res.status(200).json({
         stories: stories
       });
@@ -330,14 +330,15 @@ app.post('/api/stories', verifyToken, uploadStory.single('image'), (req, res) =>
       text: req.body.text,
       link: link,
       link_text: req.body.link_text,
-      image_path: path
+      image_path: path,
+      author: req.body.author,
     });
   }).then(ids => {
     return knex('stories').where('id', ids[0]).first();
   }).then(story => {
     if(story.link == ''){
-      console.log("This link is empty. Generating Link...");
-      link = '/stories/' + story.id;
+      //console.log("This link is empty. Generating Link...");
+      link = '/stories/' + story.id + '/' + story.title.replace(/\s/g, "_");
       knex('stories').where('id', story.id).update('link', link).then();
       story.link = link;
                 res.status(200).json({

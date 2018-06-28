@@ -2,7 +2,9 @@
 <div v-if="loggedIn">
     <hero v-bind:hero="this.story"></hero>
     <div class="container">
+
         <h2 class="text-muted  my-4">{{this.story.subtitle}}</h2>
+        <h6 class="text-muted  my-4">by {{user.name}}</h6>
         <div v-html="this.story.text">
             {{this.story.text}}
         </div>
@@ -110,7 +112,8 @@ export default {
         link_text: this.story.link_text,
         text: this.story.text,
         link: this.story.link,
-        image: this.file
+        image: this.file,
+        author: this.$store.state.user.name
        }).then(addStory => {
            this.imageData = "",
            this.imagePreview = false

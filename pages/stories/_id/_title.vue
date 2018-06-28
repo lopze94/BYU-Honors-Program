@@ -1,17 +1,20 @@
 <template>
 <div v-if="dataLoaded">
-<hero v-if="stories[0]" v-bind:hero="stories[0]"></hero>
-    <div v-if="stories[0]" class="container">
+    <div v-if="checkTitle(stories[0].title)">
+<hero  v-bind:hero="stories[0]"></hero>
+    <div class="container">
         <h2 class="text-muted  my-4">{{stories[0].subtitle}}</h2>
         <div v-html="stories[0].text">
             {{stories[0].text}}
         </div>
     </div>
-    <div v-if="!stories[0]" class="container alert alert-danger my-4" role="alert">
+    </div>
+
+    <div v-else class="container alert alert-danger my-4" role="alert">
   <h4 class="alert-heading">Ops! Something went wrong</h4>
   <p>{{message}}</p>
   <hr>
-  <p class="mb-0">Maybe it was deleted a long time ago.</p>
+  <p class="mb-0">This story could have been deleted a long time ago.</p>
 </div>
 </div>
 
@@ -37,9 +40,16 @@ export default {
     return{
         id: this.$route.params.id,
       dataLoaded:false,
-      message: 'The story could not be found.'
+      message: 'The story could not be found. Please, check the link.'
     }
   },
+  head () {
+    return {
+      title: 'Stories | ' + this.$route.params.title.replace(/_/g, " "),
+      meta: [
+        { hid: 'description', name: 'description', content: 'This is the BYU Honors Story #' + this.$route.params.id + ' titled ' + this.$route.params.title.replace(/_/g, " ")}
+      ]
+    }},
    created: function() {
      this.asyncCall();
      this.$store.dispatch('getStory', this.id);
@@ -83,6 +93,15 @@ async asyncCall() {
     }
 
      },
+     checkTitle: function (title){
+         let routeTitle = this.$route.params.title.replace(/_/g, " ").toLowerCase();
+         if (routeTitle === title.toLowerCase()){
+             return true;
+         }
+         else {
+             return false
+         }
+     }
    }
 };
 </script>
