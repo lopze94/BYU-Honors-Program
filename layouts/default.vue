@@ -61,10 +61,22 @@ body {
   flex-grow: 1;
 }
 
-h1 {
+h2 {
   font-family: "Vitesse A", "Vitesse B", Georgia, serif;
   font-weight: 400;
   text-align: center;
   color: #002e5d;
+}
+
+@media (max-width: 575.98px) {
+  h2 {
+    font-size: 35px;
+  }
+}
+
+@media (min-width: 1025px) {
+  h2 {
+    font-size: 60px;
+  }
 }
 </style>

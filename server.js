@@ -383,5 +383,22 @@ app.delete('/api/stories/:id/:image_path', verifyToken, (req, res) => {
   });
 });
 
+// Entry points for the DIRECTORY
+
+app.get('/api/directory/', (req, res) => {
+  knex('directory')
+    .orderBy('last_name', 'asc')
+    .select('*').then(directory => {
+      res.status(200).json({
+        directory: directory
+      });
+    }).catch(error => {
+      console.log(error);
+      res.status(500).json({
+        error
+      });
+    });
+});
+
 //Launch the server.
 app.listen(3000, () => console.log('Server listening on port 3000!'));

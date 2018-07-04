@@ -1,6 +1,6 @@
 <template>
     <div>
-
+      <h1 class="d-none">Welcome to the BYU Honors Program Homepage</h1>
         <stories-component></stories-component>
         <spotlight></spotlight>
 

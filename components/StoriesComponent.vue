@@ -3,7 +3,7 @@
   <hero v-bind:hero="stories[0]" v-if="stories[0]"></hero>
   <div class="container">
 
-    <h1 class="py-4">Latest Stories</h1>
+    <h2 class="py-3">Latest Stories</h2>
     <div class="card-deck">
       <a class="card border-0" v-if="stories[1]" v-bind:href="stories[1].link" target="_blank">
         <img class="card-img-top" v-bind:src="stories[1].image_path" v-bind:alt="stories[1].subtitle">
