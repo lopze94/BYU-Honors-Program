@@ -1,6 +1,6 @@
 <template>
 <div v-if="dataLoaded">
-<h1>Honors Spotlight</h1>
+<h2>Honors Spotlight</h2>
 <div v-for="(student) in spotlight" v-bind:key="student.id">
  <byu-hero-banner id="hero" v-bind:image-source="student.image_path" class="side-image my-5" >
     <span slot="headline">{{student.first_name}} {{student.last_name}}</span>
@@ -25,15 +25,12 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body border">
+      <div class="modal-body border rounded-bottom">
         <p class="h5"> {{student.major}}
           <span class="font-weight-normal text-muted" v-if="student.minor"><br>{{student.minor}}</span>
           <br><span class="font-weight-normal text-muted">{{student.graduation}}</span>
         </p>
 <p v-html="student.long_text">{{student.long_text}}</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

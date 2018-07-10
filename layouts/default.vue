@@ -46,6 +46,7 @@ if (process.browser) {
 html,
 body {
   font-family: "Gotham A", "Gotham B", Helvetica, sans-serif;
+  font-size: 16px;
   height: 100%;
 }
 

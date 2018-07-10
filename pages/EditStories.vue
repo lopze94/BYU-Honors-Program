@@ -3,7 +3,7 @@
     <hero v-bind:hero="this.story"></hero>
     <div class="container">
 
-        <h2 class="text-muted  my-4">{{this.story.subtitle}}</h2>
+        <h3 class="text-muted  my-4">{{this.story.subtitle}}</h3>
         <h6 class="text-muted  my-4">by {{user.name}}</h6>
         <div v-html="this.story.text">
             {{this.story.text}}
@@ -14,7 +14,7 @@
 <!--this is the section for the form-->
 
 <div class="container">
-    <h1>Add a new Story</h1>
+    <h2>Add a new Story</h2>
     <form enctype="multipart/form-data" v-on:submit.prevent="addStory">
 <div class="row">
     <div class="form-group col">
@@ -31,13 +31,13 @@
 <div class="row">
     <div class="form-group col-sm-6">
         <label for="major">Link URL</label>
-        <input class="form-control" id="major" aria-describedby="linkURLHelp" placeholder="Enter major" v-model="story.link" >
-            <small id="linkURLHelp" class="form-text text-muted">Enter the full address, includding "https://" or leave blank to generate a page at "honors.byu.edu/stories/_id"</small>
+        <input class="form-control" id="major" aria-describedby="linkURLHelp" placeholder="Enter URL" v-model="story.link" >
+            <small id="linkURLHelp" class="form-text text-muted">Enter the full address, includding "https://" or leave blank to generate a page at "honors.byu.edu/stories/_id/_title"</small>
     </div>
 
     <div class="form-group col-sm-6">
         <label for="minor">Link Text</label>
-        <input class="form-control" id="minor"  placeholder="Enter single or multiple minors" v-model="story.link_text">
+        <input class="form-control" id="minor"  placeholder="Enter display text" v-model="story.link_text">
     </div>
 </div>
 
@@ -104,7 +104,7 @@ export default {
        methods: {
            
     addStory: function() {
-        if(confirm("Are you sure you want to add " + this.story.title + " to this month's story?")){
+        if(confirm(this.$store.state.user.name + ": Are you sure you want to add " + this.story.title + " to this month's story?")){
        this.$store.dispatch('addStory',{
 	    title: this.story.title,
         subtitle: this.story.subtitle,

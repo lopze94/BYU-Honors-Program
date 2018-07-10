@@ -3,7 +3,7 @@
     <div v-if="checkTitle(stories[0].title)">
 <hero  v-bind:hero="stories[0]"></hero>
     <div class="container">
-        <h2 class="text-muted  my-4">{{stories[0].subtitle}}</h2>
+        <h3 class="text-muted  my-4">{{stories[0].subtitle}}</h3>
         <div v-html="stories[0].text">
             {{stories[0].text}}
         </div>
@@ -47,7 +47,7 @@ export default {
     return {
       title: 'Stories | ' + this.$route.params.title.replace(/_/g, " "),
       meta: [
-        { hid: 'description', name: 'description', content: 'This is the BYU Honors Story #' + this.$route.params.id + ' titled ' + this.$route.params.title.replace(/_/g, " ")}
+        { hid: 'description', name: 'description', content: 'This is the BYU Honors Story #' + this.$route.params.id + ', titled ' + this.$route.params.title.replace(/_/g, " ")}
       ]
     }},
    created: function() {

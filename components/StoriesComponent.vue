@@ -5,7 +5,7 @@
 
     <h2 class="py-3">Latest Stories</h2>
     <div class="card-deck">
-      <a class="card border-0" v-if="stories[1]" v-bind:href="stories[1].link" target="_blank">
+      <a class="card border-0" v-if="stories[1]" v-bind:href="stories[1].link">
         <img class="card-img-top" v-bind:src="stories[1].image_path" v-bind:alt="stories[1].subtitle">
         <div class="card-body">
           <h5 class="card-title">{{stories[1].title}}</h5>
@@ -16,7 +16,7 @@
         </div>
       </a>
 
-      <a class="card border-0" v-if="stories[2]" v-bind:href="stories[2].link" target="_blank">
+      <a class="card border-0" v-if="stories[2]" v-bind:href="stories[2].link">
         <img class="card-img-top" v-bind:src="stories[2].image_path" v-bind:alt="stories[2].subtitle">
         <div class="card-body">
           <h5 class="card-title">{{stories[2].title}}</h5>
@@ -27,7 +27,7 @@
         </div>
       </a>
 
-      <a class="card border-0" v-if="stories[3]" v-bind:href="stories[3].link" target="_blank">
+      <a class="card border-0" v-if="stories[3]" v-bind:href="stories[3].link">
         <img class="card-img-top" v-bind:src="stories[3].image_path" v-bind:alt="stories[3].subtitle">
         <div class="card-body">
           <h5 class="card-title">{{stories[3].title}}</h5>

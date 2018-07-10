@@ -11,7 +11,7 @@
       {{hero.description}}
       </div>
       </span>
-    <a slot="read-more" v-bind:href="hero.link" class="h5" target="_blank" v-if="!id">{{hero.link_text}}</a>
+    <a slot="read-more" v-bind:href="hero.link" class="h5" v-if="!id">{{hero.link_text}}</a>
 </byu-hero-banner>
 </div>
 </template>

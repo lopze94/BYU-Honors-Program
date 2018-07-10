@@ -20,16 +20,13 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body border">
+      <div class="modal-body border rounded-bottom">
         <p class="h5"> {{spotlight[0].major}}
           <br>
           <span class="font-weight-normal text-muted">{{spotlight[0].minor}} Minor</span>
           <br><span class="font-weight-normal text-muted">{{spotlight[0].graduation}}</span>
         </p>
 <p>{{spotlight[0].long_text}}</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

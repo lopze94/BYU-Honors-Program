@@ -1,7 +1,7 @@
 <template>
   <div class="container py-3">
-    <h1 v-if="loggedIn">Administrator Home</h1>
-    <h1 v-else>Administrator Login</h1>
+    <h2 v-if="loggedIn">Administrator Home</h2>
+    <h2 v-else>Administrator Login</h2>
     <div id="menu">
       <div class="h5 py-3" v-if="loggedIn">Welcome <span class="text-capitalize">{{user.name}}</span>!</div>
       <div v-if="loggedIn">
