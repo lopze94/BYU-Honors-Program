@@ -1,0 +1,25 @@
+{
+  "personalizations": [{
+    "to": [{
+      "email": "lopze.94@gmail.com",
+      "name": "John Doe"
+    }],
+    "subject": "Hello, World!"
+  }],
+  "from": {
+    "email": "jlopez@lzstartups.com",
+    "name": "Sam Smith"
+  },
+  "reply_to": {
+    "email": "sam.smith@example.com",
+    "name": "Sam Smith"
+  },
+  "content":[{
+      "type": "text/plain",
+      "value": "Hello World!"
+  }, {
+    "type": "text/html",
+    "value": "Hello <strong>World!</strong>"
+  }
+]
+}

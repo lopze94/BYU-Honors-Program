@@ -9,3 +9,8 @@ npm-debug.log
 
 # Nuxt generate
 dist
+
+#.env
+
+.env
+sendgrid.env

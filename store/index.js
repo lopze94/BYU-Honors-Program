@@ -8,10 +8,11 @@ Vue.use(Vuex);
 const getAuthHeader = () => {
   return {
     headers: {
-      'Authorization': localStorage.getItem('token')
+      'Authorization': localStorage.getItem('token'),
     }
   };
 }
+
 const createStore = () => {
   return new Vuex.Store({
     state: {
@@ -232,6 +233,12 @@ const createStore = () => {
           console.log("getDirectory failed:", err);
         });
       },
+      sendMailNotification(context, message){
+        return axios.post("/api/send", message).then(response => {
+        }).catch(err => {
+          console.log("Send Notification Failed:", err);
+        })
+      }
     }
   })
 }

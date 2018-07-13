@@ -2,6 +2,10 @@
 const express = require('express');
 const bodyParser = require("body-parser");
 
+//SENDGRID Setup
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -400,5 +404,11 @@ app.get('/api/directory/', (req, res) => {
     });
 });
 
+app.post('/api/send/', (req, res) => {
+const msg = req.body.msg;
+sgMail.send(msg);
+console.log("Message Sent");
+res.sendStatus(200);
+})
 //Launch the server.
 app.listen(3000, () => console.log('Server listening on port 3000!'));

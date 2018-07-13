@@ -26,6 +26,9 @@
 <student-testimonials></student-testimonials>
 <!--How to Join Honors Program?-->
 <how-to-honors></how-to-honors>
+<!--Requirements-->
+<requirements class="mb-5"></requirements>
+
     </div>
     <byu-hero-banner id="hero" image-source="/img/advisor.jpg" class="dark-image full-screen transparent-overlay">
     <span slot="headline">Talk to an Advisor!</span>
@@ -39,12 +42,13 @@
 import WhyHonors from '../components/WhyHonors.vue'
 import StudentTestimonials from '../components/StudentTestimonials.vue'
 import HowToHonors from '../components/HowToHonors.vue'
+import Requirements from '../components/Requirements.vue'
 
 export default {
     name: 'ProspectiveStudents',
     components :{
-      WhyHonors, StudentTestimonials, HowToHonors
-    },
+      WhyHonors, StudentTestimonials, HowToHonors, Requirements
+      },
       head () {
     return {
       title: 'BYU Honors Program | Prospective Students',
