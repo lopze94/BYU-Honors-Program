@@ -33,7 +33,7 @@
     <byu-hero-banner id="hero" image-source="/img/advisor.jpg" class="dark-image full-screen transparent-overlay">
     <span slot="headline">Talk to an Advisor!</span>
     <span slot="intro-text"></span>
-    <a slot="read-more" @click="showModal" class="a-link">Schedule Appointment</a>
+    <a slot="read-more" class="a-link" href="/scheduleappointment">Schedule Appointment</a>
 </byu-hero-banner>
 </div>
 </template>

@@ -405,10 +405,12 @@ app.get('/api/directory/', (req, res) => {
 });
 
 app.post('/api/send/', (req, res) => {
-const msg = req.body.msg;
-sgMail.send(msg);
-console.log("Message Sent");
-res.sendStatus(200);
+  let confirmation = req.body.confirmation;
+  let notification = req.body.notification;
+  //sgMail.send(confirmation);
+  sgMail.send(notification);
+  console.log("Notification Sent!");
+  res.sendStatus(200);
 })
 //Launch the server.
 app.listen(3000, () => console.log('Server listening on port 3000!'));
