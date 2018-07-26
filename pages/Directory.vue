@@ -1,24 +1,26 @@
 <template>
 <div class="container">
- <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+  <h1 class="d-none">Honors Program Directory</h1>
+  <h2 class="py-3">Honors Program Directory</h2>
+ <ul class="nav nav-pills nav-fill my-3" id="pills-tab" role="tablist">
   <li class="nav-item">
-    <a class="nav-link active" id="pills-all-tab" data-toggle="pill" href="#pills-all" role="tab" aria-controls="pills-all" aria-selected="true">All</a>
+    <a class="nav-link" v-bind:class="{active: this.tabs[0]}" id="pills-all-tab" data-toggle="pill" href="#pills-all" role="tab" aria-controls="pills-all" v-bind:aria-selected="this.tabs[0]">All</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="pills-admimistration-tab" data-toggle="pill" href="#pills-administration" role="tab" aria-controls="pills-administration" aria-selected="false">Administration</a>
+    <a class="nav-link" v-bind:class="{active: this.tabs[1]}" id="pills-admimistration-tab" data-toggle="pill" href="#pills-administration" role="tab" aria-controls="pills-administration" v-bind:aria-selected="this.tabs[1]">Administration</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="pills-faculty-tab" data-toggle="pill" href="#pills-faculty" role="tab" aria-controls="pills-faculty" aria-selected="false">Faculty</a>
+    <a class="nav-link" v-bind:class="{active: this.tabs[2]}" id="pills-faculty-tab" data-toggle="pill" href="#pills-faculty" role="tab" aria-controls="pills-faculty" v-bind:aria-selected="this.tabs[2]">Faculty</a>
   </li>
     <li class="nav-item">
-    <a class="nav-link" id="pills-coordinators-tab" data-toggle="pill" href="#pills-coordinators" role="tab" aria-controls="pills-coordinators" aria-selected="false">Coordinators</a>
+    <a class="nav-link" v-bind:class="{active: this.tabs[3]}" id="pills-coordinators-tab" data-toggle="pill" href="#pills-coordinators" role="tab" aria-controls="pills-coordinators" v-bind:aria-selected="this.tabs[3]">Coordinators</a>
   </li>
       <li class="nav-item">
-    <a class="nav-link" id="pills-advisor-tab" data-toggle="pill" href="#pills-advisor" role="tab" aria-controls="pills-advisor" aria-selected="false">Advisors</a>
+    <a class="nav-link" v-bind:class="{active: this.tabs[4]}" id="pills-advisor-tab" data-toggle="pill" href="#pills-advisor" role="tab" aria-controls="pills-advisor" v-bind:aria-selected="this.tabs[4]">Advisors</a>
   </li>
 </ul>
 <div class="tab-content" id="pills-tabContent">
-  <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
+  <div class="tab-pane fade" v-bind:class="{active: this.tabs[0], show: this.tabs[0]}" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
 
  <div v-if="dataLoaded">
   <div v-if="directory" v-for="(contact) in directory" class="card mx-sm-5 my-2 border-0" v-bind:key="contact.id" 
@@ -30,8 +32,9 @@
     <img class="card-img-top rounded-circle px-5 px-sm-2 py-2" v-bind:src="contact.image_path" v-bind:alt="'Portrait of ' + contact.first_name +' '+ contact.last_name">
   </div>
   <div class="col-md-8 col-lg-10">
-    <h5 class="card-title">{{contact.first_name}} {{contact.last_name}} <span class="badge badge-primary" v-if="contact.coordinator">Coordinator</span> <span class="badge badge-secondary ml-1" v-if="contact.advisor">Advisor</span> </h5>
-    <h6 class="card-subtitle mb-2 text-muted font-weight-normal">{{contact.title}}, {{contact.department}}  | {{contact.college}}</h6>
+    <h5 class="card-title">{{contact.first_name}} {{contact.last_name}} <span class="badge badge-primary" v-if="contact.coordinator">Coordinator</span> 
+    <span class="badge badge-secondary ml-1" v-if="contact.advisor">Advisor</span><span class="badge badge-secondary ml-1" v-if="contact.faculty"></span></h5>
+    <h6 class="card-subtitle mb-2 text-muted font-weight-normal">{{contact.title}}<span v-if="contact.department">,</span> {{contact.department}}  | {{contact.college}}</h6>
     <p class="card-text overflow-text" v-html="contact.description" v-if="!contact.show_more">{{contact.description}}</p>
     <p class="card-text" v-html="contact.description" v-else>{{contact.description}}</p>
   <p class="card-text text-muted">{{contact.phone}} | {{contact.email}} | {{contact.office}}</p>
@@ -44,7 +47,7 @@
     </div>
 
   </div>
-  <div class="tab-pane fade" id="pills-administration" role="tabpanel" aria-labelledby="pills-administration-tab">
+  <div class="tab-pane fade" v-bind:class="{active: this.tabs[1], show: this.tabs[1]}" id="pills-administration" role="tabpanel" aria-labelledby="pills-administration-tab">
 
  <div v-if="dataLoaded">
   <div v-if="contact.admin" v-for="(contact) in directory" class="card mx-sm-5 my-2 border-0" v-bind:key="contact.id" 
@@ -57,7 +60,7 @@
   </div>
   <div class="col-md-8 col-lg-10">
     <h5 class="card-title">{{contact.first_name}} {{contact.last_name}} <span class="badge badge-primary" v-if="contact.coordinator">Coordinator</span> <span class="badge badge-secondary ml-1" v-if="contact.advisor">Advisor</span></h5>
-    <h6 class="card-subtitle mb-2 text-muted font-weight-normal">{{contact.title}}, {{contact.department}}  | {{contact.college}}</h6>
+    <h6 class="card-subtitle mb-2 text-muted font-weight-normal">{{contact.title}}<span v-if="contact.department">,</span> {{contact.department}}  | {{contact.college}}</h6>
     <p class="card-text overflow-text" v-html="contact.description" v-if="!contact.show_more">{{contact.description}}</p>
     <p class="card-text" v-html="contact.description" v-else>{{contact.description}}</p>
   <p class="card-text text-muted">{{contact.phone}} | {{contact.email}} | {{contact.office}}</p>
@@ -70,7 +73,7 @@
     </div>
 
   </div>
-  <div class="tab-pane fade" id="pills-faculty" role="tabpanel" aria-labelledby="pills-faculty-tab">
+  <div class="tab-pane fade" v-bind:class="{active: this.tabs[2], show: this.tabs[2]}" id="pills-faculty" role="tabpanel" aria-labelledby="pills-faculty-tab">
 
  <div v-if="dataLoaded">
   <div v-if="contact.faculty" v-for="(contact) in directory" class="card mx-sm-5 my-2 border-0" v-bind:key="contact.id" 
@@ -83,7 +86,7 @@
   </div>
   <div class="col-md-8 col-lg-10">
     <h5 class="card-title">{{contact.first_name}} {{contact.last_name}} <span class="badge badge-primary" v-if="contact.coordinator">Coordinator</span><span class="badge badge-secondary ml-1" v-if="contact.advisor">Advisor</span> </h5>
-    <h6 class="card-subtitle mb-2 text-muted font-weight-normal">{{contact.title}}, {{contact.department}}  | {{contact.college}}</h6>
+    <h6 class="card-subtitle mb-2 text-muted font-weight-normal">{{contact.title}}<span v-if="contact.department">,</span> {{contact.department}}  | {{contact.college}}</h6>
     <p class="card-text overflow-text" v-html="contact.description" v-if="!contact.show_more">{{contact.description}}</p>
     <p class="card-text" v-html="contact.description" v-else>{{contact.description}}</p>
   <p class="card-text text-muted">{{contact.phone}} | {{contact.email}} | {{contact.office}}</p>
@@ -97,7 +100,7 @@
 
   </div>
 
-    <div class="tab-pane fade" id="pills-coordinators" role="tabpanel" aria-labelledby="pills-coordinators-tab">
+    <div class="tab-pane fade" v-bind:class="{active: this.tabs[3], show: this.tabs[3]}" id="pills-coordinators" role="tabpanel" aria-labelledby="pills-coordinators-tab">
 
  <div v-if="dataLoaded">
   <div v-if="contact.coordinator" v-for="(contact) in directory" class="card mx-sm-5 my-2 border-0" v-bind:key="contact.id" 
@@ -110,7 +113,7 @@
   </div>
   <div class="col-md-8 col-lg-10">
     <h5 class="card-title">{{contact.first_name}} {{contact.last_name}} <span class="badge badge-primary" v-if="contact.coordinator">Coordinator</span> <span class="badge badge-secondary ml-1" v-if="contact.advisor">Advisor</span></h5>
-    <h6 class="card-subtitle mb-2 text-muted font-weight-normal">{{contact.title}}, {{contact.department}}  | {{contact.college}}</h6>
+    <h6 class="card-subtitle mb-2 text-muted font-weight-normal">{{contact.title}}<span v-if="contact.department">,</span> {{contact.department}}  | {{contact.college}}</h6>
     <p class="card-text overflow-text" v-html="contact.description" v-if="!contact.show_more">{{contact.description}}</p>
     <p class="card-text" v-html="contact.description" v-else>{{contact.description}}</p>
   <p class="card-text text-muted">{{contact.phone}} | {{contact.email}} | {{contact.office}}</p>
@@ -124,7 +127,7 @@
 
   </div>
 
-    <div class="tab-pane fade" id="pills-advisor" role="tabpanel" aria-labelledby="pills-advisor-tab">
+    <div class="tab-pane fade" v-bind:class="{active: this.tabs[4], show: this.tabs[4]}" id="pills-advisor" role="tabpanel" aria-labelledby="pills-advisor-tab">
 
  <div v-if="dataLoaded">
   <div v-if="contact.advisor" v-for="(contact) in directory" class="card mx-sm-5 my-2 border-0" v-bind:key="contact.id" 
@@ -137,7 +140,7 @@
   </div>
   <div class="col-md-8 col-lg-10">
     <h5 class="card-title">{{contact.first_name}} {{contact.last_name}} <span class="badge badge-primary" v-if="contact.coordinator">Coordinator</span> <span class="badge badge-secondary ml-1" v-if="contact.advisor">Advisor</span></h5>
-    <h6 class="card-subtitle mb-2 text-muted font-weight-normal">{{contact.title}}, {{contact.department}}  | {{contact.college}}</h6>
+    <h6 class="card-subtitle mb-2 text-muted font-weight-normal">{{contact.title}}<span v-if="contact.department">,</span> {{contact.department}}  | {{contact.college}}</h6>
     <p class="card-text overflow-text" v-html="contact.description" v-if="!contact.show_more">{{contact.description}}</p>
     <p class="card-text" v-html="contact.description" v-else>{{contact.description}}</p>
   <p class="card-text text-muted">{{contact.phone}} | {{contact.email}} | {{contact.office}}</p>
@@ -165,18 +168,22 @@ function resolveAfter2Seconds() {
   });
 }
 
+
 export default {
     name: 'TeachingFaculty',
     props: ["category"],
     data (){
         return {
             dataLoaded: false,
-            showMore: false
+            showMore: false,
+            tabs:[true,false,false,false,false]
         }
     },
     created: function() {
          this.asyncCall();
         this.$store.dispatch('getFaculty');
+        this.asyncCall();
+        this.selectedTab();
     },
             computed: {
      directory: function() {
@@ -187,11 +194,34 @@ export default {
         async asyncCall() {
   //console.log('calling');
   this.dataLoaded = await resolveAfter2Seconds();
-  console.log(this.dataLoaded);
+  
+  //console.log(this.dataLoaded);
   // expected output: "resolved"
 },
   showToggle: function (contact){
     contact.show_more = !contact.show_more;
+  },
+  selectedTab: function () {
+    var urlHash = this.$route.hash;
+    var category = urlHash.substring(urlHash.indexOf("#") + 1);
+    switch (category) {
+    case 'administration':
+        this.tabs[0] = false;
+        this.tabs[1] = true;
+        break;
+    case 'faculty':
+        this.tabs[0] = false;
+        this.tabs[2] = true;
+        break;
+    case 'coordinators':
+        this.tabs[0] = false;
+        this.tabs[3] = true;
+        break;
+    case 'advisors':
+        this.tabs[0] = false;
+        this.tabs[4] = true;
+        break;
+}
   }
     }
 }

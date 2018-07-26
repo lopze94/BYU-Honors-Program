@@ -4,35 +4,35 @@
     <h2 class="py-3">Student Testimonials</h2>
     <div class="card-deck">
       <div class="card border-0">
-        <img class="card-img-top" src="/img/josuelopez.jpg">
+        <img class="card-img-top rounded-circle"  src="/img/testimonials/connor-lee-wen.jpg">
         <div class="card-body">
-          <p class="card-text"><span class="h3 quote">"</span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit cum voluptas totam itaque vero explicabo 
-          ea mollitia necessitatibus est dolorum a dolorem illum unde perferendis alias nisi expedita iure, autem nam consequuntur beatae, rem at suscipit
-           magnam? Tenetur, sint obcaecati.<span class="h3 quote">"</span></p> </div>
+          <p class="card-text"><span class="h3 quote">"</span>I joined the Honors Program when I was a freshman after hearing that it offered an approach to 
+          learning that encouraged thought and active learning. I haven't been disappointed! Honors courses continue to be my favourite classes on campus; 
+          truly helping me making unexpected connections that have shaped the way I think to this day. An added bonus? Community. BYU never felt so personal.
+          <span class="h3 quote">"</span></p> </div>
         <div class="card-footer border-0 bg-transparent">
-            <h4 class="text-muted text-right">Josue Lopez</h4>
+            <h4 class="text-muted text-right">Connor Lee-Wen</h4>
         </div>
       </div>
 
       <div class="card border-0">
-        <img class="card-img-top" src="/img/philipmorgan.jpg">
+        <img class="card-img-top" src="/img/testimonials/tinesha-zandamela.jpg">
         <div class="card-body">
-          <p class="card-text"><span class="h3 quote">"</span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit cum voluptas totam itaque vero explicabo 
-          ea mollitia necessitatibus est dolorum a dolorem illum. <br> <br> Unde perferendis alias nisi expedita iure, autem nam consequuntur beatae, rem at suscipit
-           magnam? Tenetur, sint obcaecati.<span class="h3 quote">"</span></p> </div>
+          <p class="card-text"><span class="h3 quote">"</span>Being part of the Honors Program has pushed me to be a better critical thinker and gave me the 
+          opportunity to step outside my comfort zone. Writing my thesis, for example, has not only made me a better researcher and writer, but it has made me 
+          a better listener and a more understanding person. The Honors Program helped me grow academically, personally, and spiritually.<span class="h3 quote">"</span></p> </div>
         <div class="card-footer border-0 bg-transparent">
-            <h4 class="text-muted text-right">Philip Morgan</h4>
+            <h4 class="text-muted text-right">Tinesha Zandamela</h4>
         </div>
       </div>
 
        <div class="card border-0">
-        <img class="card-img-top" src="/img/doohyunkwon.jpg">
+        <img class="card-img-top" src="/img/testimonials/micah-cozzens.jpg">
         <div class="card-body">
-          <p class="card-text"><span class="h3 quote">"</span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit cum voluptas totam itaque vero explicabo 
-          ea mollitia. Unde perferendis alias nisi expedita iure, autem nam consequuntur beatae, rem at suscipit
-           magnam? Tenetur, sint obcaecati.<span class="h3 quote">"</span></p> </div>
+          <p class="card-text"><span class="h3 quote">"</span>I enjoyed learning to appreciate the contribution the sciences make to the humanities through interdisciplinary 
+          classes such as "Literature and Disease" and "Nationalism and Geography.<span class="h3 quote">"</span></p> </div>
         <div class="card-footer border-0 bg-transparent">
-            <h4 class="text-muted text-right">Doohyun Kwon</h4>
+            <h4 class="text-muted text-right">Micah Cozzens</h4>
         </div>
       </div>
 
