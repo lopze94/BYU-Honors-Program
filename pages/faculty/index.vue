@@ -14,9 +14,9 @@ export default {
             mainHero: {
             title: 'Connect With Our Faculty',
             description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio eum delectus earum repellendus vel incidunt sit commodi necessitatibus aut eius.',
-            image_path: '/img/faculty_main_hero_image.jpg',
+            image_path: '/img/faculty_main_hero.jpg',
             position: 'full-screen transparent-overlay',
-            link: '/faculty/directory',
+            link: '/directory#faculty',
             link_text: 'View Directory',
             show_link: true
             }

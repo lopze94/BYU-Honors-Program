@@ -123,6 +123,7 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
+    vendor: ['tabScript'],
     extend(config, ctx) {
     }
   }
