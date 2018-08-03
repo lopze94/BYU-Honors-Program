@@ -39,10 +39,10 @@
 </template>
 
 <script>
-import WhyHonors from '../components/WhyHonors.vue'
-import StudentTestimonials from '../components/StudentTestimonials.vue'
-import HowToHonors from '../components/HowToHonors.vue'
-import Requirements from '../components/Requirements.vue'
+import WhyHonors from '../../components/WhyHonors.vue'
+import StudentTestimonials from '../../components/StudentTestimonials.vue'
+import HowToHonors from '../../components/HowToHonors.vue'
+import Requirements from '../../components/Requirements.vue'
 
 export default {
     name: 'ProspectiveStudents',
