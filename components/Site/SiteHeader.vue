@@ -1,6 +1,6 @@
 <template>
   <div>
-      <byu-header home-url="/">
+      <byu-header home-url="/" id="gototop">
     <span slot="site-title">Honors Program</span>
     <span slot="site-title" class="subtitle">Undergraduate Education</span>
     <!--byu-search slot="search" action="https://www.google.com/#q=$1" method="get" placeholder="Search"></byu-search>

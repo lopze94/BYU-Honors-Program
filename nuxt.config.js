@@ -1,6 +1,8 @@
 const pkg = require('./package')
+const axios = require('axios')
 
 module.exports = {
+
   mode: 'universal',
 
   /*
@@ -71,6 +73,8 @@ module.exports = {
     ]
   },
 
+
+
   /*
    ** Customize the progress-bar color
    */
@@ -116,6 +120,16 @@ module.exports = {
             }
           },
 
+              generate: {
+                routes: function () {
+                  return axios.get('http://127.0.0.1:3000/api/stories')
+                    .then((res) => {
+                      return res.data.stories.map((story) => {
+                        return story.link
+                      })
+                    })
+                }
+              },
   /*
    ** Build configuration
    */

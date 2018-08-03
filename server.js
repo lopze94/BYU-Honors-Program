@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 
-app.use(express.static('public'));
+app.use(express.static('dist'));
 
 // Knex Setup //
 const env = process.env.NODE_ENV || 'development';
