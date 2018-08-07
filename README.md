@@ -27,4 +27,8 @@ $ node server.js
 $ npm run generate
 ```
 
+## Database Setup
+
+Open the knexfile.js and change the config for your environment.
+
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
