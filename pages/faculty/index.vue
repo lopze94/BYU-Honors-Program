@@ -2,7 +2,7 @@
     <div>
       <h1 class="d-none">Faculty Home</h1>
       <hero v-bind:hero="this.mainHero"></hero>
-      <h2>Faculty</h2>
+      <spotlight v-bind:category="2"></spotlight>
     </div>
 </template>
 

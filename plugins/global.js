@@ -2,6 +2,8 @@ import Vue from 'vue'
 import SiteHeader from '../components/Site/SiteHeader.vue'
 import SiteFooter from '../components/Site/SiteFooter.vue'
 import Hero from '../components/Site/Hero.vue'
+import Spotlight from '../components/Spotlight.vue'
+
 
 // file system setup
 
@@ -9,3 +11,5 @@ import Hero from '../components/Site/Hero.vue'
 Vue.component('SiteHeader', SiteHeader);
 Vue.component('SiteFooter', SiteFooter);
 Vue.component('Hero', Hero);
+Vue.component('Spotlight', Spotlight);
+

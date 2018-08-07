@@ -6,7 +6,7 @@
     <span slot="headline">{{student.first_name}} {{student.last_name}}</span>
     <span slot="intro-text"> <small class="text-muted">{{student.created | formatDate}} </small> 
     <button  v-if="loggedIn" class="btn badge badge-danger float-right" v-on:click="deleteSpotlight(student)">Delete</button>
-    <button v-if="loggedIn" class="btn badge badge-secondary float-right mr-1">Edit</button> 
+    <button class="btn badge badge-secondary">{{student.category | formatCategory}}</button> 
     <br> <b>{{student.major}}</b><span v-if="student.minor"> | </span>{{student.minor}}
     <br>{{student.short_text}}</span>
     <a slot="read-more" data-toggle="modal" v-bind:data-target="'#'+student.first_name+'-spotlight-'+student.id">
@@ -64,7 +64,7 @@ export default {
   },
    created: function() {
      this.asyncCall();
-     this.$store.dispatch('getSpotlight');
+     this.$store.dispatch('getSpotlight', 3);
    },
     computed: {
      spotlight: function() {
@@ -83,12 +83,31 @@ export default {
        filters: {
         formatDate: function(dateInput) {
         return moment(dateInput).format('MMMM DD, YYYY');
-    }},
+    },
+      formatCategory: function(categoryInput){
+        console.log(categoryInput);
+        
+        let output = ''
+        switch (categoryInput){
+          case 0:
+            output = 'Student'
+          break;
+          case 1:
+            output = 'Alumni'
+          break;
+          case 2:
+            output = 'Faculty'
+          break;
+        }
+      return output;
+      }
+       
+    },
    methods:{
 async asyncCall() {
   //console.log('calling');
   this.dataLoaded = await resolveAfter2Seconds();
-  console.log(this.dataLoaded);
+  //console.log(this.dataLoaded);
   // expected output: "resolved"
 },
      deleteSpotlight: function(student) {

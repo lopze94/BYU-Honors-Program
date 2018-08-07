@@ -139,8 +139,8 @@ const createStore = () => {
         });
       },
       // Homepage Stories //
-      getSpotlight(context) {
-        axios.get("/api/spotlight").then(response => {
+      getSpotlight(context, category) {
+        axios.get("/api/spotlight/" + category).then(response => {
           context.commit('setSpotlight', response.data.spotlight);
         }).catch(err => {
           console.log("getSpotlight failed:", err);
@@ -159,11 +159,12 @@ const createStore = () => {
         formData.append('short_text', spotlight.short_text);
         formData.append('long_text', spotlight.long_text);
         formData.append('graduation', spotlight.graduation);
+        formData.append('category', spotlight.category);
         if (spotlight.image) {
           formData.append('image', spotlight.image);
         }
         axios.post("/api/spotlight", formData, headers).then(response => {
-          return context.dispatch('getSpotlight');
+          return context.dispatch('getSpotlight', 3);
         }).catch(err => {
           console.log("addSpotlight failed:", err);
         });
@@ -171,7 +172,7 @@ const createStore = () => {
       deleteSpotlight(context, student) {
         let headers = getAuthHeader();
         return axios.delete("/api/spotlight/" + student.id + "/" + student.image_path, headers).then(response => {
-          context.dispatch('getSpotlight');
+          context.dispatch('getSpotlight', '%');
         }).catch(err => {
           console.log("DeleteSpotlight failed:", err);
         });
@@ -233,14 +234,24 @@ const createStore = () => {
           console.log("getDirectory failed:", err);
         });
       },
-      sendMailNotification(context, message){
-        return axios.post("/api/send", message).then(response => {
-        }).catch(err => {
+      sendMailNotification(context, message) {
+        return axios.post("/api/send", message).then(response => {}).catch(err => {
           console.log("Send Notification Failed:", err);
+        })
+      },
+      onlineEnrollment(context, submission) {
+        submission["captcha"] = document.querySelector("#g-recaptcha-response").value;
+        axios.post("/api/enrollment", submission).then(response => {
+          if (response.data.success === undefined || response.data.success === false ){
+            return alert(response.data.msg)
+          }
+        }).catch(err => {
+          console.log("Submitting online application failed: ", err);
         })
       }
     }
   })
 }
+
 
 export default createStore

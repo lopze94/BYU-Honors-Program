@@ -2,18 +2,16 @@
     <div>
       <h1 class="d-none">Welcome to the BYU Honors Program Homepage</h1>
         <stories-component></stories-component>
-        <spotlight></spotlight>
-
+        <spotlight v-bind:category="0"></spotlight>
     </div>
 </template>
 
 <script>
 import StoriesComponent from '../components/StoriesComponent.vue'
-import Spotlight from '../components/Spotlight.vue'
 
 export default {
     name: 'HomePage',
-    components:{StoriesComponent, Spotlight},
+    components:{StoriesComponent},
 
     data(){
         return{

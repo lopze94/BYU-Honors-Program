@@ -1,13 +1,17 @@
 <template>
 <div v-if="spotlight[0]">
     <byu-hero-banner id="hero" v-bind:image-source="spotlight[0].image_path" class="side-image my-5" >
-    <span slot="headline">Honors Spotlight</span>
+    <span slot="headline">{{spotlight[0].category | formatCategory}} Spotlight</span>
     <span slot="intro-text"><b>{{spotlight[0].first_name}} {{spotlight[0].last_name}}</b> | {{spotlight[0].major}}
     <br>{{spotlight[0].short_text}}</span>
     <a slot="read-more" data-toggle="modal" data-target="#spotlightModal">
   Read More
 </a>
 </byu-hero-banner>
+    <div class="container text-muted text-right mt-3">
+      <router-link to="/spotlightlist" class="text-muted">See all spotlight stories</router-link>
+    </div>
+
 <!-- Button trigger modal -->
 
 <!-- Modal -->
@@ -23,7 +27,7 @@
       <div class="modal-body border rounded-bottom">
         <p class="h5"> {{spotlight[0].major}}
           <br>
-          <span class="font-weight-normal text-muted">{{spotlight[0].minor}} Minor</span>
+          <span class="font-weight-normal text-muted">{{spotlight[0].minor}}</span>
           <br><span class="font-weight-normal text-muted">{{spotlight[0].graduation}}</span>
         </p>
 <p>{{spotlight[0].long_text}}</p>
@@ -50,6 +54,7 @@ function resolveAfter2Seconds() {
 
 export default {
   name: "Spotlight",
+  props: ['category'],
   data (){
     return{
       dataLoaded:false
@@ -57,18 +62,37 @@ export default {
   },
    created: function() {
      this.asyncCall();
-     this.$store.dispatch('getSpotlight');
+     this.$store.dispatch('getSpotlight', this.$props.category );
    },
     computed: {
      spotlight: function() {
        return this.$store.getters.spotlight;
      },
    },
+   filters: {
+     formatCategory: function(categoryInput){
+        console.log(categoryInput);
+        
+        let output = ''
+        switch (categoryInput){
+          case 0:
+            output = 'Honors'
+          break;
+          case 1:
+            output = 'Alumni'
+          break;
+          case 2:
+            output = 'Faculty'
+          break;
+        }
+      return output;
+      }
+   },
    methods:{
 async asyncCall() {
-  console.log('calling');
+  //console.log('calling');
   this.dataLoaded = await resolveAfter2Seconds();
-  console.log(this.dataLoaded);
+  //console.log(this.dataLoaded);
   // expected output: "resolved"
 }
    }

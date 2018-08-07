@@ -1,6 +1,7 @@
 <template>
     <div class="container">
-        <h1>Alumni</h1>
+      <h1 class="d-none">Alumni Stuff</h1>
+      <spotlight v-bind:category="1"></spotlight>
     </div>
 </template>
 
