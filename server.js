@@ -1,6 +1,7 @@
 // Express Setup //
 const express = require('express');
 const bodyParser = require("body-parser");
+const request = require("request");
 
 //SENDGRID Setup
 const sgMail = require('@sendgrid/mail');
@@ -205,11 +206,13 @@ app.get('/api/users/:id', (req, res) => {
 
 // GET - gets the spotlight info from the database.
 
-app.get('/api/spotlight', (req, res) => {
+app.get('/api/spotlight/:category', (req, res) => {
   let id = parseInt(req.params.id);
+  let category = parseInt(req.params.category);
+  if (category === 3 ) category = '%';
   knex('spotlight')
     .orderBy('created', 'desc')
-    .select('id', 'first_name', 'last_name', 'created', 'major', 'minor', 'short_text', 'long_text', 'image_path', 'graduation').then(spotlight => {
+    .select('*').where('category', 'like', category).then(spotlight => {
       res.status(200).json({
         spotlight: spotlight
       });
@@ -238,7 +241,8 @@ app.post('/api/spotlight', verifyToken, uploadSpotlight.single('image'), (req, r
       short_text: req.body.short_text,
       long_text: req.body.long_text,
       image_path: path,
-      graduation: req.body.graduation
+      graduation: req.body.graduation,
+      category: req.body.category
     });
   }).then(ids => {
     return knex('spotlight').where('id', ids[0]).first();
@@ -411,6 +415,47 @@ app.post('/api/send/', (req, res) => {
   sgMail.send(notification);
   console.log("Notification Sent!");
   res.sendStatus(200);
-})
+});
+
+//Online Application
+
+app.post('/api/enrollment', (req, res) => {
+  if(
+    req.body.captcha === undefined ||
+    req.body.captcha === '' ||
+    req.body.captcha === null
+  ){
+    return res.json({
+      "success": false,
+      "msg": "Please select reCaptcha"
+    });
+  }
+
+  //Secret Key
+  const secretKey = process.env.CAPTCHA_KEY;
+  
+  //Verify URL
+  const verifyUrl = `https://google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${req.body.captcha}&remoteip=${req.connection.remoteAddress}`;
+  
+  //Make request to verify URL
+  request(verifyUrl, (err, response, body) => {
+    body = JSON.parse(body);
+
+    //If NOT Sucessful
+    if(body.success !== undefined && !body.success){
+          return res.json({
+            "success": false,
+            "msg": "Failed captcha verification"
+          });
+    }
+
+    return res.json({
+      "success": true,
+      "msg": "Captcha passed"
+    });
+  });
+});
+
+
 //Launch the server.
 app.listen(3000, () => console.log('Server listening on port 3000!'));

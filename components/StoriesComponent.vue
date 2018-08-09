@@ -91,7 +91,7 @@ export default {
 async asyncCall() {
   //console.log('calling');
   this.dataLoaded = await resolveAfter2Seconds();
-  console.log(this.dataLoaded);
+  //console.log(this.dataLoaded);
   // expected output: "resolved"
 },
    }

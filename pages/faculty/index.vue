@@ -1,26 +1,24 @@
 <template>
-    <div>
-      <h1 class="d-none">Faculty Home</h1>
-      <hero v-bind:hero="this.mainHero"></hero>
-      <h2>Faculty</h2>
-    </div>
+  <div>
+    <!--Main Hero and Nav-->
+    <main-hero></main-hero>
+    <navigation></navigation>
+    <!--Faculty Spotlight-->
+    <spotlight v-bind:category="2" id="spotlight"></spotlight>
+    <!--Faculty Directory-->
+    <faculty-directory></faculty-directory>
+  </div>
 </template>
 
 <script>
+import MainHero from '../../components/faculty/main.vue'
+import Navigation from '../../components/faculty/nav.vue'
+import FacultyDirectory from '../../components/faculty/directory.vue'
+
 export default {
     name: 'Faculty',
-    data (){
-      return {
-            mainHero: {
-            title: 'Connect With Our Faculty',
-            description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio eum delectus earum repellendus vel incidunt sit commodi necessitatibus aut eius.',
-            image_path: '/img/faculty_main_hero.jpg',
-            position: 'full-screen transparent-overlay',
-            link: '/directory#faculty',
-            link_text: 'View Directory',
-            show_link: true
-            }
-      }
+    components: {
+      MainHero, Navigation, FacultyDirectory
     },
     head () {
     return {

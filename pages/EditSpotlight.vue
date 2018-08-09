@@ -1,6 +1,6 @@
 <template>
 <div class="container" v-if="loggedIn">
-    <h1>Add Spotlight</h1>
+    <h2 class="py-3">Add Spotlight</h2>
     <p>This section will help you add a new Honors Spotlight with a real-time preview of it. Fill in the fields in this form to see the changes reflected 
         on the Honors Spotlight preview. Once you've added a new spotlight, you can click "Go Home" to see it on the Home page.</p>
     <p>If you'd like to edit the entire list, click the link below.</p>
@@ -48,6 +48,15 @@
 
 <!-- Form to submit Spotlight-->
 <form enctype="multipart/form-data" v-on:submit.prevent="addSpotlight">
+ <div class="form-group">
+    <label for="exampleFormControlSelect1">Spotlight Category</label>
+    <select class="form-control" id="exampleFormControlSelect1" v-model="category" required>
+    <option disabled selected value> -- select an option -- </option>
+      <option value="0">Student</option>
+      <option value="1">Alumni</option>
+      <option value="2">Faculty</option>
+    </select>
+  </div>
 <div class="row">
     <div class="form-group col">
         <label for="firstName">First Name</label>
@@ -121,6 +130,7 @@ export default {
             image_path: '/img/spotlight/default.jpg',
             graduation: '',
             imageData: '',
+            category: '',
             imagePreview: false,
             file: '',
         }
@@ -147,7 +157,8 @@ export default {
         short_text: this.short_text,
         long_text: this.long_text,
         graduation: this.graduation,
-        image: this.file
+        image: this.file,
+        category: this.category
        }).then(addSpotlight => {
            this.imageData = "",
            this.imagePreview = false

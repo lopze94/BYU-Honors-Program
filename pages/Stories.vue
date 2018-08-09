@@ -60,13 +60,13 @@ export default {
 async asyncCall() {
   //console.log('calling');
   this.dataLoaded = await resolveAfter2Seconds();
-  console.log(this.dataLoaded);
+  //console.log(this.dataLoaded);
   // expected output: "resolved"
 },
      deleteStory: function(student) {
     if (confirm("Are you sure you want to delete " + student.first_name + "'s spotlight")) {
       var img_name = student.image_path.replace("/img/spotlight/","");
-      console.log(img_name);
+      //console.log(img_name);
         this.$store.dispatch('deleteSpotlight',{
                       id:student.id,
             image_path:img_name
