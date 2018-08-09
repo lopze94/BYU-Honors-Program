@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container" id="why">
 <h2 class="py-3">Why Join Honors Program?</h2>
     <p>BYU Honors Program is about engaging with your learning, people, and ideas from across campus to:</p>
   <div class="row p-0">
@@ -34,6 +34,6 @@
 
 <script>
 export default {
-    name: 'WhyHonors',
+    name: 'Why'
 }
 </script>

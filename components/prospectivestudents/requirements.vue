@@ -1,6 +1,5 @@
 <template>
-    <div>
-      <div class="container">
+      <div class="container" id="requirements">
                 <h2 class="py-3">Requirements</h2>
         <p>
           This section provides a brief overview of the requirements to graduate with University Honors. Detailed explanations of each requirement 
@@ -18,9 +17,6 @@
 <li>Complete the Honors thesis </li>
 </ul>
       </div>
-
-        
-</div>
 </template>
 
 <script>

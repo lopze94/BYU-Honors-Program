@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container" id="how">
           <h2 class="py-3">How to Join Honors Program?</h2>
           <p>Joining the Honors Program is easy as [insert pun here]. Complete the following two steps and you'll be on your way to graduate with BYU Honors. Congratulations!</p>
           <div class="card-deck my-4">
@@ -22,7 +22,7 @@
 
 <script>
 export default {
-    name: 'HowToHonors'
+    name: 'How'
 }
 </script>
 

@@ -40,28 +40,11 @@
 </template>
 
 <script>
-function resolveAfter2Seconds() {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve(true);
-    }, 500);
-  });
-}
-
-
-
-
-
 export default {
   name: "Spotlight",
   props: ['category'],
-  data (){
-    return{
-      dataLoaded:false
-    }
-  },
    created: function() {
-     this.asyncCall();
+     this.$store.commit('setSpotlight', []);
      this.$store.dispatch('getSpotlight', this.$props.category );
    },
     computed: {
@@ -71,8 +54,6 @@ export default {
    },
    filters: {
      formatCategory: function(categoryInput){
-        console.log(categoryInput);
-        
         let output = ''
         switch (categoryInput){
           case 0:
@@ -87,14 +68,6 @@ export default {
         }
       return output;
       }
-   },
-   methods:{
-async asyncCall() {
-  //console.log('calling');
-  this.dataLoaded = await resolveAfter2Seconds();
-  //console.log(this.dataLoaded);
-  // expected output: "resolved"
-}
    }
 };
 </script>

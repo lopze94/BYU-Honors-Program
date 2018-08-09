@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container" id="testimonials">
 
     <h2 class="py-3">Student Testimonials</h2>
     <div class="card-deck">
@@ -42,7 +42,7 @@
 
 <script>
 export default {
-    name: 'StudentTestimonials'
+    name: 'Testimonials'
 }
 </script>
 
