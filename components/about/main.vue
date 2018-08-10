@@ -13,9 +13,6 @@ export default {
             hero: {
                 title: 'About Honors Program',
                 image_path: '/img/about/main_hero.jpg',
-                description: '',
-                link: '#story',
-                link_text: 'Our Story'
             }
         }
     }

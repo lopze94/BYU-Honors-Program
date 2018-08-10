@@ -4,13 +4,17 @@
         <history v-if="history"></history>
         <karl-maeser v-if="karl"></karl-maeser>
         <robert-thomas v-if="robert"></robert-thomas>
-    
+        <div v-if="!(history||karl||robert)">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque totam quos placeat asperiores atque distinctio doloribus voluptatem? Perspiciatis aliquam ea labore inventore illo. Nulla, quia dignissimos blanditiis voluptates assumenda quae?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat necessitatibus ducimus aspernatur consequuntur, itaque, at maiores neque, et pariatur incidunt sint? Possimus fuga, quia cum quas, illum dolore est itaque ab ducimus reprehenderit
+                neque harum labore quos quisquam accusamus illo? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione, at?</p>
+        </div>
         <a href="#story">
             <div class="card-deck" v-if="!(history||karl||robert)">
                 <div class="card border-0" v-on:click="selectCard(0)">
                     <img class="card-img-top" src="/img/about/honors_history.jpg" alt="Honors History">
                     <div class="card-img-overlay text-white">
-                        <table style="height: 100%;width: 100%;" v-if="!show2">
+                        <table style="height: 100%;width: 100%;">
                             <tbody>
                                 <tr>
                                     <td class="align-middle h5 text-center text-uppercase">Honors History</td>
@@ -22,7 +26,7 @@
                 <div class="card border-0" v-on:click="selectCard(1)">
                     <img class="card-img-top" src="/img/about/karl_maeser.jpg" alt="Karl G. Maeser">
                     <div class="card-img-overlay text-white">
-                        <table style="height: 100%;width: 100%;" v-if="!show2">
+                        <table style="height: 100%;width: 100%;">
                             <tbody>
                                 <tr>
                                     <td class="align-middle h5 text-center text-uppercase">Karl G. Maeser</td>
@@ -34,7 +38,7 @@
                 <div class="card border-0" v-on:click="selectCard(2)">
                     <img class="card-img-top" src="/img/about/robert_thomas.jpg" alt="Robert K. Thomas">
                     <div class="card-img-overlay text-white">
-                        <table style="height: 100%;width: 100%;" v-if="!show2">
+                        <table style="height: 100%;width: 100%;">
                             <tbody>
                                 <tr>
                                     <td class="align-middle h5 text-center text-uppercase">Robert K. Thomas</td>
@@ -46,18 +50,18 @@
             </div>
         </a>
         <nav class="nav nav-pills nav-justified" v-if="history||karl||robert">
-                <div class="col-sm-6 col-lg-3">
-                    <a class="nav-item nav-link" :class="{active: history}" href="#story" v-on:click="selectCard(0)">Honors History</a>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <a class="nav-item nav-link" :class="{active: karl}" href="#story" v-on:click="selectCard(1)">Karl G. Maeser</a>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <a class="nav-item nav-link" :class="{active: robert}" href="#story" v-on:click="selectCard(2)">Robert K. Thomas</a>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <a class="nav-item nav-link disabled" href="#story" v-on:click="reset">Return</a>
-                </div>
+            <div class="col-sm-6 col-lg-3">
+                <a class="nav-item nav-link" :class="{active: history}" href="#story" v-on:click="selectCard(0)">Honors History</a>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <a class="nav-item nav-link" :class="{active: karl}" href="#story" v-on:click="selectCard(1)">Karl G. Maeser</a>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <a class="nav-item nav-link" :class="{active: robert}" href="#story" v-on:click="selectCard(2)">Robert K. Thomas</a>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <a class="nav-item nav-link disabled" href="#story" v-on:click="reset">Return</a>
+            </div>
         </nav>
     </div>
 </template>
