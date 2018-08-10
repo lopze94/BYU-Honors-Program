@@ -13,10 +13,19 @@
   </thead>
   <tbody>
     <tr>
+      <th scope="row">Urgent</th>
+      <td>Thesis Proposal</td>
+      <td>August 18, 2018 @ 4:00pm</td>
+    </tr>
+    <tr>
       <th scope="row">Very Important</th>
       <td>Send Cambridge Application</td>
       <td>September 21, 2018 @ 6:00pm</td>
-
+    </tr>
+    <tr>
+      <th scope="row">Important</th>
+      <td>Buy Honors Ball Tickets</td>
+      <td>October 5, 2018 @ Midnight</td>
     </tr>
   </tbody>
 </table>

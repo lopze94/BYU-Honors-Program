@@ -13,7 +13,7 @@
         <!--router-link to="/experience">Experience</router-link-->
         <router-link to="/currentstudents">Current Students</router-link>
         <router-link to="/faculty">Faculty</router-link>
-        <router-link to="/alumni">Alumni</router-link>
+        <!--router-link to="/alumni">Alumni</router-link-->
         <router-link to="/about">About</router-link>
     </byu-menu>
 </byu-header>

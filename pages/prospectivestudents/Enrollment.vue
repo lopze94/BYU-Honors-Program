@@ -24,20 +24,22 @@
 
 <script>
 export default {
-    name: "Enrollment",
-    data () {
-      return {
-        name: 'Josue'
-      }
-    },
-    methods: {
-      submit: function() {
-        this.$store.dispatch('onlineEnrollment',{
-	        name: this.name,
-       }).then(data => {
-         this.$refs.recaptcha.reset();
-       });
-      },
+  name: "Enrollment",
+  data() {
+    return {
+      name: "Josue"
+    };
+  },
+  methods: {
+    submit: function() {
+      this.$store
+        .dispatch("onlineEnrollment", {
+          name: this.name
+        })
+        .then(data => {
+          this.$refs.recaptcha.reset();
+        });
+    }
   }
-}
+};
 </script>

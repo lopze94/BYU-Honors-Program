@@ -2,7 +2,7 @@
 <div>
   <byu-hero-banner id="hero" v-bind:image-source="hero.image_path" class="dark-image full-screen transparent-overlay">
     <span slot="headline">{{hero.title}}</span>
-    <span slot="intro-text">
+    <span slot="intro-text" v-html="hero.description">
       {{hero.description}}
       </span>
     <a slot="read-more" v-bind:href="hero.link" class="h5" v-if="hero.link&&hero.link_text">{{hero.link_text}}</a>

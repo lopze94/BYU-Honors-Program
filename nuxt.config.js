@@ -1,5 +1,6 @@
 const pkg = require('./package')
 const axios = require('axios')
+const webpack = require('webpack')
 
 module.exports = {
 
@@ -140,6 +141,12 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
+    plugins: [
+      new webpack.ProvidePlugin({
+        '_': 'lodash'
+        // ...etc.
+      })
+    ],
     extend(config, ctx) {
     }
   }

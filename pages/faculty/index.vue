@@ -11,22 +11,28 @@
 </template>
 
 <script>
-import MainHero from '../../components/faculty/main.vue'
-import Navigation from '../../components/faculty/nav.vue'
-import FacultyDirectory from '../../components/faculty/directory.vue'
+import MainHero from "../../components/faculty/main.vue";
+import Navigation from "../../components/faculty/nav.vue";
+import FacultyDirectory from "../../components/faculty/directory.vue";
 
 export default {
-    name: 'Faculty',
-    components: {
-      MainHero, Navigation, FacultyDirectory
-    },
-    head () {
+  name: "Faculty",
+  components: {
+    MainHero,
+    Navigation,
+    FacultyDirectory
+  },
+  head() {
     return {
-      title: 'BYU Honors Program | Faculty',
+      title: "BYU Honors Program | Faculty",
       meta: [
-        { hid: 'description', name: 'description', content: 'About our company Nuxt.js' }
+        {
+          hid: "description",
+          name: "description",
+          content: "About our company Nuxt.js"
+        }
       ]
-    }
+    };
   }
-}
+};
 </script>
