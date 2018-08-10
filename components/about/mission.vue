@@ -79,7 +79,7 @@
             </div>
         </div>
         <div class="text-center">
-            <span class="badge badge-primary mr-1" v-on:click="show0=show1=show2=show3=true" v-if="!show0||!show1||!show2||!show3">Expand All</span>
+            <span class="badge badge-primary mr-1" v-on:click="show0=show1=show2=show3=true" v-if="(show0||show1||show2||show3)&&!(show0&&show1&&show2&&show3)">Expand All</span>
             <span class="badge badge-secondary" v-on:click="show0=show1=show2=show3=false" v-if="show0||show1||show2||show3">Hide All</span>
         </div>
     </div>
