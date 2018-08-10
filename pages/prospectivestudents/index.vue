@@ -23,28 +23,38 @@
 </template>
 
 <script>
-import MainHero from '../../components/prospectivestudents/main.vue'
-import Navigation from '../../components/prospectivestudents/nav.vue'
-import What from '../../components/prospectivestudents/what.vue'
-import Why from '../../components/prospectivestudents/why.vue'
-import Testimonials from '../../components/prospectivestudents/testimonials.vue'
-import How from '../../components/prospectivestudents/how.vue'
-import Requirements from '../../components/prospectivestudents/requirements.vue'
+import MainHero from "../../components/prospectivestudents/main.vue";
+import Navigation from "../../components/prospectivestudents/nav.vue";
+import What from "../../components/prospectivestudents/what.vue";
+import Why from "../../components/prospectivestudents/why.vue";
+import Testimonials from "../../components/prospectivestudents/testimonials.vue";
+import How from "../../components/prospectivestudents/how.vue";
+import Requirements from "../../components/prospectivestudents/requirements.vue";
 
 export default {
-    name: 'ProspectiveStudents',
-    components :{
-      MainHero, Navigation, What, Why, Testimonials, How, Requirements
-      },
-      head () {
-    return {
-      title: 'BYU Honors Program | Prospective Students',
-      meta: [
-        { hid: 'description', name: 'description', content: 'About our company Nuxt.js' }
-      ],
-    }
+  name: "ProspectiveStudents",
+  components: {
+    MainHero,
+    Navigation,
+    What,
+    Why,
+    Testimonials,
+    How,
+    Requirements
   },
-}
+  head() {
+    return {
+      title: "BYU Honors Program | Prospective Students",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "About our company Nuxt.js"
+        }
+      ]
+    };
+  }
+};
 </script>
 
 <style scoped>

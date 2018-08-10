@@ -12,7 +12,7 @@ export default {
             hero: {
                 title: 'Honors Directory',
                 description: 'find who you\'re looking for',
-                image_path: '/img/maeser_building_spring.jpg',
+                image_path: '/img/about/directory_hero.jpg',
                 link: '/directory',
                 link_text: 'Go to Directory'
             }

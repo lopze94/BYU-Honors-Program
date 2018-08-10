@@ -17,26 +17,24 @@
     </div>
 </template>
  <script>
- export default {
-     name: "Cambridge Program",
-     data () {
-         return {
-             hero0: {
-            title: '',
-            subtitle: '',
-            description: '',
-            text: '',
-            image_path: '/img/cambridge_program.jpg',
-            link_text: '',
-            link: ''
-            },
-            imageData: '',
-            imagePreview: false,
-            file: '',
-
-        }
-         }
-     }
- 
- </script>
+export default {
+  name: "Cambridge Program",
+  data() {
+    return {
+      hero0: {
+        title: "",
+        subtitle: "",
+        description: "",
+        text: "",
+        image_path: "/img/cambridge_program.jpg",
+        link_text: "",
+        link: ""
+      },
+      imageData: "",
+      imagePreview: false,
+      file: ""
+    };
+  }
+};
+</script>
  

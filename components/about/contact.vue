@@ -12,8 +12,8 @@ export default {
         return {
             hero: {
                 title: 'Contact Us',
-                image_path: '/img/cambridge_program.jpg',
-                description: '(801) 400-8794'
+                image_path: '/img/about/contact_hero.jpg',
+                description: '102 MSRB<br>M-F | 8am - 5pm<br>(801) 422-5497<br>honors@byu.edu'
             }
         }
     }

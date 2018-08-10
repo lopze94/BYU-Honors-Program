@@ -13,4 +13,3 @@ dist
 #.env
 
 .env
-sendgrid.env

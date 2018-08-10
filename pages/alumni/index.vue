@@ -9,22 +9,27 @@
 </template>
 
 <script>
-import MainHero from '../../components/alumni/main.vue'
-import Navigation from '../../components/alumni/nav.vue'
+import MainHero from "../../components/alumni/main.vue";
+import Navigation from "../../components/alumni/nav.vue";
 
 export default {
-    name: 'Alumni',
-    components: {
-      MainHero, Navigation
-    },
-      head () {
+  name: "Alumni",
+  components: {
+    MainHero,
+    Navigation
+  },
+  head() {
     return {
-      title: 'BYU Honors Program | Alumni',
+      title: "BYU Honors Program | Alumni",
       meta: [
-        { hid: 'description', name: 'description', content: 'About our company Nuxt.js' }
+        {
+          hid: "description",
+          name: "description",
+          content: "About our company Nuxt.js"
+        }
       ]
-    }
+    };
   }
-}
+};
 </script>
 

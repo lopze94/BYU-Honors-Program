@@ -12,9 +12,9 @@ export default {
         return {
             hero: {
                 title: 'About Honors Program',
-                image_path: '/img/cambridge_program.jpg',
+                image_path: '/img/about/main_hero.jpg',
                 description: '',
-                link: '/stories',
+                link: '#story',
                 link_text: 'Our Story'
             }
         }
