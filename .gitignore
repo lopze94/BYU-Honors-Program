@@ -13,3 +13,6 @@ dist
 #.env
 
 .env
+
+#scripts
+updatevps.sh
