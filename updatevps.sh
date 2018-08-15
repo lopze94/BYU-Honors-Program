@@ -1,2 +1,15 @@
 echo Runing update script on VPS
-ssh lopze94@kapok.ventures /var/www/kapok.ventures/html/nuxt_honors/updatekapok.sh
+echo Opening nuxt_honors folder and updating it
+ssh lopze94@kapok.ventures cd /var/www/kapok.ventures/html/nuxt_honors & git pull
+#cd /var/www/kapok.ventures/html/nuxt_honors
+#echo Updating Kapok... Pulling new changes from repositories
+#git pull
+#echo Stoping all services
+#forever stopall
+#echo Building...
+#npm run build
+#echo restarting services
+#source .env
+#forever start server.js
+#NODE_ENV=production forever start server/index.js
+#echo All Done!
