@@ -1,5 +1,5 @@
 <template>
-    <div class="container" id="affiliations">
+    <div class="container jumptarget" id="affiliations">
         <h2 class="py-3">Affiliations</h2>
         <div class="row">
             <div class="col-sm-6 col-lg-4">

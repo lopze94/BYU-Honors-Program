@@ -80,4 +80,13 @@ h2 {
     font-size: 60px;
   }
 }
+
+    .jumptarget::before {
+        content: "";
+        display: block;
+        height: 55px;
+        /* fixed header height*/
+        margin: -55px 0 0;
+        /* negative fixed header height */
+    }
 </style>

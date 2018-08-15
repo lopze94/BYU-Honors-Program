@@ -1,25 +1,16 @@
 <template>
   <div>
     <hero v-bind:hero="stories[0]" v-if="stories[0]"></hero>
-    <div class="container pt-3">
-      <p>
-        The Honors Program mission is to develop student-scholars from across the university who will become broad thinkers, creative problem solvers, and influential leaders.
-      </p>
-      <p>
-        This mission is achieved by cultivating:
-      </p>
-    </div>
-  
     <div class="container pt-4">
       <div class="card-deck">
-        <a v-for="(story, index) in stories" :key="index" class="card border-0" v-if="story.category==1" v-bind:href="story.link">
-          <img class="card-img-top" v-bind:src="story.image_path" v-bind:alt="story.subtitle">
+        <a class="card border-0" v-if="stories[1]" v-bind:href="stories[1].link">
+          <img class="card-img-top" v-bind:src="stories[1].image_path" v-bind:alt="stories[1].subtitle">
           <div class="card-body">
-            <h5 class="card-title">{{story.title}}</h5>
-            <p class="card-text">{{story.description}}</p>
+            <h5 class="card-title">{{stories[1].title}}</h5>
+            <p class="card-text">{{stories[1].description}}</p>
           </div>
           <div class="card-footer border-0 bg-transparent">
-            <small class="text-muted">{{story.created | formatDate}}</small>
+            <small class="text-muted">{{stories[1].created | formatDate}}</small>
           </div>
         </a>
   

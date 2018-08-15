@@ -1,5 +1,5 @@
 <template>
-    <div id="directory">
+    <div id="directory" class="jumptarget">
         <global-hero v-bind:hero="hero"></global-hero>
     </div>
 </template>

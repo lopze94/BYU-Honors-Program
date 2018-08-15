@@ -46,6 +46,10 @@ module.exports = {
       {
         rel: 'stylesheet',
         href: 'https://cdn.byu.edu/byu-hero-banner/latest/byu-hero-banner.min.css'
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://cdn.byu.edu/byu-calendar-components/latest/byu-calendar.min.css'
       }
     ],
     script: [{
@@ -73,6 +77,9 @@ module.exports = {
       },
       {
         src: 'https://www.google.com/recaptcha/api.js'
+      },
+      {
+        src: '//cdn.byu.edu/byu-calendar-components/latest/byu-calendar.min.js'
       }
     ]
   },
