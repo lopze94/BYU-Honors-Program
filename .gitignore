@@ -16,3 +16,4 @@ dist
 
 #scripts
 updatevps.sh
+push.sh
