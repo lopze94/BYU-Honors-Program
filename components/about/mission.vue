@@ -1,5 +1,5 @@
 <template>
-    <div class="container" id="mission">
+    <div class="container jumptarget" id="mission">
         <h2 class="py-3">Our Mission</h2>
         <p>
             The Honors Program mission is to develop student-scholars from across the university 

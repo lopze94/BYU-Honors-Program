@@ -290,7 +290,7 @@ app.get('/api/stories', (req, res) => {
   let id = parseInt(req.params.id);
   knex('stories')
     .orderBy('created', 'desc')
-    .select('id', 'title', 'subtitle', 'description', 'created', 'text', 'link', 'image_path', 'link_text', 'author').then(stories => {
+    .select('*').then(stories => {
       res.status(200).json({
         stories: stories
       });

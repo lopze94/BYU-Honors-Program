@@ -1,5 +1,5 @@
 <template>
-    <div class="container pb-sm-3 pb-lg-4 pb-xl-5" id="story">
+    <div class="container pb-sm-3 pb-lg-4 pb-xl-5 jumptarget" id="story">
         <h2 class="py-3">Our Story<span v-if="selected">: {{selected}}</span></h2>
         <history v-if="history"></history>
         <karl-maeser v-if="karl"></karl-maeser>

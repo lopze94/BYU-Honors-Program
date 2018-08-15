@@ -1,5 +1,5 @@
 <template>
-    <div class="container" id="testimonials">
+    <div class="container jumptarget" id="testimonials">
 
     <h2 class="py-3">Student Testimonials</h2>
     <div class="card-deck">

@@ -12,9 +12,9 @@ export default {
         return {
             hero: {
                 title: 'Welcome Back!',
-                image_path: '/img/cambridge_program.jpg',
+                image_path: '/img/current/main_hero.jpg',
                 description: 'This is a description',
-                link: '/',
+                link: '',
                 link_text: 'Watch video'
             }
         }

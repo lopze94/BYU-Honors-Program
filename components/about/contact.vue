@@ -1,5 +1,5 @@
 <template>
-    <div id="contact">
+    <div id="contact" class="jumptarget">
         <h1 class="d-none">About BYU Honors Program</h1>
         <global-hero v-bind:hero="hero"></global-hero>
     </div>

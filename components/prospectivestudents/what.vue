@@ -1,5 +1,5 @@
 <template>
-    <div class="container" id="what">
+    <div class="container jumptarget" id="what">
     <h2 class="py-3">What is Honors Program?</h2>
     <p>
         The Honors Program at BYU is an open-enrollment, stimulating community of scholars who seek to broaden and deepen the undergraduate experience.
