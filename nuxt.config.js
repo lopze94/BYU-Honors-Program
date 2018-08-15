@@ -104,7 +104,11 @@ module.exports = {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    '~/plugins/global.js'
+    '~/plugins/global.js',
+    /*{
+      src: '~/plugins/bycollege-chart.js',
+      ssr: false
+    },*/
   ],
 
   /*
@@ -148,12 +152,12 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    plugins: [
-      new webpack.ProvidePlugin({
-        '_': 'lodash'
+    //plugins: [
+      //new webpack.ProvidePlugin({
+        //'_': 'lodash'
         // ...etc.
-      })
-    ],
+      //}),
+    //],
     extend(config, ctx) {
     }
   }
