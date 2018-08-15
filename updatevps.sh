@@ -1,6 +1,8 @@
 echo Runing update script on VPS
 echo Opening nuxt_honors folder and updating it
-ssh lopze94@kapok.ventures cd /var/www/kapok.ventures/html/nuxt_honors & git pull
+ssh lopze94@kapok.ventures cd /var/www/kapok.ventures/html/nuxt_honors & ssh lopze94@kapok.ventures git pull
+
+
 #cd /var/www/kapok.ventures/html/nuxt_honors
 #echo Updating Kapok... Pulling new changes from repositories
 #git pull
