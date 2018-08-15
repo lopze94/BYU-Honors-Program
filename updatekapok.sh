@@ -10,3 +10,4 @@ echo restarting services
 source .env
 forever start server.js
 forever start server/index.js
+echo Done :)
