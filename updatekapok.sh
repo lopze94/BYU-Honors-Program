@@ -9,5 +9,5 @@ npm run build
 echo restarting services
 source .env
 forever start server.js
-forever start server/index.js
-echo Done :)
+NODE_ENV=production forever start server/index.js
+echo All Done!
