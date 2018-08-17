@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <h2 class="py-3">Schedule Appointment</h2>
-        <form v-on:submit.prevent="sendMail">
+        <form v-on:submit.prevent="sendMail" class="pb-4">
             <div class="row">
     <div class="form-group col-md-4">
         <label for="firstName">First Name</label>
@@ -28,9 +28,9 @@
     <label for="controlSelectforTime">What can we help you with?</label>
     <select class="form-control" v-model="help" aria-describedby="questionHelp">
         <option selected>Choose one...</option>
-      <option v-for="option in helpOptions">{{option}}</option>
+      <option v-for="(option, i) in helpOptions" :key="i">{{option}}</option>
     </select>
-     <small id="questionHelp" class="form-text text-muted">Check the <a href="/faq" target="_blank">FAQ page</a> before selecting "General Questions."</small>
+     <small id="questionHelp" class="form-text text-muted">Check the <a href="/about/faq" target="_blank">FAQ page</a> before selecting "General Questions."</small>
   </div>
 </div>
 
@@ -45,7 +45,7 @@
     <div class="form-group" v-if="showTime">
     <label for="controlSelectforTime">Select a Time</label>
     <select class="form-control col-sm-3" v-model="selectedTime" required>
-      <option v-for="slot in timeSlots" v-bind:value="slot">{{slot.text}}</option>
+      <option v-for="(slot, i) in timeSlots" v-bind:value="slot" :key="i">{{slot.text}}</option>
     </select>
   </div>
       <div div class="alert alert-info" role="alert" v-if="selectedTime">Your appointment will be on {{selectedTime.value | formatAppointment}}.</div>
