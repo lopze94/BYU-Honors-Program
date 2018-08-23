@@ -17,14 +17,15 @@
                   <div class="col-sm-6 col-lg-4">
       
                         <h3>Leadership</h3>
-                        <p>Complete <b>one</b> of the following options:</p>
-                        <ul>
-                              <li>Leadership-Related Experience <span class="text-info">(Ballard Center, United Way, Women Services & Resources)</span></li>
-                              <li>Study Abroad, Field Study, or Internship</li>
-                              <li>Honors Student Leadership Council <span class="text-info">(HSLC)</span></li>
-                        </ul>
+                        <p>Complete <b>one</b> of the following options:
+                              <ul>
+                                    <li>Leadership-Related Experience <span class="text-info">(Ballard Center, United Way, Women Services & Resources)</span></li>
+                                    <li>Study Abroad, Field Study, or Internship</li>
+                                    <li>Honors Student Leadership Council <span class="text-info">(HSLC)</span></li>
+                              </ul>
+                        </p>
                   </div>
-                  <div class="col-sm-6 col-lg-4 offset-sm-3 offset-lg-0">
+                  <div class="col-sm-12 col-lg-4">
                         <h3>Thesis</h3>
                         <p>
                               Complete an original research on creative work/project that is mentored by a faculty member.

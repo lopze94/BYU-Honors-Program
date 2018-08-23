@@ -12,7 +12,7 @@ export default {
         return {
             hero: {
             title: 'Connect With Our Faculty',
-            description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio eum delectus earum repellendus vel incidunt sit commodi necessitatibus aut eius.',
+            description: 'Distinguished faculty from across the university engage in innovative teaching, mentored research, and shared learning experiences.',
             image_path: '/img/faculty_main_hero.jpg',
             }
         }

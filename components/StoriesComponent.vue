@@ -7,7 +7,7 @@
       <span slot="intro-text">
                       {{stories[0].title}}
                       </span>
-      <a slot="read-more" v-bind:href="stories[0].link" class="h5" v-if="!id">{{stories[0].link_text}}</a>
+      <a slot="read-more" v-bind:href="stories[0].link" class="h5">{{stories[0].link_text}}</a>
     </byu-hero-banner>
   
   

@@ -3,12 +3,12 @@
     <!--Main Hero and Nav-->
     <main-hero></main-hero>
     <navigation :navigation="navigation"></navigation>
+    <!--Faculty Participation-->
+    <participate></participate>
     <!--Faculty Spotlight-->
     <spotlight v-bind:category="2" id="spotlight" class="jumptarget"></spotlight>
     <!--Unexpected Connections-->
     <unexpected-connections></unexpected-connections>
-    <!--Faculty Participation-->
-    <participate></participate>
     <!--Faculty Resources-->
     <faculty-resources></faculty-resources>
     <!--Faculty Directory-->

@@ -17,6 +17,9 @@
                                 <p>
                                     image description: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure perferendis odio iusto asperiores quo maiores.
                                 </p>
+                                <div class="text-center d-none d-lg-block">
+                                    <img src="/img/global/logo.png" class="img-fluid my-xl-5" alt="Honors Program Logo" width="200px">
+                                </div>
                             </td>
                         </tr>
                     </tbody>
