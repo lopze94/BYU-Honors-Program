@@ -53,7 +53,7 @@
           },
           {
             href: '#testimonials',
-            text: 'Testimonials'
+            text: 'Experiences'
           },
           {
             href: '#how',

@@ -1,50 +1,35 @@
 <template>
   <div>
-    <hero v-bind:hero="stories[0]" v-if="stories[0]"></hero>
+    <!--hero v-bind:hero="stories[0]" v-if="stories[0]"></hero-->
+  
+    <byu-hero-banner id="hero" v-bind:image-source="stories[0].image_path" class="dark-image full-screen transparent-overlay" v-if="stories[0]">
+      <span slot="headline">Make Unexpected Connections</span>
+      <span slot="intro-text">
+                      {{stories[0].title}}
+                      </span>
+      <a slot="read-more" v-bind:href="stories[0].link" class="h5" v-if="!id">{{stories[0].link_text}}</a>
+    </byu-hero-banner>
+  
+  
     <div class="container pt-3">
-      <p>
-        The Honors Program mission is to develop student-scholars from across the university who will become broad thinkers, creative problem solvers, and influential leaders.
-      </p>
-      <p>
-        This mission is achieved by cultivating:
-      </p>
+      <h2 class="py-3">Experience Honors</h2>
     </div>
   
     <div class="container pt-4">
       <div class="card-deck">
-        <a v-for="(story, index) in stories" :key="index" class="card border-0" v-if="story.category==1" v-bind:href="story.link">
-          <img class="card-img-top" v-bind:src="story.image_path" v-bind:alt="story.subtitle">
+        <a v-for="(story, index) in featuredstories" :key="index" class="card border-0 mx-2 rounded-0" v-bind:href="story.link">
+          <div class="card-header bg-honors text-white text-uppercase rounded-0" style="font-size: 14px;">
+            {{story.category | replaceCategory}}
+          </div>
+          <img class="card-img rounded-0" v-bind:src="story.image_path" v-bind:alt="story.subtitle">
           <div class="card-body">
             <h5 class="card-title">{{story.title}}</h5>
-            <p class="card-text">{{story.description}}</p>
+            <p class="card-text overflow-text">{{story.description}}</p>
           </div>
           <div class="card-footer border-0 bg-transparent">
             <small class="text-muted">{{story.created | formatDate}}</small>
           </div>
         </a>
-  
-        <a class="card border-0" v-if="stories[2]" v-bind:href="stories[2].link">
-          <img class="card-img-top" v-bind:src="stories[2].image_path" v-bind:alt="stories[2].subtitle">
-          <div class="card-body">
-            <h5 class="card-title">{{stories[2].title}}</h5>
-            <p class="card-text">{{stories[2].description}}</p>
-          </div>
-          <div class="card-footer border-0 bg-transparent">
-            <small class="text-muted">{{stories[2].created | formatDate}}</small>
-          </div>
-        </a>
-  
-        <a class="card border-0" v-if="stories[3]" v-bind:href="stories[3].link">
-          <img class="card-img-top" v-bind:src="stories[3].image_path" v-bind:alt="stories[3].subtitle">
-          <div class="card-body">
-            <h5 class="card-title">{{stories[3].title}}</h5>
-            <p class="card-text">{{stories[3].description}}</p>
-          </div>
-          <div class="card-footer border-0 bg-transparent">
-            <small class="text-muted">{{stories[3].created | formatDate}}</small>
-          </div>
-        </a>
-  
       </div>
       <div class="text-muted text-right mt-3">
         <router-link to="/stories" class="text-muted">See all stories</router-link>
@@ -55,52 +40,55 @@
 
 <script>
   var moment = require('moment');
+  import axios from 'axios';
   
-  function resolveAfter2Seconds() {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve(true);
-      }, 500);
-    });
-  }
   export default {
     name: 'StoriesComponent',
     data() {
       return {
-        dataLoaded: false,
-        message: 'The story could not be found.'
+        featuredstories: []
       }
     },
     created: function() {
-      this.asyncCall();
       this.$store.dispatch('getStories');
+      this.getFeaturedStories();
     },
     computed: {
       stories: function() {
         return this.$store.getters.stories;
-      },
-      user: function() {
-        return this.$store.getters.user;
-      },
-      loggedIn: function() {
-        return this.$store.getters.loggedIn;
-      },
-      loginError: function() {
-        return this.$store.getters.loginError;
-      },
+      }
     },
     filters: {
       formatDate: function(dateInput) {
         return moment(dateInput).format('MMMM DD, YYYY');
+      },
+      replaceCategory: function(catNum) {
+        let catString = '';
+        switch (catNum) {
+          case 0:
+            catString = 'Academic Excellence';
+            break;
+          case 1:
+            catString = 'Community of Scholars';
+            break;
+          case 2:
+            catString = 'Interdisciplinary Thinking';
+            break;
+          case 3:
+            catString = 'Skills of Inquiry';
+            break;
+        };
+        return catString;
       }
     },
     methods: {
-      async asyncCall() {
-        //console.log('calling');
-        this.dataLoaded = await resolveAfter2Seconds();
-        //console.log(this.dataLoaded);
-        // expected output: "resolved"
-      },
+      getFeaturedStories: function() {
+        axios.get("/api/featuredstories").then(response => {
+          this.featuredstories = response.data.stories;
+        }).catch(err => {
+          console.log("getFeaturedStories failed:", err);
+        });
+      }
     }
   }
 </script>
@@ -114,6 +102,19 @@
   a:hover {
     text-decoration: none;
     cursor: pointer;
+    color: #0057B8;
+  }
+  
+  .overflow-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    /* fallback */
+    max-height: 48px;
+    /* fallback */
+    -webkit-line-clamp: 2;
+    /* number of lines to show */
+    -webkit-box-orient: vertical;
   }
   
   .card {
@@ -122,5 +123,9 @@
   
   .card:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  .bg-honors {
+    background: #002E5D;
   }
 </style>

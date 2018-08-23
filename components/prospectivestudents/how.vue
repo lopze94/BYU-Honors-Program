@@ -3,7 +3,7 @@
         <h2 class="py-3">How to Join Honors Program?</h2>
         <p>Joining the Honors Program is easy as [insert pun here]. Complete the following two steps and you'll be on your way to graduate with BYU Honors. Congratulations!</p>
         <div class="card-deck my-4">
-            <a class="card border-0 text-color" href="/prospectivestudents/enrollment">
+            <a class="card border-0 text-color" href="/forms/enrollment">
                 <img class="card-img" src="/img/online_enrollment.jpg" alt="Card image">
                 <div class="card-img-overlay">
                     <h4 class="card-title">Online Enrollment</h4>
