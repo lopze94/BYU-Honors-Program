@@ -13,7 +13,8 @@
     <!--How to Join Honors Program?-->
     <how></how>
     <!--Requirements-->
-    <requirements class="mb-5"></requirements>
+    <requirements></requirements>
+    <first-opportunities></first-opportunities>
   
     <byu-hero-banner id="hero" image-source="/img/advisor.jpg" class="dark-image full-screen transparent-overlay">
       <span slot="headline">Talk to an Advisor!</span>
@@ -30,6 +31,7 @@
   import Testimonials from "../../components/prospectivestudents/testimonials.vue";
   import How from "../../components/prospectivestudents/how.vue";
   import Requirements from "../../components/prospectivestudents/requirements.vue";
+  import FirstOpportunities from "../../components/prospectivestudents/opportunities.vue";
   
   export default {
     name: "ProspectiveStudents",
@@ -39,7 +41,8 @@
       Why,
       Testimonials,
       How,
-      Requirements
+      Requirements,
+      FirstOpportunities
     },
     data() {
       return {

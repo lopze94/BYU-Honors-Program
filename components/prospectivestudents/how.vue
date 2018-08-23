@@ -2,21 +2,47 @@
     <div class="container jumptarget" id="how">
         <h2 class="py-3">How to Join Honors Program?</h2>
         <p>Joining the Honors Program is easy as [insert pun here]. Complete the following two steps and you'll be on your way to graduate with BYU Honors. Congratulations!</p>
-        <div class="card-deck my-4">
-            <a class="card border-0 text-color" href="/forms/enrollment">
+        <div class="card-deck">
+            <a class="card border-0 text-color" href="/scheduleappointment">
                 <img class="card-img" src="/img/online_enrollment.jpg" alt="Card image">
-                <div class="card-img-overlay">
-                    <h4 class="card-title">Online Enrollment</h4>
+    
+                <div class="card-img-overlay text-white">
+                    <table style="height: 100%;width: 100%;">
+                        <tbody>
+                            <tr>
+                                <td class="align-middle">
+                                      <h5 class="text-center text-uppercase">
+                                        Honors Enrollment
+                                    </h5>
+                                    <p class="mb-0 d-sm-none d-md-block">
+                                        Complete the Honors Enrollment Form online.
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </a>
             <a class="card border-0 text-color" href="/scheduleappointment">
-                <img class="card-img" src="/img/commitment_interview.jpg" alt="Card image">
-                <div class="card-img-overlay">
-                    <h4 class="card-title">Commitment Interview</h4>
+                <img class="card-img" src="/img/prospective/commitment_interview.jpg" alt="Card image">
+                <div class="card-img-overlay text-white">
+                    <table style="height: 100%;width: 100%;">
+                        <tbody>
+                            <tr>
+                                <td class="align-middle">
+                                    <h5 class="text-center text-uppercase">
+                                        Commitment Interview
+                                    </h5>
+                                    <p class="mb-0 d-sm-none d-md-block">
+                                        Meet with one of our advisors to complete the Commitment Interview.
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </a>
         </div>
-    
     </div>
 </template>
 

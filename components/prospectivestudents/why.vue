@@ -1,6 +1,6 @@
 <template>
   <div class="container jumptarget" id="why">
-<h2 class="py-3">Why Join Honors Program?</h2>
+<h2 class="py-3">Why Join?</h2>
     <p>BYU Honors Program is about engaging with your learning, people, and ideas from across campus to:</p>
   <div class="row p-0">
     <div class="col-sm-4">
