@@ -1,8 +1,8 @@
 <template>
     <div>
           <h1 class="d-none">Prospective Students</h1>
-    <byu-hero-banner id="hero" image-source="/img/maeser_building_spring.jpg" class="dark-image full-screen transparent-overlay">
-    <span slot="headline">Welcome Prospective Students!</span>
+    <byu-hero-banner id="hero" image-source="/img/prospective/main_hero.jpg" class="dark-image full-screen transparent-overlay">
+    <span slot="headline">Experience Honors</span>
     <span slot="intro-text"></span>
     <a slot="read-more" @click="showModal" class="a-link">Watch Video</a>
 </byu-hero-banner>

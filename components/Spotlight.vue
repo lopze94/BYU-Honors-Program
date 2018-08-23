@@ -57,7 +57,7 @@ export default {
         let output = ''
         switch (categoryInput){
           case 0:
-            output = 'Honors'
+            output = 'Student'
           break;
           case 1:
             output = 'Alumni'

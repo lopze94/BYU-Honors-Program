@@ -209,7 +209,7 @@ app.get('/api/users/:id', (req, res) => {
 app.get('/api/spotlight/:category', (req, res) => {
   let id = parseInt(req.params.id);
   let category = parseInt(req.params.category);
-  if (category === 3 ) category = '%';
+  if (category === 3) category = '%';
   knex('spotlight')
     .orderBy('created', 'desc')
     .select('*').where('category', 'like', category).then(spotlight => {
@@ -262,7 +262,7 @@ app.post('/api/spotlight', verifyToken, uploadSpotlight.single('image'), (req, r
 // DELETE - Deletes the record from the databasem, locates the image file and deletes it. 
 
 app.delete('/api/spotlight/:id/:image_path', verifyToken, (req, res) => {
-  
+
   let id = parseInt(req.params.id);
   let image_path = req.params.image_path
 
@@ -287,10 +287,27 @@ app.delete('/api/spotlight/:id/:image_path', verifyToken, (req, res) => {
 // GET - gets the spotlight info from the database.
 
 app.get('/api/stories', (req, res) => {
-  let id = parseInt(req.params.id);
+  //let id = parseInt(req.params.id);
   knex('stories')
     .orderBy('created', 'desc')
     .select('*').then(stories => {
+      res.status(200).json({
+        stories: stories
+      });
+    }).catch(error => {
+      console.log(error);
+      res.status(500).json({
+        error
+      });
+    });
+});
+
+app.get('/api/featuredstories', (req, res) => {
+  knex('stories')
+    .where(knex.raw('created = (select max(created) from stories as f where f.category = stories.category)'))
+    .orderBy('category', 'asc')
+    .select('*')
+    .then(stories => {
       res.status(200).json({
         stories: stories
       });
@@ -344,21 +361,20 @@ app.post('/api/stories', verifyToken, uploadStory.single('image'), (req, res) =>
   }).then(ids => {
     return knex('stories').where('id', ids[0]).first();
   }).then(story => {
-    if(story.link == ''){
+    if (story.link == '') {
       //console.log("This link is empty. Generating Link...");
       link = '/stories/' + story.id + '/' + story.title.replace(/\s/g, "_");
       knex('stories').where('id', story.id).update('link', link).then();
       story.link = link;
-                res.status(200).json({
-                  story: story
-                });
-                return;
-    }
-    else{
-          res.status(200).json({
-            story: story
-          });
-          return;
+      res.status(200).json({
+        story: story
+      });
+      return;
+    } else {
+      res.status(200).json({
+        story: story
+      });
+      return;
     }
   }).catch(error => {
     console.log(error);
@@ -420,11 +436,11 @@ app.post('/api/send/', (req, res) => {
 //Online Application
 
 app.post('/api/enrollment', (req, res) => {
-  if(
+  if (
     req.body.captcha === undefined ||
     req.body.captcha === '' ||
     req.body.captcha === null
-  ){
+  ) {
     return res.json({
       "success": false,
       "msg": "Please select reCaptcha"
@@ -433,20 +449,20 @@ app.post('/api/enrollment', (req, res) => {
 
   //Secret Key
   const secretKey = process.env.CAPTCHA_KEY;
-  
+
   //Verify URL
   const verifyUrl = `https://google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${req.body.captcha}&remoteip=${req.connection.remoteAddress}`;
-  
+
   //Make request to verify URL
   request(verifyUrl, (err, response, body) => {
     body = JSON.parse(body);
 
     //If NOT Sucessful
-    if(body.success !== undefined && !body.success){
-          return res.json({
-            "success": false,
-            "msg": "Failed captcha verification"
-          });
+    if (body.success !== undefined && !body.success) {
+      return res.json({
+        "success": false,
+        "msg": "Failed captcha verification"
+      });
     }
 
     return res.json({
