@@ -7,8 +7,8 @@
         <testimonials></testimonials>
         <timeline></timeline>
         <funding></funding>
-        <application></application>
         <questions></questions>
+        <application></application>
     </div>
 </template>
 

@@ -9,8 +9,8 @@
                 <div class="card-header" id="headingOne">
                     <h5 class="mb-0">
                         <button class="btn btn-link" type="button" data-toggle="collapse" :data-target="'#collapse-'+i" aria-expanded="false" :aria-controls="'collapse-'+i">
-                                                    {{question.title}}
-                                                 </button>
+                            {{question.title}}
+                             </button>
                     </h5>
                 </div>
     

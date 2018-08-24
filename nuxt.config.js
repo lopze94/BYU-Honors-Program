@@ -105,6 +105,7 @@ module.exports = {
    */
   plugins: [
     '~/plugins/global.js',
+    { src: '~/plugins/timeline.js', ssr: false }
     /*{
       src: '~/plugins/bycollege-chart.js',
       ssr: false
