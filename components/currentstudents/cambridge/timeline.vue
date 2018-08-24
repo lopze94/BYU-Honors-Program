@@ -4,8 +4,7 @@
         <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi animi quos dicta optio voluptas explicabo qui possimus eveniet corrupti dolore laborum repellendus nesciunt, nam deserunt?
         </p>
-        asdfa
-        <light-timeline :items='items'></light-timeline>
+        <light-timeline :items='items' v-if="show"></light-timeline>
 
     </div>
 </template>
@@ -15,6 +14,7 @@ export default {
   name: "Timeline",
   data() {
     return {
+      show: false,
       items: [
         {
           tag: "1st Week of School",
@@ -60,6 +60,9 @@ export default {
         }
       ]
     };
-  }
+  },
+  created () {
+    this.show = true;
+  },
 };
 </script>
