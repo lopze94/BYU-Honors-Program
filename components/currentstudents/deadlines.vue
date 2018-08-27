@@ -22,7 +22,7 @@
           </div>
           <div v-for="(list, i) in deadlines" :key="i" class="tab-pane fade show" :id="'list-'+list.graduation" role="tabpanel" :aria-labelledby="'list-'+list.graduation+'-list'">
             <table class="table table-hover table-borderles rounded table-sm">
-              <caption>Graduating in {{list.graduation | capitalize}} 2019</caption>
+              <caption>Graduating in {{list.graduation | capitalize}} {{list.year}}</caption>
               <thead class="thead-light">
                 <tr>
                   <th scope="col">Event</th>
@@ -68,15 +68,19 @@
       return {
         deadlines: [{
             graduation: 'april',
+            year: 2019
           },
           {
             graduation: 'june',
+            year: 2019
           },
           {
             graduation: 'august',
+            year: 2019
           },
           {
             graduation: 'december',
+            year: 2018
           }
         ],
         events: [{
