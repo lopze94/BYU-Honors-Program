@@ -48,18 +48,16 @@
       <option v-for="(slot, i) in timeSlots" v-bind:value="slot" :key="i">{{slot.text}}</option>
     </select>
   </div>
-      <div div class="alert alert-primary" role="alert" v-if="selectedTime">Your appointment will be on {{selectedTime.value | formatAppointment}}.</div>
+      <div div class="alert alert-info" role="alert" v-if="selectedTime">Your appointment will be on {{selectedTime.value | formatAppointment}}.</div>
               <div class="form-group">
               
           <div class="g-recaptcha" data-sitekey="6Lf63mgUAAAAAGTys36dAaksgtKe7rgU5XiwBgxF"></div>
             <small class="text-muted">If the reCaptcha did not load, click "Reset" or reload the page before submitting and start over.</small>
         </div>
     <button class="btn btn-honors mr-2" v-if="selectedTime" type="submit">Schedule Appointment</button>
-    <button v-else class="btn btn-honors mr-2" disabled>Schedule Appointment</button>
+    <button v-else type="submit" class="btn btn-honors mr-2" disabled>Schedule Appointment</button>
         <button class="btn btn-secondary rounded-0" v-on:click.prevent="resetForm">Reset</button>
         </form>
-        <button v-on:click="test">Test me</button>
-
     </div>
 </template>
 
@@ -119,11 +117,14 @@ export default {
     }
   },
   methods: {
-    redirect: function() {
-      let date = moment(this.selectedTime.value).format('MMMM DD, YYYY');
-      let time = moment(this.selectedTime.value).format('LT');
-      this.$router.push(`/scheduleappointment/confirmation?name=${this.first_name}&email=${this.email}&date=${date}&time=${time}`);
-
+    confirmationPage: function() {
+      let date = moment(this.selectedTime.value).format("MMMM DD, YYYY");
+      let time = moment(this.selectedTime.value).format("LT");
+      this.$router.push(
+        `/scheduleappointment/confirmation?name=${this.first_name}&email=${
+          this.email
+        }&date=${date}&time=${time}`
+      );
     },
     showToday: function() {
       var currentDate = new Date();
@@ -179,59 +180,57 @@ export default {
       }
       this.captchaPassed = response.data.success;
       this.sendMail();
-      this.redirect();
+      this.confirmationPage();
     },
     sendMail: function() {
       let full_name = this.first_name + " " + this.last_name;
       let formatedDate = moment(this.selectedTime.value).format(
         "dddd, MMMM DD, YYYY [at] LT"
       );
-        this.$store.dispatch("sendMailNotification", {
-          confirmation: {
-            to: this.email,
-            from: "honors@byu.edu",
-            subject:
-              this.first_name + ", this is your appointment confirmation.",
-            text: "Appointment confirmation",
-            html:
-              "Remember, your appointment is on <strong>" +
-              moment(this.selectedTime.value).format(
-                "dddd, MMMM DD, YYYY [at] LT"
-              ) +
-              "</strong>.",
-            templateId: "122380f8-cd2e-45bc-a5cf-b73161e4a58d",
-            substitutions: {
-              name: this.first_name,
-              help: this.help
-            }
-          },
-          notification: {
-            to: "honors@byu.edu",
-            from: this.email,
-            subject: full_name + " scheduled a new appointment!",
-            text: "Appointment confirmation",
-            html:
-              "Appointment is on <strong>" +
-              moment(this.selectedTime.value).format(
-                "dddd, MMMM DD, YYYY [at] LT"
-              ) +
-              "</strong>." +
-              "<br><br><b>Full Name</b>: " +
-              full_name +
-              "<br><b>NetID</b>: " +
-              this.netId +
-              "<br><b>Email</b>: " +
-              this.email +
-              "<br><b>Help</b>: " +
-              this.help,
-            templateId: "122380f8-cd2e-45bc-a5cf-b73161e4a58d",
-            substitutions: {
-              name: this.first_name,
-              help: this.help
-            }
+      this.$store.dispatch("sendMailNotification", {
+        confirmation: {
+          to: this.email,
+          from: "honors@byu.edu",
+          subject: this.first_name + ", this is your appointment confirmation.",
+          text: "Appointment confirmation",
+          html:
+            "Remember, your appointment is on <strong>" +
+            moment(this.selectedTime.value).format(
+              "dddd, MMMM DD, YYYY [at] LT"
+            ) +
+            "</strong>.",
+          templateId: "122380f8-cd2e-45bc-a5cf-b73161e4a58d",
+          substitutions: {
+            name: this.first_name,
+            help: this.help
           }
-        });
-
+        },
+        notification: {
+          to: "honors@byu.edu",
+          from: this.email,
+          subject: full_name + " scheduled a new appointment!",
+          text: "Appointment confirmation",
+          html:
+            "Appointment is on <strong>" +
+            moment(this.selectedTime.value).format(
+              "dddd, MMMM DD, YYYY [at] LT"
+            ) +
+            "</strong>." +
+            "<br><br><b>Full Name</b>: " +
+            full_name +
+            "<br><b>NetID</b>: " +
+            this.netId +
+            "<br><b>Email</b>: " +
+            this.email +
+            "<br><b>Help</b>: " +
+            this.help,
+          templateId: "122380f8-cd2e-45bc-a5cf-b73161e4a58d",
+          substitutions: {
+            name: this.first_name,
+            help: this.help
+          }
+        }
+      });
     },
     resetForm: function() {
       this.$router.go("/scheduleappointment");
