@@ -18,7 +18,7 @@
         <h3>
             Cambridge Programme
         </h3>
-        <router-link to="/currentstudents/cambridgeprogramme" class="btn btn-primary mb-3">Cambridge page</router-link>    
+        <router-link to="/currentstudents/cambridgeprogramme" class="btn btn-honors mb-3">Official Page</router-link>    
         <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus veniam illo pariatur id corporis reprehenderit consequatur obcaecati quae, incidunt earum nihil fugiat libero ut laborum.
         </p>

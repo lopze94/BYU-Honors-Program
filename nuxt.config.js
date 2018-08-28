@@ -97,7 +97,8 @@ module.exports = {
    ** Global CSS
    */
   css: [
-    '@/assets/fonts.css'
+    '@/assets/fonts.css',
+    '@/assets/honors-styles.css'
   ],
 
   /*

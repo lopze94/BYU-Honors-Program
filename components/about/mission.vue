@@ -9,8 +9,8 @@
             This mission is achieved by cultivating:
         </p>
         <div class="card-columns" v-bind:class="{threecol: open}">
-            <div class="card border-0 my-2" v-on:click="show0=!show0">
-                <img class="card-img" src="/img/about/academic_excellence.jpg" alt="Academic Excellence: BYU Student graduating">
+            <div class="card border-0 my-2 rounded-0" v-on:click="show0=!show0">
+                <img class="card-img rounded-0" src="/img/about/academic_excellence.jpg" alt="Academic Excellence: BYU Student graduating">
                 <div class="card-img-overlay text-white" v-if="!show0">
                     <table style="height: 100%; width: 100%;">
                         <tbody>
@@ -26,8 +26,8 @@
                     <p class="card-text"><small class="text-muted">Academic Excellence Stories</small></p>
                 </div>
             </div>
-            <div class="card  border-0 my-2" v-on:click="show1=!show1">
-                <img class="card-img" src="/img/about/community_of_scholars.jpg" alt="Community of Scholars">
+            <div class="card  border-0 my-2 rounded-0" v-on:click="show1=!show1">
+                <img class="card-img rounded-0" src="/img/about/community_of_scholars.jpg" alt="Community of Scholars">
                 <div class="card-img-overlay text-white" v-if="!show1">
                     <table style="height: 100%;width: 100%;">
                         <tbody>
@@ -43,8 +43,8 @@
                     <p class="card-text"><small class="text-muted">Community Stories</small></p>
                 </div>
             </div>
-            <div class="card border-0 my-2" v-on:click="show2=!show2">
-                <img class="card-img" src="/img/about/interdisciplinary_thinking.jpg" alt="Interdisciplinary Thinking">
+            <div class="card border-0 my-2 rounded-0" v-on:click="show2=!show2">
+                <img class="card-img rounded-0" src="/img/about/interdisciplinary_thinking.jpg" alt="Interdisciplinary Thinking">
                 <div class="card-img-overlay text-white">
                     <table style="height: 100%;width: 100%;" v-if="!show2">
                         <tbody>
@@ -60,8 +60,8 @@
                     <p class="card-text"><small class="text-muted">Interdisciplinary Stories</small></p>
                 </div>
             </div>
-            <div class="card border-0 my-2" v-on:click="show3=!show3">
-                <img class="card-img" src="/img/about/skills_of_inquiry.jpg" alt="Skills of Inquiry">
+            <div class="card border-0 my-2 rounded-0" v-on:click="show3=!show3">
+                <img class="card-img rounded-0" src="/img/about/skills_of_inquiry.jpg" alt="Skills of Inquiry">
                 <div class="card-img-overlay text-white">
                     <table style="height: 100%;width: 100%;" v-if="!show3">
                         <tbody>

@@ -17,7 +17,7 @@
           <div class="tab-pane fade show active" id="list-select" role="tabpanel" aria-labelledby="list-select-list">
             <div class="jumbotron">
               <h1 class="display-4">Don't stress!</h1>
-              <p class="lead">Select your graduation date to view the deadlines taylored to your timeline. Click a deadline to read more about it.</p>
+              <p class="lead">Select your graduation date to view the deadlines tailored to your timeline. Click a deadline to read more about it.</p>
             </div>
           </div>
           <div v-for="(list, i) in deadlines" :key="i" class="tab-pane fade show" :id="'list-'+list.graduation" role="tabpanel" :aria-labelledby="'list-'+list.graduation+'-list'">
@@ -62,85 +62,105 @@
 </template>
 
 <script>
-  export default {
-    name: "Deadlines",
-    data() {
-      return {
-        deadlines: [{
-            graduation: 'april',
-            year: 2019
-          },
-          {
-            graduation: 'june',
-            year: 2019
-          },
-          {
-            graduation: 'august',
-            year: 2019
-          },
-          {
-            graduation: 'december',
-            year: 2018
-          }
-        ],
-        events: [{
-            title: 'Deadline to Apply for Graduation',
-            date: ['November 15', 'February 15', 'April 15', 'September 15'],
-            info: 'Last day to apply for graduation. Go to byu.edu ➙ myBYU ➙ School ➙ Apply for Graduation'
-          },
-          {
-            title: 'Great Question Essay (HONRS 320)',
-            date: ['By the end of junior year (at least two semesters prior to graduation).*', 'By the end of junior year (at least two semesters prior to graduation).*', 'By the end of junior year (at least two semesters prior to graduation).*', 'By the end of junior year (at least two semesters prior to graduation).*'],
-            info: 'Deadline to take the Great Question Essay class.'
-          },
-          {
-            title: 'Thesis Proposal Submitted*',
-            date: ['September 28', 'November 9', 'January 11', 'May 4'],
-            info: 'Deadline to submit Thesis Proposal to our office (unless you will use your capstone project as your thesis, but you\'ll need to communicate that to Honors Advisement by this date).'
-          },
-          {
-            title: 'Experiential Learning',
-            date: ['February 22', 'April 12', 'June 3', 'November 2'],
-            info: 'Last day to submit Experiential Learning Approval Form and typed evaluation to our office.'
-          },
-          {
-            title: 'Great Works Portfolio',
-            date: ['February 22', 'April 12', 'June 3', 'November 2'],
-            info: 'Last day to submit Great Works Portfolio to our office.  *Applies only to students with GW pre-authorization.'
-          },
-          {
-            title: 'Thesis Defense Information Form*',
-            date: ['February 22', 'April 12', 'June 3', 'November 2'],
-            info: 'Last day to schedule thesis defense and submit Thesis Defense Information Form to our office.'
-          },
-          {
-            title: 'Thesis Submission Form*',
-            date: ['March 8', 'May 10', 'June 28', 'November 30'],
-            info: 'Last day to hold thesis defense and to submit completed Thesis Submission Form to our office. Title submitted on this form will be printed in the commencement program.'
-          },
-          {
-            title: 'Thesis Final',
-            date: ['March 15', 'June 3', 'July 5', 'December 7'],
-            info: 'Last day for all completed agreed qualifications and email a PDF copy of your finalized thesis to our office.'
-          },
-          {
-            title: 'Thesis Publication',
-            date: ['March 15', 'June 3', 'July 5', 'December 7'],
-            info: 'Last day to upload correctly formatted versions of your thesis to BYU Print and Mail Services.'
-          },
-        ]
-      }
-    },
-    filters: {
-      capitalize: function(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-      }
+export default {
+  name: "Deadlines",
+  data() {
+    return {
+      deadlines: [
+        {
+          graduation: "april",
+          year: 2019
+        },
+        {
+          graduation: "june",
+          year: 2019
+        },
+        {
+          graduation: "august",
+          year: 2019
+        },
+        {
+          graduation: "december",
+          year: 2018
+        }
+      ],
+      events: [
+        {
+          title: "Deadline to Apply for Graduation",
+          date: ["November 15", "February 15", "April 15", "September 15"],
+          info:
+            "Last day to apply for graduation. Go to byu.edu ➙ myBYU ➙ School ➙ Apply for Graduation"
+        },
+        {
+          title: "Great Question Essay (HONRS 320)",
+          date: [
+            "By the end of junior year (at least two semesters prior to graduation).*",
+            "By the end of junior year (at least two semesters prior to graduation).*",
+            "By the end of junior year (at least two semesters prior to graduation).*",
+            "By the end of junior year (at least two semesters prior to graduation).*"
+          ],
+          info: "Deadline to take the Great Question Essay class."
+        },
+        {
+          title: "Thesis Proposal Submitted*",
+          date: ["September 28", "November 9", "January 11", "May 4"],
+          info:
+            "Deadline to submit Thesis Proposal to our office (unless you will use your capstone project as your thesis, but you'll need to communicate that to Honors Advisement by this date)."
+        },
+        {
+          title: "Experiential Learning",
+          date: ["February 22", "April 12", "June 3", "November 2"],
+          info:
+            "Last day to submit Experiential Learning Approval Form and typed evaluation to our office."
+        },
+        {
+          title: "Great Works Portfolio",
+          date: ["February 22", "April 12", "June 3", "November 2"],
+          info:
+            "Last day to submit Great Works Portfolio to our office.  *Applies only to students with GW pre-authorization."
+        },
+        {
+          title: "Thesis Defense Information Form*",
+          date: ["February 22", "April 12", "June 3", "November 2"],
+          info:
+            "Last day to schedule thesis defense and submit Thesis Defense Information Form to our office."
+        },
+        {
+          title: "Thesis Submission Form*",
+          date: ["March 8", "May 10", "June 28", "November 30"],
+          info:
+            "Last day to hold thesis defense and to submit completed Thesis Submission Form to our office. Title submitted on this form will be printed in the commencement program."
+        },
+        {
+          title: "Thesis Final",
+          date: ["March 15", "June 3", "July 5", "December 7"],
+          info:
+            "Last day for all completed agreed qualifications and email a PDF copy of your finalized thesis to our office."
+        },
+        {
+          title: "Thesis Publication",
+          date: ["March 15", "June 3", "July 5", "December 7"],
+          info:
+            "Last day to upload correctly formatted versions of your thesis to BYU Print and Mail Services."
+        }
+      ]
+    };
+  },
+  filters: {
+    capitalize: function(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
     }
   }
+};
 </script>
 
 <style scoped>
-  .table-hover {
-    cursor: pointer;
-  }
+a.active {
+  background: #002e5d !important;
+  color: white !important;
+  border-color: #002e5d !important;
+}
+.table-hover {
+  cursor: pointer;
+}
 </style>

@@ -1,0 +1,18 @@
+.btn-honors {
+  background: #002e5d;
+  border-radius: 0px;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  min-width: 200px;
+}
+.btn-honors:hover {
+  color: white;
+  background: #00152a !important;
+}
+
+.bg-honors-g{
+  background: #002e5d !important;
+  color: white !important;
+    
+}

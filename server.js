@@ -429,13 +429,14 @@ app.post('/api/send/', (req, res) => {
   let notification = req.body.notification;
   //sgMail.send(confirmation);
   sgMail.send(notification);
-  console.log("Notification Sent!");
+  sgMail.send(confirmation);
+
   res.sendStatus(200);
 });
 
 //Online Application
 
-app.post('/api/enrollment', (req, res) => {
+app.post('/api/captcha', (req, res) => {
   if (
     req.body.captcha === undefined ||
     req.body.captcha === '' ||

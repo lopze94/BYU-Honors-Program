@@ -239,16 +239,6 @@ const createStore = () => {
           console.log("Send Notification Failed:", err);
         })
       },
-      onlineEnrollment(context, submission) {
-        submission["captcha"] = document.querySelector("#g-recaptcha-response").value;
-        axios.post("/api/enrollment", submission).then(response => {
-          if (response.data.success === undefined || response.data.success === false ){
-            return alert(response.data.msg)
-          }
-        }).catch(err => {
-          console.log("Submitting online application failed: ", err);
-        })
-      }
     }
   })
 }
