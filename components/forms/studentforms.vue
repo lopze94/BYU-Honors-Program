@@ -8,7 +8,7 @@
             Click any of the following forms to download a PDF version.
         </p>
         <div class="list-group mb-3">
-            <a href="/forms/Requirements_Checklist.pdf" class="list-group-item list-group-item-action flex-column align-items-start" download>
+            <a href="/forms/Requirements_Checklist_2018.pdf" class="list-group-item list-group-item-action flex-column align-items-start" download>
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">Requirements Checklist</h5>
                 </div>

@@ -119,7 +119,7 @@ export default {
     }
   },
   methods: {
-    test: function() {
+    redirect: function() {
       let date = moment(this.selectedTime.value).format('MMMM DD, YYYY');
       let time = moment(this.selectedTime.value).format('LT');
       this.$router.push(`/scheduleappointment/confirmation?name=${this.first_name}&email=${this.email}&date=${date}&time=${time}`);
@@ -179,9 +179,7 @@ export default {
       }
       this.captchaPassed = response.data.success;
       this.sendMail();
-      console.log(this.selectedTime.value);
-      
-      this.$router.go("/scheduleappointment/confirmation?"+"name="+this.first_name+"&date="+this.selectedTime.value);
+      this.redirect();
     },
     sendMail: function() {
       let full_name = this.first_name + " " + this.last_name;
