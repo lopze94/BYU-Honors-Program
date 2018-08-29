@@ -206,16 +206,16 @@ export default {
           }
         },
         notification: {
-          to: "honors@byu.edu",
+          to: this.email,
           from: this.email,
           subject: full_name + " scheduled a new appointment!",
           text: "Appointment confirmation",
           html:
-            "Appointment is on <strong>" +
+            "<p>Appointment is on " +
             moment(this.selectedTime.value).format(
               "dddd, MMMM DD, YYYY [at] LT"
             ) +
-            "</strong>." +
+            ".</p>" +
             "<br><br><b>Full Name</b>: " +
             full_name +
             "<br><b>NetID</b>: " +
