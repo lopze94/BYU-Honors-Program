@@ -25,7 +25,7 @@ export default {
   methods: {
     showModal () {
       this.$refs.prospectiveModal.show();
-      this.video_source = "https://www.youtube.com/embed/yLMgdCnYMG0"
+      this.video_source = "https://www.youtube.com/embed/mNXvUGded7U"
     },
     onHidden () {
       this.video_source = ""

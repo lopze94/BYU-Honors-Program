@@ -16,3 +16,7 @@
   color: white !important;
     
 }
+
+#calendar-root .tile-container .fullpage-date-wrapper{
+    font-size: 18px !important;
+}

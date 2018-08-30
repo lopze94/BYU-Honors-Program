@@ -4,18 +4,18 @@
   <h2 class="py-3">Honors Program Directory</h2>
  <ul class="nav nav-pills nav-fill my-3" id="pills-tab" role="tablist">
   <li class="nav-item">
-    <a class="nav-link" v-bind:class="{active: this.tabs[0]}" id="pills-all-tab" data-toggle="pill" href="#pills-all" role="tab" aria-controls="pills-all" v-bind:aria-selected="this.tabs[0]">All</a>
+    <a class="nav-link rounded-0" v-bind:class="{active: this.tabs[0]}" id="pills-all-tab" data-toggle="pill" href="#pills-all" role="tab" aria-controls="pills-all" v-bind:aria-selected="this.tabs[0]">All</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" v-bind:class="{active: this.tabs[1]}" id="pills-admimistration-tab" data-toggle="pill" href="#pills-administration" role="tab" aria-controls="pills-administration" v-bind:aria-selected="this.tabs[1]">Administration</a>
+    <a class="nav-link rounded-0" v-bind:class="{active: this.tabs[1]}" id="pills-admimistration-tab" data-toggle="pill" href="#pills-administration" role="tab" aria-controls="pills-administration" v-bind:aria-selected="this.tabs[1]">Administration</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" v-bind:class="{active: this.tabs[2]}" id="pills-faculty-tab" data-toggle="pill" href="#pills-faculty" role="tab" aria-controls="pills-faculty" v-bind:aria-selected="this.tabs[2]">Faculty</a>
+    <a class="nav-link rounded-0" v-bind:class="{active: this.tabs[2]}" id="pills-faculty-tab" data-toggle="pill" href="#pills-faculty" role="tab" aria-controls="pills-faculty" v-bind:aria-selected="this.tabs[2]">Faculty</a>
   </li>
-    <li class="nav-item">
+    <li class="nav-item rounded-0">
     <a class="nav-link" v-bind:class="{active: this.tabs[3]}" id="pills-coordinators-tab" data-toggle="pill" href="#pills-coordinators" role="tab" aria-controls="pills-coordinators" v-bind:aria-selected="this.tabs[3]">Coordinators</a>
   </li>
-      <li class="nav-item">
+      <li class="nav-item rounded-0">
     <a class="nav-link" v-bind:class="{active: this.tabs[4]}" id="pills-advisor-tab" data-toggle="pill" href="#pills-advisor" role="tab" aria-controls="pills-advisor" v-bind:aria-selected="this.tabs[4]">Advisors</a>
   </li>
 </ul>
@@ -159,7 +159,6 @@
 </template>
 
 <script>
-
 function resolveAfter2Seconds() {
   return new Promise(resolve => {
     setTimeout(() => {
@@ -168,82 +167,86 @@ function resolveAfter2Seconds() {
   });
 }
 
-
 export default {
-    name: 'TeachingFaculty',
-    props: ["category"],
-    data (){
-        return {
-            dataLoaded: false,
-            showMore: false,
-            tabs:[true,false,false,false,false]
-        }
-    },
-    created: function() {
-         this.asyncCall();
-        this.$store.dispatch('getFaculty');
-        this.asyncCall();
-        this.selectedTab();
-    },
-            computed: {
-     directory: function() {
-       return this.$store.getters.directory;
-     }
-        },
-    methods: {
-        async asyncCall() {
-  //console.log('calling');
-  this.dataLoaded = await resolveAfter2Seconds();
-  
-  //console.log(this.dataLoaded);
-  // expected output: "resolved"
-},
-  showToggle: function (contact){
-    contact.show_more = !contact.show_more;
+  name: "TeachingFaculty",
+  props: ["category"],
+  data() {
+    return {
+      dataLoaded: false,
+      showMore: false,
+      tabs: [true, false, false, false, false]
+    };
   },
-  selectedTab: function () {
-    var urlHash = this.$route.hash;
-    var category = urlHash.substring(urlHash.indexOf("#") + 1);
-    switch (category) {
-    case 'administration':
-        this.tabs[0] = false;
-        this.tabs[1] = true;
-        break;
-    case 'faculty':
-        this.tabs[0] = false;
-        this.tabs[2] = true;
-        break;
-    case 'coordinators':
-        this.tabs[0] = false;
-        this.tabs[3] = true;
-        break;
-    case 'advisors':
-        this.tabs[0] = false;
-        this.tabs[4] = true;
-        break;
-}
-  }
+  created: function() {
+    this.asyncCall();
+    this.$store.dispatch("getFaculty");
+    this.asyncCall();
+    this.selectedTab();
+  },
+  computed: {
+    directory: function() {
+      return this.$store.getters.directory;
     }
-}
+  },
+  methods: {
+    async asyncCall() {
+      //console.log('calling');
+      this.dataLoaded = await resolveAfter2Seconds();
+
+      //console.log(this.dataLoaded);
+      // expected output: "resolved"
+    },
+    showToggle: function(contact) {
+      contact.show_more = !contact.show_more;
+    },
+    selectedTab: function() {
+      var urlHash = this.$route.hash;
+      var category = urlHash.substring(urlHash.indexOf("#") + 1);
+      switch (category) {
+        case "administration":
+          this.tabs[0] = false;
+          this.tabs[1] = true;
+          break;
+        case "faculty":
+          this.tabs[0] = false;
+          this.tabs[2] = true;
+          break;
+        case "coordinators":
+          this.tabs[0] = false;
+          this.tabs[3] = true;
+          break;
+        case "advisors":
+          this.tabs[0] = false;
+          this.tabs[4] = true;
+          break;
+      }
+    }
+  }
+};
 </script>
 
 <style scoped>
+a.active {
+  background: #002e5d !important;
+  color: white !important;
+  border-color: #002e5d !important;
+}
+
 .overflow-text {
-   overflow:hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;  /* fallback */
-   max-height: 48px;      /* fallback */
-   -webkit-line-clamp: 2; /* number of lines to show */
-   -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box; /* fallback */
+  max-height: 48px; /* fallback */
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
 }
 
-.card{
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+.card {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
 }
 
-.card:hover{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    cursor: pointer;
+.card:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  cursor: pointer;
 }
-
 </style>

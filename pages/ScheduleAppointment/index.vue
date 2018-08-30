@@ -168,6 +168,14 @@ export default {
       this.timeSlots = [];
       this.selected = false;
     },
+    escapeHTML: function(unsafe) {
+      return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    },
     verifyCaptcha: async function() {
       let captcha = document.querySelector("#g-recaptcha-response").value;
       let response = await axios.post("/api/captcha", { captcha: captcha });
@@ -179,6 +187,10 @@ export default {
         return alert(response.data.msg);
       }
       this.captchaPassed = response.data.success;
+      this.first_name = this.escapeHTML(this.first_name);
+      this.last_name = this.escapeHTML(this.last_name);
+      this.netId = this.escapeHTML(this.netId);
+      this.email = this.escapeHTML(this.email);
       this.sendMail();
       this.confirmationPage();
     },
