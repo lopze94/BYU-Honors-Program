@@ -9,9 +9,9 @@
   <!--Honors Directory-->
   <directory></directory>
   <!--Affiliations-->
-  <affiliations></affiliations>
-  <!--Resources-->
-  <resources></resources>
+  <affiliations class="my-5"></affiliations>
+  <!--Resources>
+  <resources></resources-->
   <!--Contact Us-->
   <contact></contact>
 </div>
@@ -67,10 +67,6 @@ export default {
         {
           text: "Affiliations",
           href: "#affiliations"
-        },
-        {
-          text: "Resources",
-          href: "#resources"
         },
         {
           text: "Contact",

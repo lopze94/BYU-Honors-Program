@@ -11,7 +11,7 @@ export default {
         return {
             hero: {
                 title: 'Explore the Directory',
-                description: 'find who you\'re looking for',
+                description: 'Find who you\'re looking for.',
                 image_path: '/img/maeser_building_spring.jpg',
                 link: '/directory#faculty',
                 link_text: 'Go to Directory'

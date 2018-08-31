@@ -1,5 +1,5 @@
 <template>
-    <div class="container mb-3 mb-xl-5">
+    <div class="container mb-3 mb-xl-5 jumptarget" id="opportunities">
         <h2 class="py-3">First Year Opportunities</h2>
         <div class="card-deck">
   <a class="card rounded-0 border-0" href="https://fye.byu.edu/">

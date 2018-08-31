@@ -16,74 +16,81 @@
     <requirements></requirements>
     <first-opportunities></first-opportunities>
   
-    <byu-hero-banner id="hero" image-source="/img/advisor.jpg" class="dark-image full-screen transparent-overlay">
-      <span slot="headline">Talk to an Advisor!</span>
-      <span slot="intro-text"></span>
-      <a slot="read-more" class="a-link" href="/scheduleappointment">Schedule Appointment</a>
+    <byu-hero-banner id="booknow" image-source="/img/advisor.jpg" class="dark-image full-screen transparent-overlay jumpstart">
+      <span slot="headline">Got More Questions?</span>
+      <span slot="intro-text">Talk to our advisors! You can book an appointment up to three weeks in advance.</span>
+      <a slot="read-more" class="a-link" href="/scheduleappointment">Book Now</a>
     </byu-hero-banner>
   </div>
 </template>
 
 <script>
-  import MainHero from "../../components/prospectivestudents/main.vue";
-  import What from "../../components/prospectivestudents/what.vue";
-  import Why from "../../components/prospectivestudents/why.vue";
-  import Testimonials from "../../components/prospectivestudents/testimonials.vue";
-  import How from "../../components/prospectivestudents/how.vue";
-  import Requirements from "../../components/prospectivestudents/requirements.vue";
-  import FirstOpportunities from "../../components/prospectivestudents/opportunities.vue";
-  
-  export default {
-    name: "ProspectiveStudents",
-    components: {
-      MainHero,
-      What,
-      Why,
-      Testimonials,
-      How,
-      Requirements,
-      FirstOpportunities
-    },
-    data() {
-      return {
-        navigation: [{
-            href: '#what',
-            text: 'What is Honors?'
-          },
-          {
-            href: '#why',
-            text: 'Why Honors?'
-          },
-          {
-            href: '#testimonials',
-            text: 'Experiences'
-          },
-          {
-            href: '#how',
-            text: 'How to Join?'
-          },
-          {
-            href: '#requirements',
-            text: 'Requirements'
-          }
-        ]
-      }
-    },
-    head() {
-      return {
-        title: "BYU Honors Program | Prospective Students",
-        meta: [{
+import MainHero from "../../components/prospectivestudents/main.vue";
+import What from "../../components/prospectivestudents/what.vue";
+import Why from "../../components/prospectivestudents/why.vue";
+import Testimonials from "../../components/prospectivestudents/testimonials.vue";
+import How from "../../components/prospectivestudents/how.vue";
+import Requirements from "../../components/prospectivestudents/requirements.vue";
+import FirstOpportunities from "../../components/prospectivestudents/opportunities.vue";
+
+export default {
+  name: "ProspectiveStudents",
+  components: {
+    MainHero,
+    What,
+    Why,
+    Testimonials,
+    How,
+    Requirements,
+    FirstOpportunities
+  },
+  data() {
+    return {
+      navigation: [
+        {
+          href: "#what",
+          text: "What is Honors?"
+        },
+        {
+          href: "#why",
+          text: "Why Honors?"
+        },
+        {
+          href: "#how",
+          text: "How to Join?"
+        },
+        {
+          href: "#requirements",
+          text: "Requirements"
+        },
+        {
+          href: "#opportunities",
+          text: "Opportunities"
+        },
+        {
+          href: "#booknow",
+          text: "Questions?"
+        }
+      ]
+    };
+  },
+  head() {
+    return {
+      title: "BYU Honors Program | Prospective Students",
+      meta: [
+        {
           hid: "description",
           name: "description",
           content: "About our company Nuxt.js"
-        }]
-      };
-    }
-  };
+        }
+      ]
+    };
+  }
+};
 </script>
 
 <style scoped>
-  .a-link {
-    font-size: 20px !important;
-  }
+.a-link {
+  font-size: 20px !important;
+}
 </style>

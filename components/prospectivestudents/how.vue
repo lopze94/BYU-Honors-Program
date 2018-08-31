@@ -1,6 +1,6 @@
 <template>
     <div class="container jumptarget" id="how">
-        <h2 class="py-3">How to Join Honors Program?</h2>
+        <h2 class="py-3">How to Join the Honors Program?</h2>
         <p>To join the Honors Program, please complete the following two steps.</p>
         <div class="card-deck">
   <a class="card rounded-0 border-0" href="/forms/enrollment">

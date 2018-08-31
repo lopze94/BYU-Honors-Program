@@ -58,7 +58,7 @@
                 <a class="nav-item nav-link rounded-0" :class="{active: robert}" v-on:click="selectCard(2)">Robert K. Thomas</a>
             </div>
             <div class="col-sm-6 col-lg-3">
-                <a class="nav-item nav-link text-muted" v-on:click="reset">Return</a>
+                <a class="nav-item nav-link text-muted rounded-0" v-on:click="reset">Return</a>
             </div>
         </nav>
     </div>
@@ -128,7 +128,10 @@ export default {
 .card {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
 }
-
+a.nav-link:hover{
+    background: #F2F2F2;
+    cursor: pointer;
+}
 .card:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   cursor: pointer;
