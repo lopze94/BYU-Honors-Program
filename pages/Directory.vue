@@ -35,7 +35,7 @@
     <h5 class="card-title">{{contact.first_name}} {{contact.last_name}} <span class="badge badge-primary" v-if="contact.coordinator">Coordinator</span> 
     <span class="badge badge-secondary ml-1" v-if="contact.advisor">Advisor</span><span class="badge badge-secondary ml-1" v-if="contact.faculty"></span></h5>
     <h6 class="card-subtitle mb-2 text-muted font-weight-normal">{{contact.title}}<span v-if="contact.department">,</span> {{contact.department}}  | {{contact.college}}</h6>
-    <p class="card-text overflow-text" v-html="contact.description" v-if="!contact.show_more">{{contact.description}}</p>
+    <p class="card-text overflow-text why-honors" v-html="contact.description" v-if="!contact.show_more">{{contact.description}}</p>
     <p class="card-text" v-html="contact.description" v-else>{{contact.description}}</p>
   <p class="card-text text-muted">{{contact.phone}} | {{contact.email}} | {{contact.office}}</p>
   </div>

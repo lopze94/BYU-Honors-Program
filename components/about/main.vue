@@ -11,7 +11,7 @@ export default {
     data () {
         return {
             hero: {
-                title: 'About Honors Program',
+                title: 'About the Honors Program',
                 image_path: '/img/about/main_hero.jpg',
             }
         }

@@ -4,18 +4,19 @@
     <p></p>
     <div class="row">
       <div class="col-sm-12 col-md-4 col-lg-3 pb-3">
-        <div class="list-group" id="list-tab" role="tablist">
-          <a class="list-group-item list-group-item-action active" id="list-select-list" data-toggle="list" href="#list-select" role="tab" aria-controls="select">Select Graduation</a>
+        <div class="list-group rounded-0" id="list-tab" role="tablist">
+          <a class="list-group-item list-group-item-action active rounded-0" id="list-select-list" data-toggle="list" href="#list-select" role="tab" aria-controls="select">Select Graduation</a>
+          <a class="list-group-item list-group-item-action " id="list-december-list" data-toggle="list" href="#list-december" role="tab" aria-controls="december">December 2018</a>
           <a class="list-group-item list-group-item-action" id="list-april-list" data-toggle="list" href="#list-april" role="tab" aria-controls="april">April 2019</a>
           <a class="list-group-item list-group-item-action" id="list-june-list" data-toggle="list" href="#list-june" role="tab" aria-controls="june">June 2019</a>
-          <a class="list-group-item list-group-item-action" id="list-august-list" data-toggle="list" href="#list-august" role="tab" aria-controls="august">August 2019</a>
-          <a class="list-group-item list-group-item-action" id="list-december-list" data-toggle="list" href="#list-december" role="tab" aria-controls="december">December 2018</a>
+          <a class="list-group-item list-group-item-action rounded-0" id="list-august-list" data-toggle="list" href="#list-august" role="tab" aria-controls="august">August 2019</a>
+          
         </div>
       </div>
       <div class="col-sm-12 col-md-8 col-lg-9">
         <div class="tab-content" id="nav-tabContent">
           <div class="tab-pane fade show active" id="list-select" role="tabpanel" aria-labelledby="list-select-list">
-            <div class="jumbotron">
+            <div class="jumbotron rounded-0">
               <h1 class="display-4">Don't stress!</h1>
               <p class="lead">Select your graduation date to view the deadlines tailored to your timeline. Click a deadline to read more about it.</p>
             </div>

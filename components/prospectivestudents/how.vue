@@ -6,7 +6,7 @@
   <a class="card rounded-0 border-0" href="/forms/enrollment">
     <img class="card-img-top rounded-0" src="/img/online_enrollment.jpg" alt="Card image cap">
     <div class="card-body">
-      <h5 class="card-title">Honors Enrollment</h5>
+      <h5 class="card-title">Step 1 - Honors Enrollment</h5>
       <p class="card-text">Complete the Honors Enrollment.</p>
 
     </div>
@@ -14,7 +14,7 @@
   <a class="card rounded-0 border-0" href="/scheduleappointment">
     <img class="card-img-top rounded-0" src="/img/prospective/commitment_interview.jpg" alt="Card image cap">
     <div class="card-body">
-      <h5 class="card-title">Commitment Interview</h5>
+      <h5 class="card-title">Step 2 - Commitment Interview</h5>
       <p class="card-text">Meet with one of our advisors.</p>
     </div>
   </a>

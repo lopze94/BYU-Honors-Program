@@ -5,9 +5,11 @@
         <karl-maeser v-if="karl"></karl-maeser>
         <robert-thomas v-if="robert"></robert-thomas>
         <div v-if="!(history||karl||robert)">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque totam quos placeat asperiores atque distinctio doloribus voluptatem? Perspiciatis aliquam ea labore inventore illo. Nulla, quia dignissimos blanditiis voluptates assumenda quae?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat necessitatibus ducimus aspernatur consequuntur, itaque, at maiores neque, et pariatur incidunt sint? Possimus fuga, quia cum quas, illum dolore est itaque ab ducimus reprehenderit
-                neque harum labore quos quisquam accusamus illo? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione, at?</p>
+<p>The Honors Program is an open-enrollment program which provides a rich and challenging experience for motivated undergraduate students.  At BYU, an Honors education is not merely a more intensive general education or a more strenuous program in a major. It’s about thinking differently, exploring diverse perspectives, and expanding horizons.  </p>
+<p>The central focus of the program is the study of great questions. Through coursework, research, writing, and hands-on experiences, students explore interdisciplinary approaches and consider ways in which unexpected connections can be found between different disciplines, leading to a deeper understanding of the questions we seek to answer.</p>
+        <p>
+            <b>"University Honors"</b> is the highest academic distinction awarded by BYU to students at the undergraduate level. 
+        </p>
         </div>
             <div class="card-deck" v-if="!(history||karl||robert)">
                 <div class="card border-0 rounded-0" v-on:click="selectCard(0)">

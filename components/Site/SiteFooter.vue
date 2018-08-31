@@ -4,7 +4,7 @@
     <byu-footer-column>
         <span slot="header">Contact</span>
         <p>
-            BYU Honors Advisement Center
+            BYU Honors Program
             <br> 102 MSRB
             <br> Provo, Utah 84602
             <br> (801) 422-5497

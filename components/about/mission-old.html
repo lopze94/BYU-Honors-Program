@@ -1,0 +1,74 @@
+        <div class="card-columns" v-bind:class="{threecol: open}">
+            <div class="card border-0 my-2 rounded-0" v-on:click="show0=!show0">
+                <img class="card-img rounded-0" src="/img/about/academic_excellence.jpg" alt="Academic Excellence: BYU Student graduating">
+                <div class="card-img-overlay text-white" v-if="!show0">
+                    <table style="height: 100%; width: 100%;">
+                        <tbody>
+                            <tr>
+                                <td class="align-middle h5 text-center text-uppercase">Academic Excellence</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-body" v-if="show0">
+                    <h5 class="card-title">Academic Excellence</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Academic Excellence Stories</small></p>
+                </div>
+            </div>
+            <div class="card  border-0 my-2 rounded-0" v-on:click="show1=!show1">
+                <img class="card-img rounded-0" src="/img/about/community_of_scholars.jpg" alt="Community of Scholars">
+                <div class="card-img-overlay text-white" v-if="!show1">
+                    <table style="height: 100%;width: 100%;">
+                        <tbody>
+                            <tr>
+                                <td class="align-middle h5 text-center text-uppercase">Community of Scholars</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-body" v-if="show1">
+                    <h5 class="card-title">Community of Scholars</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Community Stories</small></p>
+                </div>
+            </div>
+            <div class="card border-0 my-2 rounded-0" v-on:click="show2=!show2">
+                <img class="card-img rounded-0" src="/img/about/interdisciplinary_thinking.jpg" alt="Interdisciplinary Thinking">
+                <div class="card-img-overlay text-white">
+                    <table style="height: 100%;width: 100%;" v-if="!show2">
+                        <tbody>
+                            <tr>
+                                <td class="align-middle h5 text-center text-uppercase">Interdisciplinary Thinking</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-body" v-if="show2">
+                    <h5 class="card-title">Interdisciplinary Thinking</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Interdisciplinary Stories</small></p>
+                </div>
+            </div>
+            <div class="card border-0 my-2 rounded-0" v-on:click="show3=!show3">
+                <img class="card-img rounded-0" src="/img/about/skills_of_inquiry.jpg" alt="Skills of Inquiry">
+                <div class="card-img-overlay text-white">
+                    <table style="height: 100%;width: 100%;" v-if="!show3">
+                        <tbody>
+                            <tr>
+                                <td class="align-middle h5 text-center text-uppercase">Skills of Inquiry</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-body" v-if="show3">
+                    <h5 class="card-title">Skill of Inquiry</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Inquiry Stories</small></p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <span class="badge badge-primary mr-1" v-on:click="show0=show1=show2=show3=true" v-if="(show0||show1||show2||show3)&&!(show0&&show1&&show2&&show3)">Expand All</span>
+            <span class="badge badge-secondary" v-on:click="show0=show1=show2=show3=false" v-if="show0||show1||show2||show3">Hide All</span>
+        </div>

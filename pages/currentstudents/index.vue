@@ -4,16 +4,17 @@
     <main-hero></main-hero>
     <navigation :navigation="navigation"></navigation>
     <!--Intro Text-->
-    <introduction></introduction>
-    <students-by-college class="d-none d-sm-block"></students-by-college>
-    <xs-students-by-college class="d-block d-sm-none"></xs-students-by-college>
-
-    <!--Deadlines-->
-    <deadlines></deadlines>
+    <requirements class="pb-xl-5"></requirements>
     <!--Forms-->
     <honors-forms></honors-forms>
+    <!--Deadlines-->
+    <deadlines></deadlines>
+
+    <coordinators></coordinators>
     <!--Events-->
     <events></events>
+    <scholarships></scholarships>
+
     <!--Opportunities-->
     <opportunities></opportunities>
     <!--Newsletter-->
@@ -23,25 +24,25 @@
 
 <script>
 import MainHero from "../../components/currentstudents/main.vue";
-import Introduction from "../../components/currentstudents/introduction.vue";
+import Requirements from "../../components/currentstudents/requirements.vue";
 import Deadlines from "../../components/currentstudents/deadlines.vue";
 import Opportunities from "../../components/currentstudents/opportunities.vue";
 import HonorsForms from "../../components/currentstudents/forms.vue";
 import Newsletter from "../../components/currentstudents/newsletter.vue";
-import StudentsByCollege from "../../components/currentstudents/StudentsByCollege.vue";
-import XsStudentsByCollege from "../../components/currentstudents/xsStudentsByCollege.vue";
+import Coordinators from "../../components/currentstudents/coordinators.vue";
+import Scholarships from "../../components/currentstudents/scholarships.vue";
 
 export default {
   name: "CurrentStudents",
   components: {
     MainHero,
-    Introduction,
+    Requirements,
     Deadlines,
     Opportunities,
     HonorsForms,
     Newsletter,
-    StudentsByCollege,
-    XsStudentsByCollege
+    Coordinators,
+    Scholarships
   },
   data() {
     return {

@@ -11,11 +11,9 @@ export default {
     data () {
         return {
             hero: {
-                title: 'Welcome Back!',
+                title: 'Stay Informed!',
                 image_path: '/img/current/main_hero.jpg',
-                description: 'Check important deadlines, download forms, and find out about future events and new opportunities.',
-                link: '',
-                link_text: 'Watch video'
+                description: 'Get to know the requirements, download forms, check important deadlines, learn about events, and explore opportunities.',
             }
         }
     }

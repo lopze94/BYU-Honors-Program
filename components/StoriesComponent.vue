@@ -17,7 +17,7 @@
   
     <div class="container pt-4">
       <div class="card-deck">
-        <a v-for="(story, index) in featuredstories" :key="index" class="card border-0 mx-2 rounded-0" v-bind:href="story.link">
+        <a v-for="(story, index) in featuredstories" :key="index" class="card border-0 mx-2 rounded-0" v-bind:href="story.link" v-if="story.category!=4">
           <div class="card-header bg-honors text-white text-uppercase rounded-0" style="font-size: 14px;">
             {{story.category | replaceCategory}}
           </div>

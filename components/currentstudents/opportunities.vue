@@ -1,36 +1,76 @@
 <template>
     <div class="container jumptarget" id="opportunities">
-        <h2 class="py-3">Opportunities</h2>
+        <h2 class="py-3">Opportunities in Honors</h2>
         <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam nihil ut laborum facilis temporibus animi? Nihil recusandae praesentium quos voluptatem vero, repellat debitis animi architecto magnam, distinctio fuga dicta quas. Ullam quod, necessitatibus
-            quae nesciunt enim ipsa sequi dolores cum.
+            The Honors Program offers many wonderful opportunities to our Honors students. Click a card to learn more about it or download an application for that specific opportunity.    
         </p>
-        <h3>
-            Honors Student Leadership Council
-        </h3>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore soluta hic rerum corrupti, dolor reiciendis, numquam aperiam sint pariatur accusamus saepe repellat minus? Est, officiis in non quibusdam omnis blanditiis similique amet aspernatur distinctio
-            a?
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus amet maxime ut commodi cupiditate a officia nostrum cum error consectetur.
-        </p>
-        <h3>
-            Cambridge Programme
-        </h3>
-        <router-link to="/currentstudents/cambridgeprogramme" class="btn btn-honors mb-3">Official Page</router-link>    
-        <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus veniam illo pariatur id corporis reprehenderit consequatur obcaecati quae, incidunt earum nihil fugiat libero ut laborum.
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem iusto odit repellat hic porro expedita error? Exercitationem quod hic incidunt minus aliquid iusto culpa magni. Quod vel soluta doloribus numquam necessitatibus illum voluptate! Alias
-            perferendis praesentium temporibus earum itaque facilis nihil. Distinctio dolores eum perspiciatis.
-        </p>
+        <div class="container mb-4">
+        <a class="row my-3 shadow" v-for="(item, i) in share" :key="i" :href="item.link" target="_blank">
+    <div class="col col-12 col-lg-6 px-0 mb-sm-3 mb-md-0">
+        <img :src="item.img" :alt="item.title" class="w-100">
+    </div>
+    
+    <div class="col col-12 col-lg-6 px-4 px-sm-3 px-xl-5 mt-3">
+        <table style="height: 100%;">
+  <tbody>
+    <tr>
+      <td class="align-middle">
+        <h3>{{item.title}}</h3>
+        <p>{{item.description}}</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+</a>
+        </div>
     </div>
 </template>
 
 <script>
-    export default {
-        name: 'Opportunities'
-    }
+export default {
+  name: "Opportunities",
+  data() {
+    return {
+      ishover: false,
+      share: [
+        {
+          img: "/img/current/cambridge-programme.jpg",
+          link: "/currentstudents/cambridgeprogramme",
+          title: "Cambridge Programme",
+          description: `The Pembroke-King’s Programme (PKP) is a full six-week direct enrollment summer term at the University of Cambridge for Honors student only.`
+        },
+        {
+          img: "/img/current/honors-program-student-advisor.jpg",
+          link: "/forms/Honors_Thesis_Defense_Information_Form_2018.pdf",
+          title: "Honors Program Student Advisor",
+          description: `Any student who has taken HONRS 120 and one of the Honors unexpected connection classes is invited to apply to be an Honors advisor.  `
+        },
+        {
+          img: "/img/current/honors-student-leadership-council.jpg",
+          title: "Honors Student Leadership Council",
+          description: `Any committed Honors students can apply to be a member of the student council during the winter semester. If you are selected, you will start in the fall semester.  `
+        },
+        {
+          img: "/img/current/honors-teaching-assitant.jpg",
+          title: "Honors Teaching Assistant",
+          description: `If you are interested in becoming a Teaching Assistant in one of the Honors classes, please click this card to download an application.`
+        }
+      ]
+    };
+  }
+};
 </script>
+
+<style scoped>
+a {
+  text-decoration: none;
+  color: black;
+}
+a.shadow:hover {
+  color: #0057b8;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+}
+</style>
