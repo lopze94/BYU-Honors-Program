@@ -38,6 +38,10 @@ export default {
           text: "Participate"
         },
         {
+          href: "#involve",
+          text: "Get Involved"
+        },
+        {
           href: "#spotlight",
           text: "Spotlight"
         },

@@ -2,9 +2,7 @@
     <div>
         <!--Main Hero and Nav-->
         <main-hero></main-hero>
-        <navigation :navigation="navigation"></navigation>
         <student-forms></student-forms>
-        <faculty-forms></faculty-forms>
     </div>
 </template>
 

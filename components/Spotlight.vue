@@ -30,7 +30,7 @@
           <span class="font-weight-normal text-muted">{{spotlight[0].minor}}</span>
           <br><span class="font-weight-normal text-muted">{{spotlight[0].graduation}}</span>
         </p>
-<p>{{spotlight[0].long_text}}</p>
+<p v-html="spotlight[0].long_text">{{spotlight[0].long_text}}</p>
       </div>
     </div>
   </div>

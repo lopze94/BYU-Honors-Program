@@ -1,9 +1,7 @@
 <template>
     <div class="container" id="faq">
         <h2 class="py-3">Cambridge FAQs</h2>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat vel voluptas eligendi earum dolore. Earum officiis numquam impedit architecto iste nemo id atque doloribus veritatis quia deserunt nulla in, similique maiores aut ipsum illo nisi?
-        </p>
+
         <div class="accordion pb-4" id="accordionExample">
             <div class="card" v-for="(question, i) in questions" :key="i">
                 <div class="card-header" id="headingOne">

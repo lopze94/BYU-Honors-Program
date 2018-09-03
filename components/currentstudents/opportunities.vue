@@ -43,17 +43,19 @@ export default {
         },
         {
           img: "/img/current/honors-program-student-advisor.jpg",
-          link: "/forms/Honors_Thesis_Defense_Information_Form_2018.pdf",
+          link: "/forms/opportunities/Application-HONRS-Advisor.pdf",
           title: "Honors Program Student Advisor",
           description: `Any student who has taken HONRS 120 and one of the Honors unexpected connection classes is invited to apply to be an Honors advisor.  `
         },
         {
           img: "/img/current/honors-student-leadership-council.jpg",
+          link: "/forms/opportunities/Application-HSAC.pdf",
           title: "Honors Student Leadership Council",
           description: `Any committed Honors students can apply to be a member of the student council during the winter semester. If you are selected, you will start in the fall semester.  `
         },
         {
           img: "/img/current/honors-teaching-assitant.jpg",
+          link: "/forms",
           title: "Honors Teaching Assistant",
           description: `If you are interested in becoming a Teaching Assistant in one of the Honors classes, please click this card to download an application.`
         }

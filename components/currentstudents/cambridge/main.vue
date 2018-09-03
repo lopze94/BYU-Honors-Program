@@ -9,7 +9,6 @@ export default {
         return {
             hero: {
                 title: 'Cambridge Study Abroad',
-                description: 'This is a description',
                 image_path: '/img/current/cambridge_program.jpg',
             }
         }

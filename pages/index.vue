@@ -4,16 +4,19 @@
     <stories-component></stories-component>
     <spotlight v-bind:category="0"></spotlight>
     <events></events>
+    <footer-hero></footer-hero>
   </div>
 </template>
 
 <script>
   import StoriesComponent from '../components/StoriesComponent.vue'
+  import FooterHero from '../components/footerhero.vue'
   
   export default {
     name: 'HomePage',
     components: {
-      StoriesComponent
+      StoriesComponent,
+      FooterHero
     },
   
     data() {

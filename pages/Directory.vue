@@ -29,12 +29,13 @@
 
 <div class="row">
   <div class="col-sm-12 col-md-4 col-lg-2">
-    <img class="card-img-top rounded-circle px-5 px-sm-2 py-2" v-bind:src="contact.image_path" v-bind:alt="'Portrait of ' + contact.first_name +' '+ contact.last_name">
+    <img class="card-img-top rounded-circle px-5 px-sm-2 py-2" v-bind:src="contact.image_path" v-bind:alt="'Portrait of ' + contact.first_name +' '+ contact.last_name" v-if="contact.image_path">
+    <img class="card-img-top rounded-circle px-5 px-sm-2 py-2" src="/img/spotlight/default.jpg" v-else>
   </div>
   <div class="col-md-8 col-lg-10">
     <h5 class="card-title">{{contact.first_name}} {{contact.last_name}} <span class="badge badge-primary" v-if="contact.coordinator">Coordinator</span> 
     <span class="badge badge-secondary ml-1" v-if="contact.advisor">Advisor</span><span class="badge badge-secondary ml-1" v-if="contact.faculty"></span></h5>
-    <h6 class="card-subtitle mb-2 text-muted font-weight-normal">{{contact.title}}<span v-if="contact.department">,</span> {{contact.department}}  | {{contact.college}}</h6>
+    <h6 class="card-subtitle mb-2 text-muted font-weight-normal">{{contact.title}}<span v-if="contact.department&&contact.title">,</span> {{contact.department}} <span v-if="contact.college&&contact.title"> | </span>{{contact.college}}</h6>
     <p class="card-text overflow-text why-honors" v-html="contact.description" v-if="!contact.show_more">{{contact.description}}</p>
     <p class="card-text" v-html="contact.description" v-else>{{contact.description}}</p>
   <p class="card-text text-muted">{{contact.phone}} | {{contact.email}} | {{contact.office}}</p>
@@ -101,21 +102,17 @@
   </div>
 
     <div class="tab-pane fade" v-bind:class="{active: this.tabs[3], show: this.tabs[3]}" id="pills-coordinators" role="tabpanel" aria-labelledby="pills-coordinators-tab">
-
+<p>Prest ctrl+F (Windows) or cmd+F (MacOS) to search by department.</p>
  <div v-if="dataLoaded">
   <div v-if="contact.coordinator" v-for="(contact) in directory" class="card mx-sm-5 my-2 border-0" v-bind:key="contact.id" 
   v-on:click="showToggle(contact)" v-bind:title="'Show more about '+ contact.first_name+' '+contact.last_name">
   <div class="card-body">
 
 <div class="row">
-  <div class="col-sm-12 col-md-4 col-lg-2">
-    <img class="card-img-top rounded-circle px-5 px-sm-2 py-2" v-bind:src="contact.image_path" v-bind:alt="'Portrait of ' + contact.first_name +' '+ contact.last_name">
-  </div>
+
   <div class="col-md-8 col-lg-10">
     <h5 class="card-title">{{contact.first_name}} {{contact.last_name}} <span class="badge badge-primary" v-if="contact.coordinator">Coordinator</span> <span class="badge badge-secondary ml-1" v-if="contact.advisor">Advisor</span></h5>
-    <h6 class="card-subtitle mb-2 text-muted font-weight-normal">{{contact.title}}<span v-if="contact.department">,</span> {{contact.department}}  | {{contact.college}}</h6>
-    <p class="card-text overflow-text" v-html="contact.description" v-if="!contact.show_more">{{contact.description}}</p>
-    <p class="card-text" v-html="contact.description" v-else>{{contact.description}}</p>
+    <h6 class="card-subtitle mb-2 text-muted font-weight-normal">{{contact.department}}</h6>
   <p class="card-text text-muted">{{contact.phone}} | {{contact.email}} | {{contact.office}}</p>
   </div>
 </div>
@@ -230,6 +227,7 @@ a.active {
   background: #002e5d !important;
   color: white !important;
   border-color: #002e5d !important;
+  border-radius: 0px;
 }
 
 .overflow-text {

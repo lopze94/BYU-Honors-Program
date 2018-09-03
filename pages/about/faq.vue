@@ -80,11 +80,11 @@
                     },
                     {
                         title: 'What does it mean to graduate with Honors?',
-                        answer: 'To graduate with University Honors is a large recognition that BYU gives to those that complete the requirements of the Honors Program. Those that graduate with Honors will be recognized at graduation, receive a Honors Diploma and medallion, and have their Honors Thesis title put on their transcript.'
+                        answer: 'University Honors is the highest academic distinction awarded to undergraduates at BYU. Those who graduate with Honors are recognized at graduation, receive an Honors Diploma and medallion, and have their Honors Thesis title put on their transcript.'
                     },
                     {
                         title: 'Am I graduating with a Latin distinction? (For example summa cum laude?)',
-                        answer: 'Latin distinctions are determined by GPA alone in the separate colleges--it has nothing to do with the Honors Program. If a student is interested in knowing they are graduating with Latin distinctions, they must contact their college advisement center.'
+                        answer: 'Latin distinctions are determined by GPA alone in the separate colleges and are not affiliated with the Honors Program. If a student is interested in knowing whether they are graduating with Latin distinctions, they should contact their college advisement center.'
                     }
                 ]
             }

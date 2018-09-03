@@ -1,43 +1,121 @@
 <template>
     <div class="container" id="student-forms">
-        <h2 class="py-3">Student Forms</h2>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum maiores sit reprehenderit! Dolorem illum recusandae nulla tenetur. Quidem, odio voluptate minus soluta iure consectetur. Doloribus necessitatibus aliquam pariatur modi nam soluta delectus porro quod odit.
-        </p>
+        <h2 class="py-3">Honors Program Forms</h2>
         <p>
             Click any of the following forms to download a PDF version.
         </p>
+        <h3>General Forms</h3>
         <div class="list-group mb-3">
-            <a href="/forms/Requirements_Checklist_2018.pdf" class="list-group-item list-group-item-action flex-column align-items-start" download>
+            <a v-for="(form, i) in generalForms" :href="form.link" class="list-group-item list-group-item-action flex-column align-items-start" target="_blank" :key="i">
                 <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Requirements Checklist</h5>
+                    <h5 class="mb-1">{{form.title}}</h5>
                 </div>
-                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
             </a>
-            <a href="/forms/Thesis_Proposal_Submission_Form_2018.pdf" class="list-group-item list-group-item-action flex-column align-items-start" download>
+        </div>
+        <h3>Thesis Forms</h3>
+        <div class="list-group mb-3">
+            <a v-for="(form, i) in thesisForms" :href="form.link" class="list-group-item list-group-item-action flex-column align-items-start" target="_blank" :key="i">
                 <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Thesis Proposal Submission</h5>
+                    <h5 class="mb-1">{{form.title}}</h5>
                 </div>
-                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
             </a>
-            <a href="/forms/Honors_Thesis_Submission_Form_2018.pdf" class="list-group-item list-group-item-action flex-column align-items-start">
+        </div>
+        <h3>Opportunities Forms</h3>
+        <div class="list-group mb-3">
+            <a v-for="(form, i) in opportunitiesForms" :href="form.link" class="list-group-item list-group-item-action flex-column align-items-start" target="_blank" :key="i">
                 <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Thesis Submission</h5>
+                    <h5 class="mb-1">{{form.title}}</h5>
                 </div>
-                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
             </a>
-            <a href="/forms/Honors_Thesis_Defense_Information_Form_2018.pdf" class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Thesis Defense Information</h5>
+        </div>
+        <h3>Teaching Assitant Forms</h3>
+        <div class="list-group mb-3">
+            <a v-for="(form, i) in taForms" :href="form.link" class="list-group-item list-group-item-action flex-column align-items-start" target="_blank" :key="i">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{form.title}}</h5>
                 </div>
-                <p class="mb-1">Donec id elit non mi porta </p>
             </a>
         </div>
     </div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "StudentForms",
+  data() {
+    return {
+      generalForms: [
+        {
+          title: "Requirements Checklist",
+          link: "/forms/Requirements_Checklist_2018.pdf"
+        },
+        {
+            title: "Honors Conference Funding Request",
+            link: "/forms/Honors-Conference-Funding-Request.pdf"
+        }
+      ],
+      thesisForms: [
+        {
+          title: "Thesis Proposal Submission",
+          link: "/forms/thesis/Thesis_Proposal_Submission_Form_2018.pdf"
+        },
+        {
+          title: "Thesis Submission",
+          link: "/forms/thesis/Honors_Thesis_Submission_Form_2018.pdf"
+        },
+        {
+          title: "Thesis Formatting Guidelines",
+          link: "/forms/thesis/Thesis-Formatting-Guidelines-2018.pdf"
+        },
+        {
+          title: "Honors Thesis Binding via BYU Print and Mail Services",
+          link: "/forms/thesis/Honors-Thesis-Binding.pdf"
+        },
+        {
+          title: "Thesis Defense Information",
+          link: "/forms/thesis/Honors_Thesis_Defense_Information_Form_2018.pdf"
+        },
+        {
+          title: "ScholarsArchives Instructions",
+          link: "/forms/thesis/ScholarsArchives-Instructions.pdf"
+        }
+      ],
+      opportunitiesForms: [
+        {
+          title: "Honors Advisor",
+          link: "/forms/opportunities/Application-HONRS-Advisor.pdf"
+        },
+        {
+          title: "HSAC Application",
+          link: "/forms/opportunities/Application-HSAC.pdf"
+        },
+        {
+          title: "Leadership Development Experience",
+          link:
+            "/forms/opportunities/Leadership-Development-Experience-Form-2018.pdf"
+        },
+        {
+          title: "Khona Scholarship",
+          link: "/forms/opportunities/Khona-Application.pdf"
+        },
+        {
+          title: "Robert K. Thomas Scholarship",
+          link: "/forms/opportunities/RKT-Application-2019-20.pdf"
+        }
+      ],
+      taForms: [
+        {
+          title: "HONRS 120 TA",
+          link: "/forms/opportunities/Application-HONRS-120-TA.pdf"
+        },
+        {
+          title: "Unexpected Connections TA",
+          link: "/forms/opportunities/Application-UnexpectConnect-TA.pdf"
+        }
+      ]
+    };
+  }
+};
 </script>
 
 <style>

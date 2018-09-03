@@ -1,5 +1,5 @@
 <template>
-    <div class="container jumptarget" id="opportunities">
+    <div class="container jumptarget" id="scholarships">
         <h2 class="py-3">Scholarships</h2>
         <p>
 Honors students can apply to these scholarships during the Winter semester for the subsequent Fall semester.   
@@ -37,11 +37,13 @@ export default {
       share: [
         {
           img: "/img/current/khona-scholarship.jpg",
+          link: "/forms/opportunities/Khona-Application.pdf",
           title: "Khona Scholarship",
           description: `This scholarship is for Honors students who are majoring in Business and are currently working on their thesis.`
         },
                 {
           img: "/img/current/robert-thomas-scholarship.jpg",
+          link: "/forms/opportunities/RKT-Application-2019-20.pdf",
           title: "Robert K. Thomas Scholarship",
           description: `This scholarship is named after the founder of the BYU Honors Program.  It’s for all Honors students who are currently working on their theses. `
         }

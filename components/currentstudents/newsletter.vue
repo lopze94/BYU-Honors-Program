@@ -1,17 +1,21 @@
 <template>
-    <global-hero :hero="hero" id="newsletter" class="jumptarget"></global-hero>
+    <div id="contact" class="jumptarget">
+        <h1 class="d-none">About BYU Honors Program</h1>
+        <global-hero v-bind:hero="hero"></global-hero>
+    </div>
 </template>
 
 <script>
 export default {
-    name: "Newsletter",
-    data (){
+    name: 'ContactUs',
+    data () {
         return {
             hero: {
-                title: 'Join Our Newsletter',
-                image_path: '/img/current/newsletter.jpg',
-                link: 'javascript: void 0',
-                link_text: 'Subscribe'
+                title: 'Need More Help?',
+                image_path: '/img/about/contact_hero.jpg',
+                description: '102 MSRB<br>M-F | 8am - 5pm<br>(801) 422-5497<br>honors@byu.edu',
+                link: "mailto:honors@byu.edu",
+                link_text: "Contact Us"
             }
         }
     }

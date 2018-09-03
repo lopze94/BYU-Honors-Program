@@ -48,28 +48,33 @@ export default {
     return {
       navigation: [
         {
-          href: "#introduction",
-          text: "Introduction"
-        },
-        {
-          href: "#deadlines",
-          text: "Deadlines"
+          href: "#requirements",
+          text: "Requirements"
         },
         {
           href: "#forms",
           text: "Forms"
         },
         {
+          href: "#deadlines",
+          text: "Deadlines"
+        },
+
+        {
           href: "#events",
           text: "Events"
+        },
+        {
+          href: "#scholarships",
+          text: "Scholarships"
         },
         {
           href: "#opportunities",
           text: "Opportunities"
         },
         {
-          href: "#newsletter",
-          text: "Newsletter"
+          href: "#contact",
+          text: "Contact"
         }
       ]
     };
