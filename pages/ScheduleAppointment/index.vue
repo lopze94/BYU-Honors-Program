@@ -218,7 +218,7 @@ export default {
           }
         },
         notification: {
-          to: this.email,
+          to: "honors@byu.edu",
           from: this.email,
           subject: full_name + " scheduled a new appointment!",
           text: "Appointment confirmation",
