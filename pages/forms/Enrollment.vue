@@ -67,17 +67,31 @@ export default {
     submitApplication: async function() {
       await this.verifyCaptcha();
       if (this.captchaPassed) {
-         return axios.post("https://fmsecure.byu.edu/phoenix/secure/ue/submit/honors.php", this.formData, { crossdomain: true }).then(response => {
-           return response;
-        }).catch(err => {
-         console.log("Enrollment failed:", err);
-        });
-        this.$router.push(
-          `/forms/enrollment-confirmation?
+        return axios
+          .post(
+            "https://fmsecure.byu.edu/phoenix/secure/ue/submit/honors.php",
+            this.formData
+          )
+          .then(response => {
+            return this.$router.push(
+              `/forms/enrollment-confirmation?
           netid=${this.formData.netid}
           &email=${this.formData.email}
           &grad=${this.formData.planned_grad}`
-        );
+            );
+          })
+          .catch(err => {
+            console.log("Enrollment failed:", err);
+            this.$router.push({
+              path: "/forms/enrollment-error",
+              query: {
+                netid: this.formData.netid,
+                email: this.formData.email,
+                grad: this.formData.planned_grad,
+                how: this.formData.source
+              }
+            });
+          });
       }
     },
     resetForm: function() {
