@@ -71,7 +71,8 @@ export default {
        filters: {
         formatDate: function(dateInput) {
         return moment(dateInput).format('MMMM DD, YYYY');
-    }},
+    }
+    },
    methods:{
 async asyncCall() {
   //console.log('calling');
@@ -94,8 +95,9 @@ async asyncCall() {
 
      },
      checkTitle: function (title){
-         let routeTitle = this.$route.params.title.replace(/_/g, " ").toLowerCase();
-         if (routeTitle === title.toLowerCase()){
+         let routeTitle = decodeURIComponent(this.$route.params.title);
+         
+         if (routeTitle == title){
              return true;
          }
          else {

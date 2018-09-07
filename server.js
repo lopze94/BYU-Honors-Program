@@ -126,7 +126,7 @@ app.post('/api/login', (req, res) => {
 
 // Registration //
 
-app.post('/api/users', (req, res) => {
+app.post('/api/users', verifyToken, (req, res) => {
   if (!req.body.email || !req.body.password || !req.body.username || !req.body.name)
     return res.status(400).send();
   knex('users').where('email', req.body.email).first().then(user => {
@@ -363,7 +363,7 @@ app.post('/api/stories', verifyToken, uploadStory.single('image'), (req, res) =>
   }).then(story => {
     if (story.link == '') {
       //console.log("This link is empty. Generating Link...");
-      link = '/stories/' + story.id + '/' + story.title.replace(/\s/g, "_");
+      link = "/stories/" + story.id + "/" + encodeURI(story.title);
       knex('stories').where('id', story.id).update('link', link).then();
       story.link = link;
       res.status(200).json({
@@ -472,7 +472,6 @@ app.post('/api/captcha', (req, res) => {
     });
   });
 });
-
 
 //Launch the server.
 app.listen(3000, () => console.log('Server listening on port 3000!'));

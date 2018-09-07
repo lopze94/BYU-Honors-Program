@@ -1,7 +1,7 @@
 <template>
 <div>
   <byu-hero-banner id="hero" v-bind:image-source="hero.image_path" class="dark-image full-screen transparent-overlay">
-    <span slot="headline">{{hero.title}}</span>
+    <span slot="headline">{{hero.title | decodeTitle}}</span>
     <span slot="intro-text">
       <div class="bg-white py-1 mb-3" v-if="this.id"></div>
       <div class="h6" v-if="this.id">
@@ -17,17 +17,22 @@
 </template>
 
 <script>
-var moment = require('moment');
+var moment = require("moment");
 export default {
   name: "Mission",
   props: ["hero"],
-  data (){
+  data() {
     return {
-      id: this.$route.params.id,
+      id: this.$route.params.id
+    };
+  },
+  filters: {
+    formatDate: function(dateInput) {
+      return moment(dateInput).format("MMMM DD, YYYY");
+    },
+    decodeTitle: function(title) {
+      return decodeURIComponent(title);
     }
-  },       filters: {
-        formatDate: function(dateInput) {
-        return moment(dateInput).format('MMMM DD, YYYY');
-    }},
+  }
 };
 </script>

@@ -17,8 +17,8 @@
         <div class="tab-content" id="nav-tabContent">
           <div class="tab-pane fade show active" id="list-select" role="tabpanel" aria-labelledby="list-select-list">
             <div class="jumbotron rounded-0">
-              <h1 class="display-4">Don't stress!</h1>
-              <p class="lead">Select your graduation date to view the deadlines tailored to your timeline. Click a deadline to read more about it.</p>
+              <h1 class="display-4">Don't Stress&mdash;Plan Ahead!</h1>
+              <p class="lead">Select your graduation to view the applicable deadlines. Click a specific event for more information.</p>
             </div>
           </div>
           <div v-for="(list, i) in deadlines" :key="i" class="tab-pane fade show" :id="'list-'+list.graduation" role="tabpanel" :aria-labelledby="'list-'+list.graduation+'-list'">
@@ -43,6 +43,8 @@
         </div>
       </div>
     </div>
+    <!--Note-->
+    <small class="text-muted"><b>Note</b>:  <span class="text-danger">Honors Program deadlines are firm</span>.  Students submitting materials after these deadlines will be considered for graduation the following semester.  Individual departments may have earlier deadlines than our Program deadlines.  Be sure to check with your faculty thesis advisor or Honors Coordinator.</small>
     <!-- Modal -->
     <div v-for="(event, index) in events" :key="index" class="modal fade" :id="'event-'+index+'-modal'" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
