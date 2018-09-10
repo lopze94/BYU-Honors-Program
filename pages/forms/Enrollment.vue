@@ -67,7 +67,7 @@ export default {
     submitApplication: async function() {
       await this.verifyCaptcha();
       if (this.captchaPassed) {
-        return axios
+         axios
           .post(
             "https://fmsecure.byu.edu/phoenix/secure/ue/submit/honors.php",
             this.formData

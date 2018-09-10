@@ -3,9 +3,6 @@
         <h1 class="d-none">BYU + Cambridge</h1>
         <main-hero></main-hero>
         <about></about>
-
-        <timeline></timeline>
-
         <questions></questions>
         <application></application>
     </div>

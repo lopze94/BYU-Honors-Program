@@ -37,7 +37,7 @@ export default {
       share: [
         {
           img: "/img/current/cambridge-programme.jpg",
-          link: "/currentstudents/cambridgeprogramme",
+          link: "https://kennedy.byu.edu/cambridge/",
           title: "Cambridge Programme",
           description: `The Pembroke-King’s Programme (PKP) is a full six-week direct enrollment summer term at the University of Cambridge for Honors student only.`
         },
