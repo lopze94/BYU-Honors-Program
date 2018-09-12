@@ -1,3 +1,4 @@
+
 <template>
   <div class="container py-3">
     <h2 v-if="loggedIn">Administrator Home</h2>
@@ -8,7 +9,7 @@
         <p>Click the links below to edit the sections.</p>
         <ul>
           <li><router-link to="/editspotlight">Edit Spotlight</router-link></li>
-                    <li><router-link to="/editstories">Edit Stories</router-link></li>
+          <li><router-link to="/editstories">Edit Stories</router-link></li>
         </ul> 
       </div>
         <div  v-if="loggedIn"><a @click="logout" href="#" class="btn btn-outline-primary">Logout</a> <router-link to="/register" class="btn btn-secondary ml-2">Register Admin</router-link></div>

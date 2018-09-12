@@ -38,7 +38,8 @@ if (jwtSecret === undefined) {
 // the URL in any route. This will restrict access to only those clients who possess a valid token.
 const verifyToken = (req, res, next) => {
   const token = req.headers['authorization'];
-  if (!token)
+  
+  if (!token || token == undefined)
     return res.status(403).send({
       error: 'No token provided.'
     });
@@ -176,7 +177,7 @@ app.post('/api/users', verifyToken, (req, res) => {
 
 // Get my account
 app.get('/api/me', verifyToken, (req, res) => {
-  knex('users').where('id', req.userID).first().select('username', 'name', 'id').then(user => {
+  knex('users').where('id', req.userID).first().select('username', 'name', 'id', 'role').then(user => {
     res.status(200).json({
       user: user
     });
@@ -190,7 +191,7 @@ app.get('/api/me', verifyToken, (req, res) => {
 app.get('/api/users/:id', (req, res) => {
   let id = parseInt(req.params.id);
   // get user record
-  knex('users').where('id', id).first().select('username', 'name', 'id').then(user => {
+  knex('users').where('id', id).first().select('username', 'name', 'id', 'role').then(user => {
     res.status(200).json({
       user: user
     });
@@ -472,6 +473,44 @@ app.post('/api/captcha', (req, res) => {
     });
   });
 });
+
+//TEMP Entry points for Online Enrollment
+app.get('/api/enrollmentlist', verifyToken, (req, res) =>{
+  knex('enrollment')
+    .orderBy('id', 'desc')
+    .select('*').then(enrollment => {
+      res.status(200).json({
+        enrollment: enrollment
+      });
+    }).catch(error => {
+      console.log(error);
+      res.status(500).json({
+        error
+      });
+    });
+});
+
+app.post('/api/enrollment', (req, res) => {
+  knex('enrollment').first().then(entry => {
+    return knex('enrollment').insert({
+      netid: req.body.netid,
+      email: req.body.email,
+      graduation: req.body.planned_grad,
+      source: req.body.source,
+    }).then(entry => {
+      res.status(200).json({
+        entry: req.body
+      });
+      return;
+    }).catch(error => {
+      console.log('Enrollment Failed: ' + error);
+      res.status(500).json({
+        error
+      });
+    });
+  });
+});
+
 
 //Launch the server.
 app.listen(3000, () => console.log('Server listening on port 3000!'));

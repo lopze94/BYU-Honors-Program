@@ -10,7 +10,7 @@
             <br> (801) 422-5497
         </p>
         <byu-footer-action-button>
-            <a href="/forms/enrollment" slot="actiontext">Enrollment</a>
+            <a href="javascript: void (window.open('https://fmsecure.byu.edu/honorsDBPortal/enrollment.php', '_blank', 'width=800, height=600'));" slot="actiontext">Enrollment</a>
         </byu-footer-action-button>
     </byu-footer-column>
     <byu-footer-column>

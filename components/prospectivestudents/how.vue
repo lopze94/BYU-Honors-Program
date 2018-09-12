@@ -3,7 +3,7 @@
         <h2 class="py-3">How to Join the Honors Program?</h2>
         <p>To join the Honors Program, please complete the following two steps.</p>
         <div class="card-deck">
-  <a class="card rounded-0 border-0" href="/forms/enrollment">
+  <a class="card rounded-0 border-0" href="javascript: void (window.open('https://fmsecure.byu.edu/honorsDBPortal/enrollment.php', '_blank', 'width=800, height=600'));">
     <img class="card-img-top rounded-0" src="/img/online_enrollment.jpg" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">Step 1 - Honors Enrollment</h5>

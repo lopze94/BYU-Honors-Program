@@ -99,3 +99,9 @@ export default {
   name: "Requirements"
 };
 </script>
+
+<style scoped>
+.badge:hover{
+    cursor: pointer;
+}
+</style>

@@ -67,32 +67,34 @@ export default {
     submitApplication: async function() {
       await this.verifyCaptcha();
       if (this.captchaPassed) {
-         axios
-          .post(
-            "https://fmsecure.byu.edu/phoenix/secure/ue/submit/honors.php",
-            this.formData
-          )
-          .then(response => {
-            return this.$router.push(
+         this.sendMail()
+          return this.$router.push(
               `/forms/enrollment-confirmation?
           netid=${this.formData.netid}
           &email=${this.formData.email}
           &grad=${this.formData.planned_grad}`
             );
-          })
-          .catch(err => {
-            console.log("Enrollment failed:", err);
-            this.$router.push({
-              path: "/forms/enrollment-error",
-              query: {
-                netid: this.formData.netid,
-                email: this.formData.email,
-                grad: this.formData.planned_grad,
-                how: this.formData.source
-              }
-            });
-          });
       }
+    },
+    sendMail: function() {
+      this.$store.dispatch("sendMailNotification", {
+        confirmation: {
+          to: this.formData.email,
+          from: "honors@byu.edu",
+          subject: "Welcome to the Honors Program!",
+          text: "Welcome to the BYU Honors Program",
+          html: `this is a test with your info ${this.formData.netid}, ${this.formData.email}, ${this.formData.planned_grad}, and ${this.formData.source}`,
+          templateId: "122380f8-cd2e-45bc-a5cf-b73161e4a58d"
+        },
+        notification: {
+          to: "honors@byu.edu",
+          from: this.formData.email,
+          subject: `${this.formData.netid} enrolled to the Honors Program!`,
+          text: "New enrollment application",
+          html: `this is a test with your info ${this.formData.netid}, ${this.formData.email}, ${this.formData.planned_grad}, and ${this.formData.source}`,
+          templateId: "122380f8-cd2e-45bc-a5cf-b73161e4a58d",
+        }
+      });
     },
     resetForm: function() {
       this.$router.go("/forms/enrollment");
