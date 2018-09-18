@@ -12,9 +12,6 @@
   <li class="nav-item">
     <a class="nav-link rounded-0" v-bind:class="{active: this.tabs[2]}" id="pills-faculty-tab" data-toggle="pill" href="#pills-faculty" role="tab" aria-controls="pills-faculty" v-bind:aria-selected="this.tabs[2]">Faculty</a>
   </li>
-    <li class="nav-item rounded-0">
-    <a class="nav-link" v-bind:class="{active: this.tabs[3]}" id="pills-coordinators-tab" data-toggle="pill" href="#pills-coordinators" role="tab" aria-controls="pills-coordinators" v-bind:aria-selected="this.tabs[3]">Coordinators</a>
-  </li>
       <li class="nav-item rounded-0">
     <a class="nav-link" v-bind:class="{active: this.tabs[4]}" id="pills-advisor-tab" data-toggle="pill" href="#pills-advisor" role="tab" aria-controls="pills-advisor" v-bind:aria-selected="this.tabs[4]">Advisors</a>
   </li>
@@ -90,29 +87,6 @@
     <h6 class="card-subtitle mb-2 text-muted font-weight-normal">{{contact.title}}<span v-if="contact.department">,</span> {{contact.department}}  | {{contact.college}}</h6>
     <p class="card-text overflow-text" v-html="contact.description" v-if="!contact.show_more">{{contact.description}}</p>
     <p class="card-text" v-html="contact.description" v-else>{{contact.description}}</p>
-  <p class="card-text text-muted">{{contact.phone}} | {{contact.email}} | {{contact.office}}</p>
-  </div>
-</div>
-
-  </div>
-</div>
-
-    </div>
-
-  </div>
-
-    <div class="tab-pane fade" v-bind:class="{active: this.tabs[3], show: this.tabs[3]}" id="pills-coordinators" role="tabpanel" aria-labelledby="pills-coordinators-tab">
-<p>Prest ctrl+F (Windows) or cmd+F (MacOS) to search by department.</p>
- <div v-if="dataLoaded">
-  <div v-if="contact.coordinator" v-for="(contact) in directory" class="card mx-sm-5 my-2 border-0" v-bind:key="contact.id" 
-  v-on:click="showToggle(contact)" v-bind:title="'Show more about '+ contact.first_name+' '+contact.last_name">
-  <div class="card-body">
-
-<div class="row">
-
-  <div class="col-md-8 col-lg-10">
-    <h5 class="card-title">{{contact.first_name}} {{contact.last_name}} <span class="badge badge-primary" v-if="contact.coordinator">Coordinator</span> <span class="badge badge-secondary ml-1" v-if="contact.advisor">Advisor</span></h5>
-    <h6 class="card-subtitle mb-2 text-muted font-weight-normal">{{contact.department}}</h6>
   <p class="card-text text-muted">{{contact.phone}} | {{contact.email}} | {{contact.office}}</p>
   </div>
 </div>

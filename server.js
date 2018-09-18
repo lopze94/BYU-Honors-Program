@@ -474,13 +474,13 @@ app.post('/api/captcha', (req, res) => {
   });
 });
 
-//TEMP Entry points for Online Enrollment
-app.get('/api/enrollmentlist', verifyToken, (req, res) =>{
-  knex('enrollment')
-    .orderBy('id', 'desc')
-    .select('*').then(enrollment => {
+//TEMP Entry points for Coordinators
+app.get('/api/coordinators', (req, res) =>{
+  knex('coordinators')
+    .orderBy('department', 'asc')
+    .select('*').then(coordinators => {
       res.status(200).json({
-        enrollment: enrollment
+        coordinators: coordinators
       });
     }).catch(error => {
       console.log(error);
@@ -488,27 +488,6 @@ app.get('/api/enrollmentlist', verifyToken, (req, res) =>{
         error
       });
     });
-});
-
-app.post('/api/enrollment', (req, res) => {
-  knex('enrollment').first().then(entry => {
-    return knex('enrollment').insert({
-      netid: req.body.netid,
-      email: req.body.email,
-      graduation: req.body.planned_grad,
-      source: req.body.source,
-    }).then(entry => {
-      res.status(200).json({
-        entry: req.body
-      });
-      return;
-    }).catch(error => {
-      console.log('Enrollment Failed: ' + error);
-      res.status(500).json({
-        error
-      });
-    });
-  });
 });
 
 
