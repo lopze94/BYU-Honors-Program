@@ -5,7 +5,7 @@
   <p class="lead">Honors Coordinators are Honors faculty representatives within each discipline who are responsible for reviewing and signing Honors thesis proposals in their first state of approval.</p>
   <hr class="my-4">
   <p>Coordinators provide department-specific guidelines for the Honors Thesis Proposal, and are a participating member of the thesis committee from the proposal stage through to the defense. Check the list of department coordinators to find yours.</p>
-  <a class="btn btn-honors" href="/directory#coordinators" role="button">View List</a>
+  <a class="btn btn-honors" href="/directory/coordinators" role="button">View List</a>
 </div>
 </div>
 
@@ -13,7 +13,17 @@
 
 <script>
 export default {
-    name: "Coordinators"
+    name: "Coordinators",
+    head() {
+      return {
+        title: 'BYU Honors Program | Honors Coordinators',
+        meta: [{
+          hid: 'description',
+          name: 'description',
+          content: 'BYU Honors Program coordinators list. Find your coordinator for your college/department.'
+        }]
+      }
+    }
 }
 </script>
 
