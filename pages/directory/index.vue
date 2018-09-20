@@ -15,6 +15,9 @@
       <li class="nav-item rounded-0">
     <a class="nav-link" v-bind:class="{active: this.tabs[4]}" id="pills-advisor-tab" data-toggle="pill" href="#pills-advisor" role="tab" aria-controls="pills-advisor" v-bind:aria-selected="this.tabs[4]">Advisors</a>
   </li>
+  <li class="nav-item rounded-0">
+    <a class="nav-link" href="/directory/coordinators" target="_blank">Coordinators<font-awesome-icon icon="external-link-alt" class="ml-1"/></a>
+  </li>
 </ul>
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade" v-bind:class="{active: this.tabs[0], show: this.tabs[0]}" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
@@ -33,7 +36,7 @@
     <h5 class="card-title">{{contact.first_name}} {{contact.last_name}} <span class="badge badge-primary" v-if="contact.coordinator">Coordinator</span> 
     <span class="badge badge-secondary ml-1" v-if="contact.advisor">Advisor</span><span class="badge badge-secondary ml-1" v-if="contact.faculty"></span></h5>
     <h6 class="card-subtitle mb-2 text-muted font-weight-normal">{{contact.title}}<span v-if="contact.department&&contact.title">,</span> {{contact.department}} <span v-if="contact.college&&contact.title"> | </span>{{contact.college}}</h6>
-    <p class="card-text overflow-text why-honors" v-html="contact.description" v-if="!contact.show_more">{{contact.description}}</p>
+    <p class="card-text overflow-text" v-html="contact.description" v-if="!contact.show_more">{{contact.description}}</p>
     <p class="card-text" v-html="contact.description" v-else>{{contact.description}}</p>
   <p class="card-text text-muted">{{contact.phone}} | {{contact.email}} | {{contact.office}}</p>
   </div>
@@ -85,8 +88,9 @@
   <div class="col-md-8 col-lg-10">
     <h5 class="card-title">{{contact.first_name}} {{contact.last_name}} <span class="badge badge-primary" v-if="contact.coordinator">Coordinator</span><span class="badge badge-secondary ml-1" v-if="contact.advisor">Advisor</span> </h5>
     <h6 class="card-subtitle mb-2 text-muted font-weight-normal">{{contact.title}}<span v-if="contact.department">,</span> {{contact.department}}  | {{contact.college}}</h6>
-    <p class="card-text overflow-text" v-html="contact.description" v-if="!contact.show_more">{{contact.description}}</p>
-    <p class="card-text" v-html="contact.description" v-else>{{contact.description}}</p>
+    <p class="card-text overflow-text why-honors" v-html="contact.description" v-if="!contact.show_more">{{contact.description}}</p>
+    <p class="card-text why-honors" v-html="contact.description" v-else>{{contact.description}}</p>
+    <p class="card-text"><b>{{contact.courses}}</b></p>
   <p class="card-text text-muted">{{contact.phone}} | {{contact.email}} | {{contact.office}}</p>
   </div>
 </div>
@@ -220,5 +224,10 @@ a.active {
 .card:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   cursor: pointer;
+}
+
+.why-honors::before {
+  content: "Why Honors? ";
+  color: #0057B8;
 }
 </style>
