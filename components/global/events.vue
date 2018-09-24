@@ -8,7 +8,7 @@
 
     <img class="card-img-top rounded-0" :src="event.ImgUrl" :alt="event.ImgAlt">
     <div class="card-body">
-      <h5 class="card-title">{{event.Title}}</h5>
+      <h5 class="card-title" v-html="event.Title">{{event.Title}}</h5>
       <p class="card-text overflow-text" v-html="event.Description">
         {{event.Description}}
       </p>
