@@ -86,7 +86,7 @@ export default {
           link: "/forms/opportunities/Application-HONRS-Advisor.pdf"
         },
         {
-          title: "HSAC Application",
+          title: "HSLC Application",
           link: "/forms/opportunities/Application-HSAC.pdf"
         },
         {

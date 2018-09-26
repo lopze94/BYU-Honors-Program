@@ -17,19 +17,5 @@ export default {
     StudentForms,
     FacultyForms
   },
-  data() {
-    return {
-      navigation: [
-        {
-          href: "#student-forms",
-          text: "Students"
-        },
-        {
-          href: "#faculty-forms",
-          text: "Faculty"
-        }
-      ]
-    };
-  }
 };
 </script>

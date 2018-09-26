@@ -49,7 +49,7 @@ export default {
         },
         {
           img: "/img/current/honors-student-leadership-council.jpg",
-          link: "/forms/opportunities/Application-HSAC.pdf",
+          link: "/forms/opportunities/Application-HSLC.pdf",
           title: "Honors Student Leadership Council",
           description: `Any committed Honors students can apply to be a member of the student council during the winter semester. If you are selected, you will start in the fall semester.  `
         },
