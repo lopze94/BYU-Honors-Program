@@ -111,6 +111,10 @@ export default {
       ],
       thesisResources: [
         {
+          title: "Thesis Proposal Guidelines",
+          link: "/forms/thesis/Thesis_Proposal_Guidelines-Simplified_2018.pdf"
+        },
+        {
           title: "Thesis Formatting Guidelines",
           link: "/forms/thesis/Thesis-Formatting-Guidelines-2018.pdf"
         },
