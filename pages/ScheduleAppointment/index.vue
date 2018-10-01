@@ -203,14 +203,14 @@ export default {
         confirmation: {
           to: this.email,
           from: "honors@byu.edu",
-          subject: this.first_name + ", this is your appointment confirmation.",
+          subject: this.first_name + ", this is your appointment request.",
           text: "Appointment confirmation",
           html:
             "Remember, your appointment is on <strong>" +
             moment(this.selectedTime.value).format(
               "dddd, MMMM DD, YYYY [at] LT"
             ) +
-            "</strong>.",
+            "</strong>. We will let you know if we have a conflict with your appointment as soon as possible.",
           templateId: "122380f8-cd2e-45bc-a5cf-b73161e4a58d",
           substitutions: {
             name: this.first_name,
