@@ -18,8 +18,8 @@
   
     <byu-hero-banner id="booknow" image-source="/img/advisor.jpg" class="dark-image full-screen transparent-overlay jumpstart">
       <span slot="headline">Got More Questions?</span>
-      <span slot="intro-text">Talk to our advisors! You can book an appointment up to three weeks in advance.</span>
-      <a slot="read-more" class="a-link" href="/scheduleappointment">Book Now</a>
+      <span slot="intro-text">Talk to our advisors! You can request an appointment up to three weeks in advance.</span>
+      <a slot="read-more" class="a-link" href="" onclick="Calendly.showPopupWidget('https://calendly.com/byu-honors-program');return false;">Book Now</a>
     </byu-hero-banner>
   </div>
 </template>

@@ -19,7 +19,7 @@
     <a class="nav-link" href="/directory/coordinators" target="_blank">Coordinators<font-awesome-icon icon="external-link-alt" class="ml-1"/></a>
   </li>
 </ul>
-<div class="tab-content" id="pills-tabContent">
+<div class="tab-content pb-3" id="pills-tabContent">
   <div class="tab-pane fade" v-bind:class="{active: this.tabs[0], show: this.tabs[0]}" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
 
  <div v-if="dataLoaded">
@@ -88,8 +88,8 @@
   <div class="col-md-8 col-lg-10">
     <h5 class="card-title">{{contact.first_name}} {{contact.last_name}} <span class="badge badge-primary" v-if="contact.coordinator">Coordinator</span><span class="badge badge-secondary ml-1" v-if="contact.advisor">Advisor</span> </h5>
     <h6 class="card-subtitle mb-2 text-muted font-weight-normal">{{contact.title}}<span v-if="contact.department">,</span> {{contact.department}}  | {{contact.college}}</h6>
-    <p class="card-text overflow-text why-honors" v-html="contact.description" v-if="!contact.show_more">{{contact.description}}</p>
-    <p class="card-text why-honors" v-html="contact.description" v-else>{{contact.description}}</p>
+    <p class="card-text overflow-text why-honors" v-html="contact.description" v-if="!contact.show_more && contact.description">{{contact.description}}</p>
+    <p class="card-text why-honors" v-html="contact.description" v-else-if="contact.show_more&&contact.description">{{contact.description}}</p>
     <p class="card-text"><b>{{contact.courses}}</b></p>
   <p class="card-text text-muted">{{contact.phone}} | {{contact.email}} | {{contact.office}}</p>
   </div>

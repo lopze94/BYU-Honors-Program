@@ -1,6 +1,7 @@
 <template>
     <div class="container">
-        <h2 class="py-3">Schedule Appointment</h2>
+        <h2 class="py-3">Request Appointment</h2>
+        <p>Fill out the form below to request an appointment. We will notify you once your appointment is confirmed.</p>
         <form v-on:submit.prevent="verifyCaptcha" class="pb-4">
             <div class="row">
     <div class="form-group col-md-4">
@@ -54,8 +55,8 @@
           <div class="g-recaptcha" data-sitekey="6Lf63mgUAAAAAGTys36dAaksgtKe7rgU5XiwBgxF"></div>
             <small class="text-muted">If the reCaptcha did not load, click "Reset" or reload the page before submitting and start over.</small>
         </div>
-    <button class="btn btn-honors mr-2" v-if="selectedTime" type="submit">Schedule Appointment</button>
-    <button v-else type="submit" class="btn btn-honors mr-2" disabled>Schedule Appointment</button>
+    <button class="btn btn-honors mr-2" v-if="selectedTime" type="submit">Request Appointment</button>
+    <button v-else type="submit" class="btn btn-honors mr-2" disabled>Request Appointment</button>
         <button class="btn btn-secondary rounded-0" v-on:click.prevent="resetForm">Reset</button>
         </form>
     </div>
@@ -204,9 +205,9 @@ export default {
           to: this.email,
           from: "honors@byu.edu",
           subject: this.first_name + ", this is your appointment request.",
-          text: "Appointment confirmation",
+          text: "Appointment Request",
           html:
-            "Remember, your appointment is on <strong>" +
+            "You requested an appointment for <strong>" +
             moment(this.selectedTime.value).format(
               "dddd, MMMM DD, YYYY [at] LT"
             ) +
@@ -220,7 +221,7 @@ export default {
         notification: {
           to: "honors@byu.edu",
           from: this.email,
-          subject: full_name + " scheduled a new appointment!",
+          subject: full_name + " requested a new appointment!",
           text: "Appointment confirmation",
           html:
             "<p>Appointment is on " +

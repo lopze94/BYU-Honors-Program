@@ -12,7 +12,7 @@ export default {
         return {
             hero: {
             title: 'Honors Program Forms',
-            description: 'Find forms for scholarship applications, Experiential Learning approvals, Thesis Proposals and more.',
+            description: 'Find forms for scholarship applications, leadership experience, thesis proposals and more.',
             image_path: '/img/global/student_forms.jpg',
             }
         }

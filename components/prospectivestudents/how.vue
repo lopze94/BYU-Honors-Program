@@ -11,7 +11,7 @@
 
     </div>
   </a>
-  <a class="card rounded-0 border-0" href="/scheduleappointment">
+  <a class="card rounded-0 border-0" href="" onclick="Calendly.showPopupWidget('https://calendly.com/byu-honors-program');return false;">
     <img class="card-img-top rounded-0" src="/img/prospective/commitment_interview.jpg" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">Step 2 - Commitment Interview</h5>
