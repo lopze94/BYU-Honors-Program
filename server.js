@@ -358,6 +358,7 @@ app.post('/api/stories', verifyToken, uploadStory.single('image'), (req, res) =>
       link_text: req.body.link_text,
       image_path: path,
       author: req.body.author,
+      category: req.body.category
     });
   }).then(ids => {
     return knex('stories').where('id', ids[0]).first();

@@ -16,6 +16,17 @@
 <div class="container">
     <h2>Add a new Story</h2>
     <form enctype="multipart/form-data" v-on:submit.prevent="addStory">
+     <div class="form-group">
+    <label for="exampleFormControlSelect1">Spotlight Category</label>
+    <select class="form-control" id="exampleFormControlSelect1" v-model="category" required>
+    <option disabled selected value> -- select an option -- </option>
+      <option value="0">Academic Excellence</option>
+      <option value="1">Community of Scholars</option>
+      <option value="2">Interdisciplinary Thinking</option>
+      <option value="3">Skills of Inquiry</option>
+      <option value="4">General</option>
+    </select>
+  </div>
 <div class="row">
     <div class="form-group col">
         <label for="firstName">Title</label>
@@ -80,6 +91,7 @@ export default {
             title: '',
             subtitle: '',
             description: '',
+            category: '',
             text: '',
             image_path: '/img/stories/default.jpg',
             link_text: '',
@@ -113,6 +125,7 @@ export default {
         text: this.story.text,
         link: this.story.link,
         image: this.file,
+        category: this.story.category,
         author: this.$store.state.user.name
        }).then(addStory => {
            this.imageData = "",
