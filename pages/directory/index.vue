@@ -7,7 +7,7 @@
     <a class="nav-link rounded-0" v-bind:class="{active: this.tabs[0]}" id="pills-all-tab" data-toggle="pill" href="#pills-all" role="tab" aria-controls="pills-all" v-bind:aria-selected="this.tabs[0]">All</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link rounded-0" v-bind:class="{active: this.tabs[1]}" id="pills-admimistration-tab" data-toggle="pill" href="#pills-administration" role="tab" aria-controls="pills-administration" v-bind:aria-selected="this.tabs[1]">Administration</a>
+    <a class="nav-link rounded-0" v-bind:class="{active: this.tabs[1]}" id="pills-admimistration-tab" data-toggle="pill" href="#pills-administration" role="tab" aria-controls="pills-administration" v-bind:aria-selected="this.tabs[1]">Administration & Staff</a>
   </li>
   <li class="nav-item">
     <a class="nav-link rounded-0" v-bind:class="{active: this.tabs[2]}" id="pills-faculty-tab" data-toggle="pill" href="#pills-faculty" role="tab" aria-controls="pills-faculty" v-bind:aria-selected="this.tabs[2]">Faculty</a>
@@ -51,7 +51,7 @@
   <div class="tab-pane fade" v-bind:class="{active: this.tabs[1], show: this.tabs[1]}" id="pills-administration" role="tabpanel" aria-labelledby="pills-administration-tab">
 
  <div v-if="dataLoaded">
-  <div v-if="contact.admin" v-for="(contact) in directory" class="card rounded-0 mx-sm-5 my-2 border-0" v-bind:key="contact.id" 
+  <div v-if="contact.admin" v-for="(contact) in adminFixed" class="card rounded-0 mx-sm-5 my-2 border-0" v-bind:key="contact.id" 
   v-on:click="showToggle(contact)" v-bind:title="'Show more about '+ contact.first_name+' '+contact.last_name">
   <div class="card-body">
 
@@ -62,8 +62,10 @@
   <div class="col-md-8 col-lg-10">
     <h5 class="card-title">{{contact.first_name}} {{contact.last_name}} <span class="badge badge-primary" v-if="contact.coordinator">Coordinator</span> <span class="badge badge-secondary ml-1" v-if="contact.advisor">Advisor</span></h5>
     <h6 class="card-subtitle mb-2 text-muted font-weight-normal">{{contact.title}}<span v-if="contact.department">,</span> {{contact.department}}  | {{contact.college}}</h6>
-    <p class="card-text overflow-text" v-html="contact.description" v-if="!contact.show_more">{{contact.description}}</p>
-    <p class="card-text" v-html="contact.description" v-else>{{contact.description}}</p>
+    <p class="card-text overflow-text why-honors" v-html="contact.description" v-if="!contact.show_more&&contact.description">{{contact.description}}</p>
+    <p class="card-text why-honors" v-html="contact.description" v-else-if="contact.description">{{contact.description}}</p>
+    <p class="card-text overflow-text" v-html="contact.specialty" v-if="!contact.description&&!contact.show_more">{{contact.specialty}}</p>
+    <p class="card-text" v-html="contact.specialty" v-else-if="contact.show_more">{{contact.specialty}}</p>
   <p class="card-text text-muted">{{contact.phone}} | {{contact.email}} | {{contact.office}}</p>
   </div>
 </div>
@@ -149,13 +151,15 @@ export default {
     return {
       dataLoaded: false,
       showMore: false,
-      tabs: [true, false, false, false, false]
+      tabs: [true, false, false, false, false],
+      adminFixed: [],
     };
   },
-  created: function() {
+  created: async function() {
     this.asyncCall();
-    this.$store.dispatch("getFaculty");
-    this.asyncCall();
+    await this.$store.dispatch("getFaculty");
+    await this.asyncCall();
+    this.orderAdmin();
     this.selectedTab();
   },
   computed: {
@@ -173,6 +177,12 @@ export default {
     },
     showToggle: function(contact) {
       contact.show_more = !contact.show_more;
+    },
+    orderAdmin: function(){
+    for (let index = 0; index < this.directory.length; index++) {
+      if (this.directory[index].admin == 1) this.adminFixed.push(this.directory[index]);
+    }
+    this.adminFixed.sort(function(a, b){return a.id - b.id});
     },
     selectedTab: function() {
       var urlHash = this.$route.hash;
