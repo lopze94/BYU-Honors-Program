@@ -1,6 +1,6 @@
 <template>
   <div class="container jumptarget" id="why">
-<h2 class="py-3 pt-5">Why Join the Honors Program?</h2>
+<h2 class="py-3">Why Join the Honors Program?</h2>
 
 
   <div class="row pb-3">
