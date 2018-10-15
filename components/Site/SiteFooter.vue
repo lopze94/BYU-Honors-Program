@@ -17,6 +17,7 @@
         <span slot="header">Related Links</span>
         <a href="https://www.byu.edu">Brigham Young University</a>
       <a href="" onclick="Calendly.showPopupWidget('https://calendly.com/byu-honors-program');return false;">Schedule Appointment</a>
+      <router-link to="/directory">Honors Directory</router-link>
 
     </byu-footer-column>
     <byu-footer-column>

@@ -4,7 +4,7 @@
     <div class="container">
 
         <h3 class="text-muted  my-4">{{this.story.subtitle}}</h3>
-        <h6 class="text-muted  my-4">by {{user.name}}</h6>
+        <h6 class="text-muted  my-4">by {{story.author}}</h6>
         <div v-html="this.story.text">
             {{this.story.text}}
         </div>
@@ -35,7 +35,11 @@
 
     <div class="form-group col">
         <label for="lastName">Subtitle</label>
-        <input class="form-control" id="lastName" placeholder="Enter story subtitle" v-model="story.subtitle" required>
+        <input class="form-control" id="lastName" placeholder="Enter story subtitle" v-model="story.subtitle">
+    </div>
+        <div class="form-group col">
+        <label for="lastName">Author</label>
+        <input class="form-control" id="lastName" placeholder="Enter story author" v-model="story.author">
     </div>
 </div>
 
@@ -54,7 +58,7 @@
 
 <div class="form-group">
     <label for="shortText">Story Description</label>
-    <input class="form-control" type="text" id="shortText" aria-describedby="summaryHelp" placeholder="Enter a summary of the story here" v-model="story.description" required>
+    <input class="form-control" type="text" id="shortText" aria-describedby="summaryHelp" placeholder="Enter a summary of the story here" v-model="story.description">
     <small id="summaryHelp" class="form-text text-muted">Limit the story description to 2-4 sentences (single paragraph).</small>
 </div>
 <div class="form-group">
@@ -90,6 +94,7 @@ export default {
             story:{
             title: '',
             subtitle: '',
+            author: this.$store.state.user.name,
             description: '',
             category: '',
             text: '',
@@ -118,15 +123,15 @@ export default {
     addStory: function() {
         if(confirm(this.$store.state.user.name + ": Are you sure you want to add " + this.story.title + " to this month's story?")){
        this.$store.dispatch('addStory',{
-	    title: this.story.title,
+        title: this.story.title,
         subtitle: this.story.subtitle,
+        author: this.story.author,
         description: this.story.description,
         link_text: this.story.link_text,
         text: this.story.text,
         link: this.story.link,
         image: this.file,
         category: this.story.category,
-        author: this.$store.state.user.name
        }).then(addStory => {
            this.imageData = "",
            this.imagePreview = false
