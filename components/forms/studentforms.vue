@@ -4,17 +4,17 @@
         <p>
             Click any of the following forms to download a PDF version.
         </p>
-        <h3>Funding</h3>
+        <h3>Thesis Forms and Resources</h3>
         <div class="list-group mb-3">
-            <a v-for="(form, i) in generalForms" :href="form.link" class="list-group-item list-group-item-action flex-column align-items-start" target="_blank" :key="i">
+            <a v-for="(form, i) in thesisResources" :href="form.link" class="list-group-item list-group-item-action flex-column align-items-start" target="_blank" :key="i">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">{{form.title}}</h5>
                 </div>
             </a>
         </div>
-        <h3>Required Forms</h3>
+        <h3>Leadership Forms</h3>
         <div class="list-group mb-3">
-            <a v-for="(form, i) in requiredForms" :href="form.link" class="list-group-item list-group-item-action flex-column align-items-start" target="_blank" :key="i">
+            <a v-for="(form, i) in leadershipForms" :href="form.link" class="list-group-item list-group-item-action flex-column align-items-start" target="_blank" :key="i">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">{{form.title}}</h5>
                 </div>
@@ -36,9 +36,9 @@
                 </div>
             </a>
         </div>
-        <h3>Thesis Resources</h3>
+        <h3>Funding</h3>
         <div class="list-group mb-3">
-            <a v-for="(form, i) in thesisResources" :href="form.link" class="list-group-item list-group-item-action flex-column align-items-start" target="_blank" :key="i">
+            <a v-for="(form, i) in generalForms" :href="form.link" class="list-group-item list-group-item-action flex-column align-items-start" target="_blank" :key="i">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">{{form.title}}</h5>
                 </div>
@@ -58,23 +58,11 @@ export default {
           link: "/forms/Honors-Conference-Funding-Request.pdf"
         }
       ],
-      requiredForms: [
+      leadershipForms: [
         {
           title: "Leadership Development Experience",
           link:
             "/forms/opportunities/Leadership-Development-Experience-Form-2018.pdf"
-        },
-        {
-          title: "Thesis Proposal Submission",
-          link: "/forms/thesis/Thesis_Proposal_Submission_Form_2018.pdf"
-        },
-        {
-          title: "Thesis Submission",
-          link: "/forms/thesis/Honors_Thesis_Submission_Form_2018.pdf"
-        },
-        {
-          title: "Thesis Defense Information",
-          link: "/forms/thesis/Honors_Thesis_Defense_Information_Form_2018.pdf"
         }
       ],
       opportunitiesForms: [
@@ -110,6 +98,18 @@ export default {
         }
       ],
       thesisResources: [
+        {
+          title: "Thesis Proposal Submission",
+          link: "/forms/thesis/Thesis_Proposal_Submission_Form_2018.pdf"
+        },
+        {
+          title: "Thesis Submission",
+          link: "/forms/thesis/Honors_Thesis_Submission_Form_2018.pdf"
+        },
+        {
+          title: "Thesis Defense Information",
+          link: "/forms/thesis/Honors_Thesis_Defense_Information_Form_2018.pdf"
+        },
         {
           title: "Thesis Proposal Guidelines",
           link: "/forms/thesis/Thesis_Proposal_Guidelines-Simplified_2018.pdf"

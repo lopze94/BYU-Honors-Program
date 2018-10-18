@@ -31,7 +31,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(event, j) in events" :key="j" data-toggle="modal" :data-target="'#event-'+j+'-modal'">
+                <tr v-for="(event, j) in events" :key="j" data-toggle="modal" :data-target="'#event-'+j+'-modal'" class="more-info">
                   <th scope="row">
                     {{event.title}}
                   </th>
@@ -158,6 +158,14 @@ export default {
 </script>
 
 <style scoped>
+.more-info:hover::after{
+  position: absolute;
+  right: 20px;
+  float: right;
+  content: "More Info";
+  font-size: 8pt;
+  color: #666666;
+}
 a.active {
   background: #002e5d !important;
   color: white !important;

@@ -33,7 +33,7 @@
       <div class="modal-body border">
         <p class="h5"> {{this.major}}
           <br>
-          <span class="font-weight-normal text-muted">{{this.minor}}</span>
+          <span class="font-weight-normal text-muted" v-if="this.minor">{{this.minor}}</span>
           <br><span class="font-weight-normal text-muted">{{this.graduation}}</span>
         </p>
 <p v-html="long_text">{{long_text}}</p>

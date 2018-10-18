@@ -26,8 +26,8 @@
       </div>
       <div class="modal-body border rounded-bottom">
         <p class="h5"> {{spotlight[0].major}}
-          <br>
-          <span class="font-weight-normal text-muted">{{spotlight[0].minor}}</span>
+          <br v-if="spotlight[0].minor">
+          <span class="font-weight-normal text-muted" v-if="spotlight[0].minor">{{spotlight[0].minor}}</span>
           <br><span class="font-weight-normal text-muted">{{spotlight[0].graduation}}</span>
         </p>
 <p v-html="spotlight[0].long_text">{{spotlight[0].long_text}}</p>

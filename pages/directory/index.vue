@@ -60,7 +60,7 @@
     <img class="card-img-top rounded-circle px-5 px-sm-2 py-2" v-bind:src="contact.image_path" v-bind:alt="'Portrait of ' + contact.first_name +' '+ contact.last_name">
   </div>
   <div class="col-md-8 col-lg-10">
-    <h5 class="card-title">{{contact.first_name}} {{contact.last_name}} <span class="badge badge-primary" v-if="contact.coordinator">Coordinator</span> <span class="badge badge-secondary ml-1" v-if="contact.advisor">Student Advisor</span></h5>
+    <h5 class="card-title">{{contact.first_name}} {{contact.last_name}} <span class="badge badge-primary" v-if="contact.coordinator">Coordinator</span> <span class="badge badge-secondary ml-1" v-if="contact.advisor">Advisor</span></h5>
     <h6 class="card-subtitle mb-2 text-muted font-weight-normal">{{contact.title}}<span v-if="contact.department">,</span> {{contact.department}}  | {{contact.college}}</h6>
     <p class="card-text overflow-text why-honors" v-html="contact.description" v-if="!contact.show_more&&contact.description">{{contact.description}}</p>
     <p class="card-text why-honors" v-html="contact.description" v-else-if="contact.description">{{contact.description}}</p>
