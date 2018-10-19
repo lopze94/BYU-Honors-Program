@@ -169,13 +169,15 @@ const createStore = () => {
           console.log("addSpotlight failed:", err);
         });
       },
-      deleteSpotlight(context, student) {
+      async deleteSpotlight(context, student) {
         let headers = getAuthHeader();
-        return axios.delete("/api/spotlight/" + student.id + "/" + student.image_path, headers).then(response => {
+        try {
+          const response = await axios.delete("/api/spotlight/" + student.id + "/" + student.image_path, headers);
           context.dispatch('getSpotlight', '%');
-        }).catch(err => {
+        }
+        catch (err) {
           console.log("DeleteSpotlight failed:", err);
-        });
+        }
       },
 
 
@@ -220,12 +222,15 @@ const createStore = () => {
           console.log("addStories failed:", err);
         });
       },
-      deleteStory(context, student) {
-        return axios.delete("/api/spotlight/" + student.id + "/" + student.image_path, student).then(response => {
-          context.dispatch('getSpotlight');
-        }).catch(err => {
-          console.log("unfollow failed:", err);
-        });
+      async deleteStory(context, story) {
+        let headers = getAuthHeader();
+        try {
+          const response = await axios.delete("/api/stories/" + story.id + "/" + story.image_path, headers);
+          context.dispatch('getStories');
+        }
+        catch (err) {
+          console.log("deleteStory:", err);
+        }
       },
       getFaculty(context) {
         axios.get("/api/directory").then(response => {

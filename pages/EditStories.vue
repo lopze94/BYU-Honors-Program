@@ -18,7 +18,7 @@
     <form enctype="multipart/form-data" v-on:submit.prevent="addStory">
      <div class="form-group">
     <label for="exampleFormControlSelect1">Spotlight Category</label>
-    <select class="form-control" id="exampleFormControlSelect1" v-model="category" required>
+    <select class="form-control" id="exampleFormControlSelect1" v-model="story.category" required>
     <option disabled selected value> -- select an option -- </option>
       <option value="0">Academic Excellence</option>
       <option value="1">Community of Scholars</option>

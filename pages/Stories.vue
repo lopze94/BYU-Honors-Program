@@ -3,6 +3,7 @@
     <div v-if="dataLoaded" v-for="story in stories" v-bind:key="story.id">
 
 <hero v-if="stories" v-bind:hero="story"></hero>
+<button class="btn btn-danger btn-position rounded-0 pl-4" v-if="loggedIn" v-on:click="deleteStory(story)">Delete</button>
     </div>
         </div>
 </template>
@@ -63,20 +64,29 @@ async asyncCall() {
   //console.log(this.dataLoaded);
   // expected output: "resolved"
 },
-     deleteStory: function(student) {
-    if (confirm("Are you sure you want to delete " + student.first_name + "'s spotlight")) {
-      var img_name = student.image_path.replace("/img/spotlight/","");
+     deleteStory: function(story) {
+    if (confirm("Are you sure you want to delete the story \"" + story.title + "\"\?")) {
+      var img_name = story.image_path.replace("/img/stories/","");
       //console.log(img_name);
-        this.$store.dispatch('deleteSpotlight',{
-                      id:student.id,
+        this.$store.dispatch('deleteStory',{
+                      id:story.id,
             image_path:img_name
           });
-        alert("You deleted " + student.first_name + "'s spotlight!");
+        alert("You deleted the story titled: " + story.title);
     } else {
-        alert("Action canceled! " + student.first_name + " " + student.last_name + " was not deleted.");
+        alert("Action canceled! " + story.title + " was not deleted.");
     }
 
      },
    }
 };
 </script>
+
+<style scoped>
+.btn-position{
+  position: absolute;
+  margin-top: -600px;
+ z-index:1000;
+}
+</style>
+

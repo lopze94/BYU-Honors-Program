@@ -395,10 +395,9 @@ app.delete('/api/stories/:id/:image_path', verifyToken, (req, res) => {
 
   fs.unlink(__dirname + '/static/img/stories/' + image_path, (err) => {
     if (err) throw err;
-    console.log('/img/stories/' + image_path + ' was deleted');
   });
 
-  knex('stories').where('id', id).first().del().then(user => {
+  knex('stories').where('id', id).first().del().then(story => {
     res.sendStatus(200);
   }).catch(error => {
     console.log(req.params.id);
