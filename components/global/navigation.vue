@@ -28,7 +28,7 @@
     
     .stickymenu {
         position: sticky !important;
-        top: 0px;
+        top: -1px;
         z-index: 1049;
     }
 </style>

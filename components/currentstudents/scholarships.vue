@@ -36,6 +36,12 @@ export default {
       ishover: false,
       share: [
         {
+          img: "/img/about/academic_excellence.jpg",
+          link: "https://ue.byu.edu/sites/default/files/National_Scholarships.pdf",
+          title: "National Scholarships",
+          description: "If you are a motivated student, interested in expanding your academic experience, and ready for a new challenge, this is for you!"
+        },
+        {
           img: "/img/current/khona-scholarship.jpg",
           link: "/forms/opportunities/Khona-Application.pdf",
           title: "Khona Scholarship",

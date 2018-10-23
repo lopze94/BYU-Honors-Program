@@ -17,7 +17,7 @@
     <h2>Add a new Story</h2>
     <form enctype="multipart/form-data" v-on:submit.prevent="addStory">
      <div class="form-group">
-    <label for="exampleFormControlSelect1">Spotlight Category</label>
+    <label for="exampleFormControlSelect1">Story Category</label>
     <select class="form-control" id="exampleFormControlSelect1" v-model="story.category" required>
     <option disabled selected value> -- select an option -- </option>
       <option value="0">Academic Excellence</option>
