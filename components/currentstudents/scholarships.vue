@@ -1,9 +1,6 @@
 <template>
     <div class="container jumptarget" id="scholarships">
         <h2 class="py-3">Scholarships</h2>
-        <p>
-Honors students can apply to these scholarships during the Winter semester for the subsequent Fall semester.   
-        </p>
         <div class="container mb-4">
         <a class="row my-3 shadow" v-for="(item, i) in share" :key="i" :href="item.link" target="_blank">
     <div class="col col-12 col-lg-6 px-0 mb-sm-3 mb-md-0">
