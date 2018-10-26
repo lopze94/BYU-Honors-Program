@@ -130,6 +130,12 @@ module.exports = {
    ** Nuxt.js modules
    */
   modules: [
+    [
+      "@nuxtjs/google-analytics",
+      {
+        id: "UA-128193573-1"
+      }
+    ],
     // Doc: https://github.com/nuxt-community/axios-module#usage
     "@nuxtjs/axios",
     // Doc: https://bootstrap-vue.js.org/docs/
