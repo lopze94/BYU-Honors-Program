@@ -57,7 +57,7 @@ export default {
           img: "/img/current/honors-teaching-assitant.jpg",
           link: "/forms",
           title: "Honors Teaching Assistant",
-          description: `If you are interested in becoming a Teaching Assistant in one of the Honors classes, please click this card to download an application.`
+          description: `If yoau are interested in becoming a Teaching Assistant in one of the Honors classes, please click this card to download an application.`
         }
       ]
     };
