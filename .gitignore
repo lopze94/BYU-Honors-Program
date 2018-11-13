@@ -17,3 +17,12 @@ dist
 #scripts
 updatevps.sh
 push.sh
+
+#large files
+bg.mp4
+homevideo.mp4
+intro-to-honors.mp4
+meeting-with-advisors.mp4
+myths-and-faqs.mp4
+tour-with-spencer-magleby.mp4
+
