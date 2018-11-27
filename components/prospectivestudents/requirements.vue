@@ -11,7 +11,7 @@
         </p>
         <div class="row">
             <div class="col-sm-6 col-lg-4">
-                <h4>Core Curriculum</h4>
+                <h4>Courses</h4>
                 <p>Complete all of the following:
                 <ul>
                     <li><b>HONRS 120</b>: Introduction to Honors Great Questions</li>
@@ -55,38 +55,7 @@
         </button>
       </div>
       <div class="modal-body">
-       <table class="table table-borderless">
-                    <tbody>
-                        <tr>
-                            <th scope="row">HONRS 220</th>
-                            <td>Biology | Letters</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">HONRS 221</th>
-                            <td>Biology | Arts</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">HONRS 223</th>
-                            <td>Physical Science | Letters</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">HONRS 225</th>
-                            <td>Physical Science | Global &amp; Cultural Awareness</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">HONRS 226</th>
-                            <td>Social Science | Letters</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">HONRS 227</th>
-                            <td>Social Science | Arts</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">HONRS 290R</th>
-                            <td>Special Topics for other combinations not specified above</td>
-                        </tr>
-                    </tbody>
-                </table>
+               <img src="/img/prospective/courses.jpg" alt="courses list" class="img-fluid">
       </div>
     </div>
   </div>
