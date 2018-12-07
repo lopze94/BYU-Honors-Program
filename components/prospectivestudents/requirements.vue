@@ -1,6 +1,8 @@
 <template>
     <div class="container jumptarget" id="requirements">
         <h2 class="py-3">Requirements</h2>
+        <courses></courses>
+        <leadership></leadership>
         <p>
             This section provides a brief overview of the requirements to graduate with University Honors. The staff in the Honors Program
             Advisement Center, 102 MSRB, (801) 422-5497, is available on a walk-in basis to answer questions about the program.
@@ -45,7 +47,7 @@
             </div>
         </div>
         <!-- Modal -->
-<div class="modal fade" id="coursesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="coursesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -59,13 +61,19 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
     </div>
 </template>
 
 <script>
+import Courses from "./requirements/courses.vue"
+import Leadership from "./requirements/leadership.vue"
+
 export default {
-  name: "Requirements"
+  name: "Requirements",
+  components: {
+      Courses, Leadership
+  }
 };
 </script>
 
