@@ -1,12 +1,10 @@
 <template>
   <div>
     <h1 class="d-none">Welcome to the BYU Honors Program Homepage</h1>
-    <conference-banner></conference-banner>
     <stories-component></stories-component>
     <spotlight v-bind:category="0"></spotlight>
     <events></events>
     <footer-hero></footer-hero>
-    <conference-banner></conference-banner>
   </div>
 </template>
 

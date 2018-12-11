@@ -3,7 +3,10 @@
         <h2 class="py-3">What Is the Honors Program?</h2>
         <p>The Honors Program at BYU is an open-enrollment community of scholars engaged in broad thinking, creative problem solving, and leadership. Together, students and faculty explore interdisciplinary approaches to make unexpected connections between ideas,
         disciplines, and people!</p>
-        <honors-videos></honors-videos>
+        <div class="d-none d-md-block">
+        <honors-videos></honors-videos>  
+        </div>
+        
     </div>
 </template>
 

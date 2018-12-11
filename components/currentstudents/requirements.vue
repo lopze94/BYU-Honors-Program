@@ -1,7 +1,7 @@
 <template>
     <div class="container jumptarget" id="requirements">
-        <h2 class="py-3">Requirements</h2>
-        <p>
+        <h2 class="py-3">Requirements<span v-if="selected">: {{selected}}</span></h2>
+                <p>
             This section provides a brief overview of the requirements to graduate with University Honors. The staff in the Honors Program
             Advisement Center, 102 MSRB, (801) 422-5497, is available on a walk-in basis to answer questions about the program.
             </p>
@@ -9,68 +9,140 @@
             To graduate with University Honors, a student must be an admitted daytime student who attains a 3.0 or higher GPA
             and completes all of the requirements below:
         </p>
-        <div class="row">
-            <div class="col-sm-6 col-lg-4">
-                <h4>Courses</h4>
-                <p>Complete all of the following:
-                <ul>
-                    <li><b>HONRS 120</b>: Introduction to Honors Great Questions</li>
-                    <li>Any <b>three </b><i>Unexpected Connections</i> courses <span class="badge badge-primary" data-toggle="modal" data-target="#coursesModal">Courses List</span></li>
-                    <li><b>HONRS 320</b>: Great Questions Tutorial (NOT a Thesis Class)</li>
-                </ul>
-                </p>
-            </div>
-            <div class="col-sm-6 col-lg-4">
-
-                <h4>Leadership Experience</h4>
-                <p>Complete <b>one</b> of the following options:
-                    <ul>
-                        <li>Leadership-Related Experience <span class="text-primary">(Ballard Center, United Way, Women Services
-                                & Resources)</span></li>
-                        <li>Study Abroad, Field Study, or Internship</li>
-                        <li>Honors Student Leadership Council (HSLC)</li>
-                    </ul>
-                </p>
-            </div>
-            <div class="col-sm-12 col-lg-4">
-                <h4>Honors Thesis</h4>
-                <p>
-                    Complete an original <b>research project or creative work</b> that is mentored by a faculty member.
-                    <ul>
-                        <li>Complete a <b>Thesis Proposal</b></li>
-                        <li><b>Defend</b> your Thesis and Pass</li>
-                    <li>After successfully defending your thesis, you will <b>publish</b> your work or project.</li>
-                    </ul>
-                </p>
-            </div>
+        <courses v-if="courses"></courses>
+        <leadership v-if="leadership"></leadership>
+        <thesis v-if="thesis"></thesis>
+        <div v-if="!(courses||leadership||thesis)">
         </div>
-        <!-- Modal -->
-<div class="modal fade" id="coursesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Unexpected Connections Courses</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-          <img src="/img/prospective/courses.jpg" alt="courses list" class="img-fluid">
-      </div>
-    </div>
-  </div>
-</div>
+            <div class="card-deck mb-3" v-if="!(courses||leadership||thesis)">
+                <div class="card border-0 rounded-0" v-on:click="selectCard(0)">
+                    <img class="card-img-top rounded-0" src="/img/global/courses-card.jpg" alt="Honors Courses">
+                    <div class="card-img-overlay text-white">
+                        <table style="height: 100%;width: 100%;">
+                            <tbody>
+                                <tr>
+                                    <td class="align-middle h5 text-center text-uppercase">Courses</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card border-0 rounded-0" v-on:click="selectCard(1)">
+                    <img class="card-img-top rounded-0" src="/img/global/leadership.jpg" alt="Be a Leader">
+                    <div class="card-img-overlay text-white">
+                        <table style="height: 100%;width: 100%;">
+                            <tbody>
+                                <tr>
+                                    <td class="align-middle h5 text-center text-uppercase">Leadership</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card border-0 rounded-0" v-on:click="selectCard(2)">
+                    <img class="card-img-top rounded-0" src="/img/global/thesis.jpg" alt="Defend your thesis">
+                    <div class="card-img-overlay text-white">
+                        <table style="height: 100%;width: 100%;">
+                            <tbody>
+                                <tr>
+                                    <td class="align-middle h5 text-center text-uppercase">Thesis</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        <nav class="nav nav-pills nav-justified" v-if="courses||leadership||thesis">
+            <div class="col-sm-6 col-lg-3">
+                <a class="nav-item nav-link rounded-0" :class="{active: courses}"  v-on:click="selectCard(0)">Courses</a>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <a class="nav-item nav-link rounded-0" :class="{active: leadership}"  v-on:click="selectCard(1)">Leadership</a>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <a class="nav-item nav-link rounded-0" :class="{active: thesis}"  v-on:click="selectCard(2)">Thesis</a>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <a class="nav-item nav-link text-muted rounded-0" v-on:click="reset">Return</a>
+            </div>
+        </nav>
     </div>
 </template>
 
 <script>
+import Courses from "./requirements/courses.vue"
+import Leadership from "./requirements/leadership.vue"
+import Thesis from "./requirements/thesis.vue"
+
 export default {
-  name: "Requirements"
+  name: "Requirements",
+  components: {
+      Courses, Leadership, Thesis
+  },
+  data() {
+  return {
+      selected: "",
+      courses: false,
+      leadership: false,
+      thesis: false,
+      left: {
+        text: "",
+        select: ""
+      },
+      right: {
+        text: "",
+        select: ""
+      }
+    };
+  },
+  methods: {
+    selectCard: function(selection) {
+      this.reset();
+      switch (selection) {
+        case 0:
+          this.selected = "Courses";
+          this.courses = true;
+          break;
+        case 1:
+          this.selected = "Leadership";
+          this.leadership = true;
+          break;
+        case 2:
+          this.selected = "Thesis";
+          this.thesis = true;
+          break;
+      }
+    },
+    reset: function() {
+      this.selected = "";
+      this.courses = false;
+      this.leadership = false;
+      this.thesis = false;
+    }
+  }
 };
 </script>
 
 <style scoped>
 .badge:hover{
     cursor: pointer;
+}
+.active {
+  background: #002e5d !important;
+  color: white !important;
+}
+a.nav-link:hover{
+    background: #F2F2F2;
+}
+a:hover {
+  cursor: pointer;
+}
+.card {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  cursor: pointer;
 }
 </style>

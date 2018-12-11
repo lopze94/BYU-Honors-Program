@@ -7,7 +7,6 @@
     <requirements class="pb-xl-5"></requirements>
     <!--Forms-->
     <honors-forms></honors-forms>
-    <conference-banner></conference-banner>
     <!--Deadlines-->
     <deadlines></deadlines>
 
@@ -17,7 +16,6 @@
     <scholarships></scholarships>
 
     <!--Opportunities-->
-    <conference-banner></conference-banner>
     <opportunities></opportunities>
     <!--Newsletter-->
     <newsletter></newsletter>
