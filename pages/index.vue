@@ -11,12 +11,14 @@
 <script>
   import StoriesComponent from '../components/StoriesComponent.vue'
   import FooterHero from '../components/footerhero.vue'
+  import ConferenceBanner from '../components/Site/conferenceBanner.vue'
   
   export default {
     name: 'HomePage',
     components: {
       StoriesComponent,
-      FooterHero
+      FooterHero,
+      ConferenceBanner
     },
   
     data() {
@@ -49,4 +51,3 @@
     },
   }
 </script>
-

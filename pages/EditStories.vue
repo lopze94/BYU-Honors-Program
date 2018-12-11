@@ -88,77 +88,87 @@
 
 <script>
 export default {
-    name: 'EditStories',
-    data (){
-        return{
-            story:{
-            title: '',
-            subtitle: '',
-            author: this.$store.state.user.name,
-            description: '',
-            category: '',
-            text: '',
-            image_path: '/img/stories/default.jpg',
-            link_text: '',
-            link: ''
-            },
-            imageData: '',
-            imagePreview: false,
-            file: '',
-
-        }
+  name: "EditStories",
+  data() {
+    return {
+      story: {
+        title: "",
+        subtitle: "",
+        author: this.$store.state.user.name,
+        description: "",
+        category: "",
+        text: "",
+        image_path: "/img/stories/default.jpg",
+        link_text: "",
+        link: ""
+      },
+      imageData: "",
+      imagePreview: false,
+      file: ""
+    };
+  },
+  computed: {
+    user: function() {
+      return this.$store.getters.user;
     },
-    computed:{
-     user: function() {
-       return this.$store.getters.user;
-     },     loggedIn: function() {
-       return this.$store.getters.loggedIn;
-     },
-     loginError: function() {
-       return this.$store.getters.loginError;
-     },
+    loggedIn: function() {
+      return this.$store.getters.loggedIn;
     },
-       methods: {
-           
+    loginError: function() {
+      return this.$store.getters.loginError;
+    }
+  },
+  methods: {
     addStory: function() {
-        if(confirm(this.$store.state.user.name + ": Are you sure you want to add " + this.story.title + " to this month's story?")){
-       this.$store.dispatch('addStory',{
-        title: this.story.title,
-        subtitle: this.story.subtitle,
-        author: this.story.author,
-        description: this.story.description,
-        link_text: this.story.link_text,
-        text: this.story.text,
-        link: this.story.link,
-        image: this.file,
-        category: this.story.category,
-       }).then(addStory => {
-           this.imageData = "",
-           this.imagePreview = false
-       });
-       alert(this.story.title + " was added to the monthly story!")
-        } else {
-        alert("Add Story canceled! " + this.story.title  + " was not added to the Honors Story")
-        }
-
-     },
-          previewImage: function(event) {
-       const input = event.target;
-       // Ensure that you have a file before attempting to read it
-       if (input.files && input.files[0]) {
+      if (
+        confirm(
+          this.$store.state.user.name +
+            ": Are you sure you want to add " +
+            this.story.title +
+            " to this month's story?"
+        )
+      ) {
+        this.$store
+          .dispatch("addStory", {
+            title: this.story.title,
+            subtitle: this.story.subtitle,
+            author: this.story.author,
+            description: this.story.description,
+            link_text: this.story.link_text,
+            text: this.story.text,
+            link: this.story.link,
+            image: this.file,
+            category: this.story.category
+          })
+          .then(addStory => {
+            (this.imageData = ""), (this.imagePreview = false);
+          });
+        alert(this.story.title + " was added to the monthly story!");
+      } else {
+        alert(
+          "Add Story canceled! " +
+            this.story.title +
+            " was not added to the Honors Story"
+        );
+      }
+    },
+    previewImage: function(event) {
+      const input = event.target;
+      // Ensure that you have a file before attempting to read it
+      if (input.files && input.files[0]) {
         this.file = input.files[0];
-         // create a new FileReader to read this image and convert to base64 format
-         const reader = new FileReader();
-         // Define a callback function to run, when FileReader finishes its job
-         reader.onload = (e) => {
-           // Read image as base64 and set to imageData
+        // create a new FileReader to read this image and convert to base64 format
+        const reader = new FileReader();
+        // Define a callback function to run, when FileReader finishes its job
+        reader.onload = e => {
+          // Read image as base64 and set to imageData
           this.imageData = e.target.result;
           this.imagePreview = true;
-         }
-         // Start the reader job - read file as a data url (base64 format)
-         reader.readAsDataURL(input.files[0]);
-       }
-   }
-       }
-}
+        };
+        // Start the reader job - read file as a data url (base64 format)
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+  }
+};
 </script>

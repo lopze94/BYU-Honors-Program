@@ -31,6 +31,7 @@ import HonorsForms from "../../components/currentstudents/forms.vue";
 import Newsletter from "../../components/currentstudents/newsletter.vue";
 import Coordinators from "../../components/currentstudents/coordinators.vue";
 import Scholarships from "../../components/currentstudents/scholarships.vue";
+import ConferenceBanner from "../../components/Site/conferenceBanner.vue";
 
 export default {
   name: "CurrentStudents",
@@ -42,7 +43,8 @@ export default {
     HonorsForms,
     Newsletter,
     Coordinators,
-    Scholarships
+    Scholarships,
+    ConferenceBanner
   },
   data() {
     return {

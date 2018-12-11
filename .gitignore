@@ -17,3 +17,9 @@ dist
 #scripts
 updatevps.sh
 push.sh
+
+#large files
+bg.mp4
+homevideo.mp4
+
+
