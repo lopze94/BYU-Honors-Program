@@ -84,7 +84,7 @@ export default {
         },
         {
           graduation: "december",
-          year: 2018
+          year: 2019
         }
       ],
       events: [
@@ -106,43 +106,43 @@ export default {
         },
         {
           title: "Thesis Proposal Submitted*",
-          date: ["September 28", "November 9", "January 11", "May 4"],
+          date: ["September 28", "November 9", "January 11", "May 3"],
           info:
             "Deadline to submit Thesis Proposal to our office (unless you will use your capstone project as your thesis, but you'll need to communicate that to Honors Advisement by this date)."
         },
         {
           title: "Experiential Learning",
-          date: ["February 22", "April 12", "June 3", "November 2"],
+          date: ["February 22", "April 12", "June 3", "November 1"],
           info:
             "Last day to submit Experiential Learning Approval Form and typed evaluation to our office."
         },
         {
           title: "Great Works Portfolio",
-          date: ["February 22", "April 12", "June 3", "November 2"],
+          date: ["February 22", "April 12", "June 3", "November 1"],
           info:
             "Last day to submit Great Works Portfolio to our office.  *Applies only to students with GW pre-authorization."
         },
         {
           title: "Thesis Defense Information Form*",
-          date: ["February 22", "April 12", "June 3", "November 2"],
+          date: ["February 22", "April 12", "June 3", "November 1"],
           info:
             "Last day to schedule thesis defense and submit Thesis Defense Information Form to our office."
         },
         {
           title: "Thesis Submission Form*",
-          date: ["March 8", "May 10", "June 28", "November 30"],
+          date: ["March 8", "May 10", "June 28", "November 29"],
           info:
             "Last day to hold thesis defense and to submit completed Thesis Submission Form to our office. Title submitted on this form will be printed in the commencement program."
         },
         {
           title: "Thesis Final",
-          date: ["March 15", "June 3", "July 5", "December 7"],
+          date: ["March 15", "June 3", "July 5", "December 6"],
           info:
             "Last day for all completed agreed qualifications and email a PDF copy of your finalized thesis to our office."
         },
         {
           title: "Thesis Publication",
-          date: ["March 15", "June 3", "July 5", "December 7"],
+          date: ["March 15", "June 3", "July 5", "December 6"],
           info:
             "Last day to upload correctly formatted versions of your thesis to BYU Print and Mail Services."
         }
