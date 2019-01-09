@@ -6,7 +6,7 @@
       <div class="col-sm-12 col-md-4 col-lg-3 pb-3">
         <div class="list-group rounded-0" id="list-tab" role="tablist">
           <a class="list-group-item list-group-item-action active rounded-0" id="list-select-list" data-toggle="list" href="#list-select" role="tab" aria-controls="select">Select Graduation</a>
-          <a class="list-group-item list-group-item-action " id="list-december-list" data-toggle="list" href="#list-december" role="tab" aria-controls="december">December 2018</a>
+          <a class="list-group-item list-group-item-action " id="list-december-list" data-toggle="list" href="#list-december" role="tab" aria-controls="december">December 2019</a>
           <a class="list-group-item list-group-item-action" id="list-april-list" data-toggle="list" href="#list-april" role="tab" aria-controls="april">April 2019</a>
           <a class="list-group-item list-group-item-action" id="list-june-list" data-toggle="list" href="#list-june" role="tab" aria-controls="june">June 2019</a>
           <a class="list-group-item list-group-item-action rounded-0" id="list-august-list" data-toggle="list" href="#list-august" role="tab" aria-controls="august">August 2019</a>
@@ -97,10 +97,10 @@ export default {
         {
           title: "Great Question Essay (HONRS 320)",
           date: [
-            "By the end of junior year (at least two semesters prior to graduation).*",
-            "By the end of junior year (at least two semesters prior to graduation).*",
-            "By the end of junior year (at least two semesters prior to graduation).*",
-            "By the end of junior year (at least two semesters prior to graduation).*"
+            "By the end of junior year (at least two semesters prior to graduation)*",
+            "By the end of junior year (at least two semesters prior to graduation)*",
+            "By the end of junior year (at least two semesters prior to graduation)*",
+            "By the end of junior year (at least two semesters prior to graduation)*"
           ],
           info: "Deadline to take the Great Question Essay class."
         },
@@ -130,7 +130,7 @@ export default {
         },
         {
           title: "Thesis Submission Form*",
-          date: ["March 8", "May 10", "June 28", "November 29"],
+          date: ["March 8 (last day for thesis defense)", "May 10 (last day for thesis defense)", "June 28 (last day for thesis defense)", "November 29 (last day for thesis defense)"],
           info:
             "Last day to hold thesis defense and to submit completed Thesis Submission Form to our office. Title submitted on this form will be printed in the commencement program."
         },
