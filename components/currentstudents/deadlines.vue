@@ -111,10 +111,10 @@ export default {
             "Deadline to submit Thesis Proposal to our office (unless you will use your capstone project as your thesis, but you'll need to communicate that to Honors Advisement by this date)."
         },
         {
-          title: "Experiential Learning",
+          title: "Leadership Development Experience",
           date: ["February 22", "April 12", "June 3", "November 1"],
           info:
-            "Last day to submit Experiential Learning Approval Form and typed evaluation to our office."
+            "Last day to submit Leadership Development Experience Approval Form and typed evaluation to our office."
         },
         {
           title: "Great Works Portfolio",

@@ -46,7 +46,7 @@ export default {
         },
                 {
           img: "/img/current/robert-thomas-scholarship.jpg",
-          link: "/forms/opportunities/RKT-Application-2019-20.pdf",
+          link: "/forms/opportunities/RKT-Application-2019.pdf",
           title: "Robert K. Thomas Scholarship",
           description: `This scholarship is named after the founder of the BYU Honors Program.  It’s for all Honors students who are currently working on their theses. `
         }

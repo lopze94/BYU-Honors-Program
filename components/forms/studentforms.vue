@@ -94,7 +94,7 @@ export default {
         },
         {
           title: "Robert K. Thomas Scholarship",
-          link: "/forms/opportunities/RKT-Application-2019-20.pdf"
+          link: "/forms/opportunities/RKT-Application-2019.pdf"
         }
       ],
       thesisResources: [

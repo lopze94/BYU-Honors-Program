@@ -3,8 +3,8 @@
         <h2 class="py-3">Upcoming Events</h2>
 
 
-<div class="card-deck mb-4">
-<a class="card border-0 rounded-0 shadow mx-2" v-for="(event, i) in currentEvents" :key="i" v-if="currentEvents[0]" :href="event.FullUrl" target="_blank">
+<div class="card-deck mb-4" v-if="currentEvents[0]">
+<a class="card border-0 rounded-0 shadow mx-2" v-for="(event, i) in currentEvents" :key="i"  :href="event.FullUrl" target="_blank">
 
     <img class="card-img-top rounded-0" :src="event.ImgUrl" :alt="event.ImgAlt">
     <div class="card-body">
@@ -21,7 +21,9 @@
       </div>
 </a>
 </div>
-
+<div v-if="!currentEvents[0]">
+<p class="text-muted">Sorry, something went wrong. We couldn't retrieve any events.<br>Please, come back later.</p>
+</div>
     <div class="container text-muted text-right mt-3">
         <a class="text-muted" href="https://calendar.byu.edu/tags/byu-honors-program">See all events</a>
     </div>

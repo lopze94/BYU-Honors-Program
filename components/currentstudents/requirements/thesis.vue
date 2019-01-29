@@ -4,12 +4,12 @@
                 <p>
                     Complete an original <b>research project or creative work</b> that is mentored by a faculty member.
                     <ul>
-                        <li>Complete a <b>Thesis Proposal</b></li>
-                        <li><b>Defend</b> your Thesis and Pass</li>
-                    <li>After successfully defending your thesis, you will <b>publish</b> your work or project.</li>
+                        <li><b>Submit</b> a Thesis Proposal</li>
+                        <li><b>Defend</b> your Thesis and pass</li>
+                        <li><b>Publish</b> your work or project after successfully defending your thesis</li>
                     </ul>
                 </p>
-                <h5 class="text-secondary">Thesis Examples</h5>
+                <h5 class="text-secondary">Thesis Proposal Samples</h5>
 
                 <ul>
                     <li v-for="(item, i) in thesis" :key="i">
@@ -76,7 +76,7 @@ data () {
                 category: "Finance"
             },
             {
-                title: "A Translation of and Reflection on No hay isla feliz",
+                title: "A Translation of and Reflection on \"No Hay Isla Feliz\"",
                 pdf: "InterdisciplanaryHumanites",
                 category: "Interdisciplanary Humanites"
             },
