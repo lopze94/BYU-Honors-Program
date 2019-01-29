@@ -1,15 +1,28 @@
 {
     "spotlight": [
         {
+            "id": 11,
+            "first_name": "Brenna",
+            "last_name": "Scadden",
+            "created": "2019-01-29T17:26:30.000Z",
+            "major": "Communication Disorders",
+            "minor": "",
+            "short_text": "Brenna Scadden's Honors thesis gave her the opportunity to travel to India and study something she is truly passionate about. She's currently working with her thesis advisor to publish the results of the study in a national journal.",
+            "long_text": "<p><b>Honors Thesis:</b> The Effects of Multi-Tiered Systems of Language Support on Oral Language, Reading Comprehension, and Writing in Second and Third Grade Students in India</p>\n\n<p><b>Highlights/Accomplishments/Publications/Awards/Business/etc.:</b> In August 2018, I traveled to India as part of my thesis and I loved interacting with the people and getting a small taste of their culture. I presented on my experience in India and the results of my research at the American Speech-Language Pathology Association's conference in Boston this past year. I'm currently working with my thesis advisor to publish the results of our study in a national journal.</P>\n\n<p><b>Plan after Graduation:</b> Graduate school at either BYU or the University of Utah in Speech-Language Pathology. I hope to work in acute-care with stroke rehabilitation and swallowing therapy.</p>",
+            "image_path": "/img/spotlight/5-1548782789542-spotlight-Brenna-Scadden.png",
+            "graduation": "April 2019",
+            "category": 0
+        },
+        {
             "id": 10,
             "first_name": "Mitchell",
             "last_name": "Merrill",
-            "created": "2019-01-22T15:57:57.000Z",
+            "created": "2019-01-22T22:57:57.000Z",
             "major": "Spanish",
             "minor": "",
             "short_text": "Mitchell Merrill's Honors thesis allowed him to combine his major with his interest in oral health. He has been able to explore areas of interest he couldn't have in any other way.",
-            "long_text": "<br><b>Honors Thesis:</b> Quality of Hispanic Oral Health in the U.S.: Perceptions of Dentists and a Call for Improvement</br>\n\n<br><b> What He Enjoyed Most About Honors:</b> I enjoyed the platform it gave me to explore areas of interest that I couldn't have done in any other way. My thesis allowed me to dive into the topic of Hispanics in the U.S. and their oral health which I never would have been able to do to the same degree otherwise. While at the start of my college career, I saw different disciplines as separate, distinct fields of study, I now see each college within the university as a network of inter-connected disciplines, with ample connections and links to be made between each other.</br>\n\n<br><b>Plan after Graduation:</b> Dental School starting Fall 2019 (accepted, but undecided on where)</br>",
-            "image_path": "/img/spotlight/5-1548172676739-spotlight-Mitchell-Merrill.png",
+            "long_text": "<br><b>Honors Thesis:</b> Quality of Hispanic Oral Health in the U.S.: Perceptions of Dentists and a Call for\nImprovement</br><br><b> What He Enjoyed Most About Honors:</b> I enjoyed the platform it gave me to explore areas\nof interest that I couldn't have done in any other way. My thesis allowed me to dive into the topic of Hispanics in the\nU.S. and their oral health which I never would have been able to do to the same degree otherwise. While at the start of\nmy college career, I saw different disciplines as separate, distinct fields of study, I now see each college within the\nuniversity as a network of inter-connected disciplines, with ample connections and links to be made between each other.</br><br><b>Plan\n    after Graduation:</b> Dental School starting Fall 2019 (accepted, but undecided on where)</br>",
+            "image_path": "/img/spotlight/5-1548172676739-spotlight-Mitchell-Merrill.jpg",
             "graduation": "April 2019",
             "category": 0
         },
