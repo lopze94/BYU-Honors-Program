@@ -84,6 +84,56 @@ data () {
                 title: "Populism and Political Palimpest: France\'s Revolutionary Political Culture",
                 pdf: "InternationalRelationsThesisProposal",
                 category: "International Relations Thesis Proposal"
+            },
+            {
+                title: "Accepting Konglish: Emerging Conceptions of Korean Linguistic Identity",
+                pdf: "Linguistics",
+                category: "Linguistics"
+            },
+            {
+                title: "Dynamic Coalescence as a Mathematical Model of Leadership and Empirical Evidence of the Value of Strategic Sacrifice",
+                pdf: "Mathematics",
+                category: "Mathematics"
+            },
+            {
+                title: "Evolution of MG AZ31 Twin Activation with Strain: A Machine Learning Study",
+                pdf: "MechanicalEngineering",
+                category: "Mechanical Engineering"
+            },
+            {
+                title: "Passanger Seat and An Examination of Female Power in the Thriller",
+                pdf: "MediaArts",
+                category: "Media Arts"
+            },
+            {
+                title: "Sacred Sounds: A Compassionate Listening Guide to Musical Worship",
+                pdf: "Music-1",
+                category: "Music"
+            },
+            {
+                title: "A Fascination with Our Dead: Addressing the Discord Between Modern Music and Museum Culture",
+                pdf: "Music-2",
+                category: "Music"
+            },
+            {
+                title: "The Effect of Student Emotional Maturity on Their Perception of Test Question Fairness",
+                pdf: "NeuroscienceThesisProposal",
+                category: "Neuroscience"
+            },
+            {
+                title: "College Students\' Report of Canned Foods and Their Current Understanding",
+                pdf: "NutritionalScienceThesisProposal",
+                category: "Nutritional Science"
+            },
+            {
+                title: "The Effect of Overexpression of IRF5 on B-Cell Inflamatory and Co-Stimulatory Activity",
+                pdf: "PDBioThesisProposal",
+                category: "Physiology and Developmental Biology"
+            },
+            {
+                title: "Order in Chaos: An Algorithmic Approach to Flocking Behavior",
+                pdf: "Physics",
+                category: "Physics"
             }
         ]
     }
