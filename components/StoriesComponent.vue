@@ -10,7 +10,6 @@
       <a slot="read-more" v-bind:href="stories[0].link" class="h5">{{stories[0].link_text}}</a>
     </byu-hero-banner>
   
-  
     <div class="container pt-3">
       <h2 class="py-3">Experience Honors</h2>
     </div>
@@ -40,6 +39,8 @@
 
 <script>
   var moment = require('moment');
+  import ConferenceBanner from '../components/Site/conferenceBanner.vue'
+
   import axios from 'axios';
   
   export default {
@@ -48,6 +49,9 @@
       return {
         featuredstories: []
       }
+    },
+    components: {
+ ConferenceBanner
     },
     created: function() {
       this.$store.dispatch('getStories');

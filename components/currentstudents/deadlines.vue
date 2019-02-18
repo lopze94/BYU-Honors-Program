@@ -90,7 +90,7 @@ export default {
       events: [
         {
           title: "Deadline to Apply for Graduation",
-          date: ["November 15", "February 15", "April 15", "September 15"],
+          date: ["November 15", "February 15", "February 15", "September 15"],
           info:
             "Last day to apply for graduation. Go to byu.edu ➙ myBYU ➙ School ➙ Apply for Graduation"
         },

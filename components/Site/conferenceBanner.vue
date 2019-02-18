@@ -1,10 +1,10 @@
 <template>
-  <a href="https://honors.byu.edu/stories/28/Honors%20Conference%20Application" id="banner">
+  <a href="https://commerce.cashnet.com/webhnr" id="banner">
     <div class="bg-img py-4">
       <div class="container">
         <div class="row row align-items-center">
           <div class="col-md-6 text-center text-md-left">
-            <h4 class="text-white">Apply for Honors Conference Now!</h4>
+            <h4 class="text-white">Register for the Honors Conference here!</h4>
           </div>
           <div class="col-md-6 text-center text-md-right">
             <img src="/img/check.gif" alt="apply now" width="40px">
@@ -26,6 +26,7 @@ a {
   text-decoration: none;
 }
 .bg-img {
+  background-color: #41ad49;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -33,7 +34,7 @@ a {
   transition-duration: 1s;
   -webkit-transition-property:opacity;
   -webkit-transition-duration: 1s;
-  background-image: url("/img/conference-banner-green.jpg");
+
   opacity: 1;
   transform: scale(1.5%, 1.5);
 }
