@@ -48,13 +48,19 @@ export default {
           description: `Any student who has taken HONRS 120 and one of the Honors unexpected connection classes is invited to apply to be an Honors advisor.  `
         },
         {
+          img: "/img/current/HSLC-President.jpg",
+          link: "/forms/opportunities/President-Application-HSLC-2019.pdf",
+          title: "Honors Student Leadership President",
+          description: `Any committed Honors student can apply to be the president of the student council during the winter semester. If you are selected, you will start in the fall semester.  `
+        },
+        {
           img: "/img/current/honors-student-leadership-council.jpg",
-          link: "/forms/opportunities/Application-HSLC.pdf",
+          link: "/forms/opportunities/Application-HSLC1.pdf",
           title: "Honors Student Leadership Council",
           description: `Any committed Honors student can apply to be a member of the student council during the winter semester. If you are selected, you will start in the fall semester.  `
         },
         {
-          img: "/img/current/honors-teaching-assitant.jpg",
+          img: "/img/current/honors-teaching-assistant.jpg",
           link: "/forms",
           title: "Honors Teaching Assistant",
           description: `If you are interested in becoming a Teaching Assistant in one of the Honors classes, please click this card to download an application.`
