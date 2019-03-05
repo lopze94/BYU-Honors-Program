@@ -1,15 +1,67 @@
 {
     "spotlight": [
         {
+            "id": 15,
+            "first_name": "Liz",
+            "last_name": "Young",
+            "created": "2019-02-26T18:39:32.000Z",
+            "major": "Communications Disorders",
+            "minor": "",
+            "short_text": "Liz Young participated in the McKay School Undergraduate Poster Competition and presented research on tutoring writing to individuals with Developmental Language Disorders at the BYU Writing in the Disciplines Conference.",
+            "long_text": "<br><b>Accomplishments:</b> I participated in the McKay School Undergraduate Poster Competition last March and won 3rd place (and $200!). Last November, I presented research on tutoring writing to individuals with Developmental Language Disorder at the BYU Writing in the Disciplines Conference - that was a really rewarding experience and it was so cool to see how many people were interested in what I had to say.</br>\n<br><b>Enjoyable/Rewarding part of the Honors Journey:</b> I absolutely loved the Great Questions Essay experience. I love to write and the personal essay was something I had never really explored, so it was fun to experiment and learn with a new genre. Honors 320 was one of the most challenging classes I've taken at BYU, but I think it taught me more about myself and about my abilities as a writer than any other class. The effort was all worthwhile, though - I'm super proud of my final essay!</br> <br><b>Plan after Graduation:</b> I've applied to both BYU and UofU for their MS in Speech-Language Pathology programs. Both are great schools and I'd be happy to be accepted to either one, although personally, I'm hoping to go to the U.</br>",
+            "image_path": "/img/spotlight/5-1551206372000-spotlight-Liz Young.png",
+            "graduation": "April 2019",
+            "category": 0
+        },
+        {
+            "id": 14,
+            "first_name": "Jaron",
+            "last_name": "Lundwall",
+            "created": "2019-02-19T15:24:45.000Z",
+            "major": "Chemical Engineering",
+            "minor": "",
+            "short_text": "Jaron Lundwall is passionate about exploration and learning. He worked on NASA's Space Launch System with Dynetics Technical Solutions with concurrent grad school.",
+            "long_text": "<p><b>Graduation:</b>April 2019</p><p><b>Accomplishments:</b> \"Analysis of Magnetic Resonance Imaging of Peripheral Nerve Cell Regeneration\", \"Recellularization of Whole Porcine Kidneys with Human Epithelial and Endothelial Cells\", and \"Multidisciplinary Design Optimizations for Solar-Regenerative High-Altitude Long Endurance Aircraft”</p>\n<p><b>Enjoyable/Rewarding part of the Honors Journey:</b> I loved hearing so many opinions on very controversial topics in a formal, friendly setting. Also, I loved the excuse that honors gave me to study a little of everything.</p>\n<p><b>Plan after Graduation:</b> Work on NASA's Space Launch System with Dynetics Technical Solutions with concurrent grad school</p>",
+            "image_path": "/img/spotlight/5-1550589884974-spotlight-Jaron Lundwall.png",
+            "graduation": "April 2019",
+            "category": 0
+        },
+        {
+            "id": 13,
+            "first_name": "Amanda",
+            "last_name": "Solomon",
+            "created": "2019-02-11T15:40:49.000Z",
+            "major": "Middle Eastern Studies/Arabic",
+            "minor": "Women's Studies Minor",
+            "short_text": "Amanda Solomon has worked intensively with refugees in Jordan, Greece, and the U.S. After graduation she's taking a gap year, then pursuing a Master's at Hebrew University in Jerusalem.",
+            "long_text": "<p><b>Accomplishments:</b> Worked intensively with refugees in Jordan, Greece, and the U.S. and interned with AMAR International Charitable Foundation in London.</p>\n<p><b>Enjoyable Part of the Honors Journey:</b> Writing my Great Questions essay was one of my favorite undergrad experiences! I did it on a topic that was very near and dear to me and that I frequently thought about, but I never would have taken the time to research it so in-depth from a variety of angles like Honors 320 allowed me to do.</p>\n<p><b>Plan After Graduation:</b> Gap year in China and then a Master’s at Hebrew University in Jerusalem.</p>",
+            "image_path": "/img/spotlight/5-1549899648815-spotlight-Amanda Solomon.png",
+            "graduation": "April 2019",
+            "category": 0
+        },
+        {
+            "id": 12,
+            "first_name": "Christian",
+            "last_name": "Hales",
+            "created": "2019-02-04T16:07:14.000Z",
+            "major": "Music Performance",
+            "minor": "",
+            "short_text": "Christian Hales has a passion for music and research. He has traveled to New York City, Vienna, Copenhagen, Russia, Poland, San Francisco, and Montana as part of research and experiental learning trips.",
+            "long_text": "<p><b>Accomplishments</b>: Winner of BYU Concerto Competition; President of the School of Music Student Council; President's Leadership Council Mentorship Program; Grant writer extraordinaire: traveled to New York City, Vienna, Copenhagen, Russia, Poland, San Francisco, and Montana as part of research and experiential learning trips.</p>\n\n<p><b>Enjoyable/Rewarding part of the Honors Journey</b>: I loved working on my Great Questions essay. I was so surprised and pleased by all of the faculty and professionals that responded to my emails and gave me invaluable help, shared personal experiences and took interest in my work. It opened my mind to the world of possibility out there; all you need to begin is an interesting question.</p>\n\n<p><b>Plan after Graduation</b>: Working for \"Teach for America\" in San Jose, CA.</p>",
+            "image_path": "/img/spotlight/5-1549296433490-spotlight-Christian Hales.png",
+            "graduation": "April 2019",
+            "category": 0
+        },
+        {
             "id": 11,
             "first_name": "Brenna",
             "last_name": "Scadden",
-            "created": "2019-01-29T17:26:30.000Z",
+            "created": "2019-01-30T00:26:30.000Z",
             "major": "Communication Disorders",
             "minor": "",
             "short_text": "Brenna Scadden's Honors thesis gave her the opportunity to travel to India and study something she is truly passionate about. She's currently working with her thesis advisor to publish the results of the study in a national journal.",
             "long_text": "<p><b>Honors Thesis:</b> The Effects of Multi-Tiered Systems of Language Support on Oral Language, Reading Comprehension, and Writing in Second and Third Grade Students in India</p>\n\n<p><b>Highlights/Accomplishments/Publications/Awards/Business/etc.:</b> In August 2018, I traveled to India as part of my thesis and I loved interacting with the people and getting a small taste of their culture. I presented on my experience in India and the results of my research at the American Speech-Language Pathology Association's conference in Boston this past year. I'm currently working with my thesis advisor to publish the results of our study in a national journal.</P>\n\n<p><b>Plan after Graduation:</b> Graduate school at either BYU or the University of Utah in Speech-Language Pathology. I hope to work in acute-care with stroke rehabilitation and swallowing therapy.</p>",
-            "image_path": "/img/spotlight/5-1548782789542-spotlight-Brenna-Scadden.png",
+            "image_path": "/img/spotlight/5-1548782789542-spotlight-Brenna-Scadden.jpg",
             "graduation": "April 2019",
             "category": 0
         },
@@ -90,6 +142,19 @@
             "image_path": "/img/spotlight/1-1539105737872-spotlight-elina-chun.jpg",
             "graduation": "December 2018",
             "category": 0
+        },
+        {
+            "id": 2,
+            "first_name": "Dennis",
+            "last_name": "Cutchins",
+            "created": "2018-09-03T20:39:55.000Z",
+            "major": "Associate Director",
+            "minor": "Honors Program",
+            "short_text": "\"I would love to see Honors arts students hanging out with Honors engineering students and figuring out ways to do projects together.\"",
+            "long_text": "Dr. Cutchins has spent the greater part of his career steeped in interdisciplinary research. He specializes in Adaptation Studies, which combines film and literature and history. As a child, Cutchins vividly remembers watching a cartoon adaptation of J.R.R. Tolkien’s “The Hobbit” and being disappointed. “From a fairly early age I realized that there was a relationship there and that it was complicated,” he said.\r\n<br><br>\r\nClick <a href=\"/stories/6/Welcome%20Dr.%20Dennis%20Cutchins!\">here</a> to read the whole story.",
+            "image_path": "/img/spotlight/1-1536007195174-spotlight-dennis-cutchins-2.jpg",
+            "graduation": "",
+            "category": 2
         },
         {
             "id": 1,
