@@ -1,10 +1,10 @@
 <template>
-  <a href="https://commerce.cashnet.com/webhnr" id="banner">
+  <a href="https://commerce.cashnet.com/webhnr" id="banner" target="_blank">
     <div class="bg-img py-4">
       <div class="container">
         <div class="row row align-items-center">
           <div class="col-md-6 text-center text-md-left">
-            <h4 class="text-white">Register for the Honors Conference here!</h4>
+            <h4 class="text-white">Get your Honors Banquet &amp; Ball tickets now!</h4>
           </div>
           <div class="col-md-6 text-center text-md-right">
             <img src="/img/check.gif" alt="apply now" width="40px">
