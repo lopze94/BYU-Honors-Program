@@ -32,7 +32,6 @@
     created() {
       if (process.browser) {
         window.onNuxtReady((app) => {
-          console.log('Nuxt ready!')
           this.$store.dispatch('initialize');
         })
       }

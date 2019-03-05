@@ -85,7 +85,6 @@ export default {
         return moment(dateInput).format('MMMM DD, YYYY');
     },
       formatCategory: function(categoryInput){
-        console.log(categoryInput);
         
         let output = ''
         switch (categoryInput){
