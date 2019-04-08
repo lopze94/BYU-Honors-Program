@@ -51,13 +51,13 @@ export default {
           img: "/img/current/HSLC-President.jpg",
           link: "/forms/opportunities/President-Application-HSLC-2019.pdf",
           title: "Honors Student Leadership President",
-          description: `Any committed Honors student can apply to be the president of the student council during the winter semester. If you are selected, you will start in the fall semester.  `
+          description: `Any committed Honors student can apply to be the president of the student council during the fall and winter semester. If you are selected, you will start in the fall semester.  `
         },
         {
           img: "/img/current/honors-student-leadership-council.jpg",
           link: "/forms/opportunities/Application-HSLC1.pdf",
           title: "Honors Student Leadership Council",
-          description: `Any committed Honors student can apply to be a member of the student council during the winter semester. If you are selected, you will start in the fall semester.  `
+          description: `Any committed Honors student can apply to be a member of the student council during the fall and winter semester. If you are selected, you will start in the fall semester.  `
         },
         {
           img: "/img/current/honors-teaching-assistant.jpg",
